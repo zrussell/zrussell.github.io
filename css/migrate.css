@@ -3,6 +3,7 @@
     display: none;
 }
 
+/* Overlay that covers background of app */
 .migration-overlay {
     position: fixed;
     top: 0px;
@@ -13,16 +14,11 @@
     background-color: #2f3d45;
 }
 
-/* Loader for migration tool while waiting on user address from redux store */
-.migration-loader {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    font-size: 7.5em;
-}
-
+/* Box on top of overlay */
 .modal-dialog {
     width: 80% !important;
+    margin: 30px auto;
+    position: relative;
 }
 
 /* Make modal scrollable */
@@ -35,6 +31,15 @@
     padding: 7px;
 }
 
+
+
+/* Loader for migration tool while waiting on user address from redux store */
+.migration-loader {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    font-size: 7.5em;
+}
 
 /* For Black Theme */
 /* Scrollbar for ms*/

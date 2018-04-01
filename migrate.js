@@ -367,10 +367,6 @@ var generic_contract = web3.eth.contract(generic_contract_abi);
 var balances = {};
 var balances_options = []; // Non-zero balances to be displayed as options for migration
 
-// frontend variables
-var ED_balances = $('#ED-migration-balances');
-var ED_orders = $('#ED-migration-orders');
-
 // Get selected user_account
 // TODO: Listen for user account change
 // var user_address_promise = fetch_user_addr();

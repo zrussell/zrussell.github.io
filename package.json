@@ -4,8 +4,8 @@
   "description": "A Utility that allows ForkDelta users to transfer their orders and balances from the EtherDelta Smart Contract",
   "main": "migrate.js",
   "scripts": {
-    "build": "browserify migrate.js -t [ babelify --comments false ] -o migrate_bundle.js",
-    "run": "./node_modules/http-server/bin/http-server .. --cors -a localhost -p 8003 -o"
+    "build": "browserify migrate.js -t [ babelify --comments false ] -o /js/migrate_bundle.js",
+    "start": "http-server ./ --cors -o"
   },
   "author": "Evan Bonsignori",
   "license": "ISC",
