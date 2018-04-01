@@ -14,7 +14,8 @@ class BalancesWindow extends React.Component {
                     onChange={() => this.props.onBalanceSelect(index)}
                     checked={balance.is_selected}
                     key={balance.addr}
-                    label={balance.name + ":" + balance.balance}/>
+                    symbol={balance.name}
+                    balance={balance.balance}/>
             )
         });
     }
@@ -29,9 +30,22 @@ class BalancesWindow extends React.Component {
                 <div className="modal-body text-center">
                     <div className="container migration-container">
                         <div className="row">
-                            <ul>
+                            <div className="table-container">
+                            <table className="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Migrate</th>
+                                        <th>Symbol</th>
+                                        <th>Balance</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
                                 {this.populateBalanceOptions()}
-                            </ul>
+                                </tbody>
+                            </table>
+                            <button className="btn btn-success .btn-sm" onClick={this.props.selectAllBalances}>Select All</button>
+                            <button className="btn btn-danger .btn-sm" onClick={this.props.deselectAllBalances}>Select None</button>
+                            </div>
                         </div>
                         <div className="row">
                             <h2>Missing A Balance?</h2>
@@ -49,7 +63,7 @@ class BalancesWindow extends React.Component {
                     </div>
                     <br />
                     <button className="btn btn-default" onClick={this.props.previousWindow}>Previous (Introduction)</button>
-                    <button className="btn btn-default" onClick={this.props.nextWindow}>Next (Orders)</button>
+                    <button className="btn btn-default" onClick={this.props.nextWindow}>Next (Confirmation)</button>
                 </div>
             </div>
         )

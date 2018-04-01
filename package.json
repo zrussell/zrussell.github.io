@@ -1,10 +1,10 @@
 {
   "name": "migrate-tool",
   "version": "1.0.0",
-  "description": "A Utility that allows ForkDelta users to transfer their orders and balances from the EtherDelta Smart Contract",
+  "description": "A Utility that allows users to transfer balances between DEXs",
   "main": "migrate.js",
   "scripts": {
-    "build": "browserify migrate.js -t [ babelify --comments false ] -o /js/migrate_bundle.js",
+    "build": "browserify migrate.js -t [ babelify --comments false ] -o ./js/migrate_bundle.js",
     "start": "http-server ./ --cors -o"
   },
   "author": "Evan Bonsignori",

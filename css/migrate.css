@@ -41,6 +41,22 @@
     font-size: 7.5em;
 }
 
+/* Balances table styling */
+.table-container {
+    overflow-y: scroll;
+    height: 300px;
+    display: block;
+}
+
+.table {
+    width: 80% !important;
+    margin: 0 auto;
+}
+/* Balances table header alignment */
+.table th{
+    text-align: center;
+}
+
 /* For Black Theme */
 /* Scrollbar for ms*/
 select::-webkit-scrollbar,

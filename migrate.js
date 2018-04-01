@@ -4,7 +4,8 @@
 //================================================================================
 const Web3 = require('web3');
 const BN = require('bignumber.js');
-const io = require('socket.io-client');
+// FORORDERS : Everything with this label is for adding order transfer features to the migration tool
+// const io = require('socket.io-client');
 
 // React
 import React from 'react';
@@ -53,7 +54,7 @@ import IntroductionWindow from './components/windows/IntroductionWindow'
 import LoadingWindow from './components/windows/LoadingWindow'
 import NoAccountWindow from './components/windows/NoAccountWindow'
 import NoBalancesWindow from './components/windows/NoBalancesWindow'
-import OrdersWindow from './components/windows/OrdersWindow'
+// import OrdersWindow from './components/windows/OrdersWindow'
 import SuccessWindow from './components/windows/SuccessWindow'
 
 // Parent React component that controls window state
@@ -68,37 +69,41 @@ class Application extends React.Component {
 
             balances_fetched: false,
 
-            order_fetched_progress: 0,
-            order_fetches_needed: 0,
+            // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
+            // order_fetched_progress: 0,
+            // order_fetches_needed: 0,
 
             balances_options: [],
 
-            orders_buy_options: [],
-            orders_sell_options: [],
+            // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
+            // orders_buy_options: [],
+            // orders_sell_options: [],
 
             estimated_gas: 0
         };
 
+        // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
         // Bind socket handler function
-        this.handle_order_fetch = this.handle_order_fetch.bind(this);
+        // this.handle_order_fetch = this.handle_order_fetch.bind(this);
 
+        // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
         // -- init socket.io for fetching orders --
-        const socket_addr = "https://api.forkdelta.com";
-        this.FD = io.connect(socket_addr, {
-            transports: ['websocket'],
-        });
-
-        this.FD.on('connect', function(data) { console.log('connected to FD api'); });
-        this.FD.on('disconnect', function(data) { console.log('disconnected from FD api'); });
-
-        // Listen for market response and update buy and sells if there is one
-        this.FD.on('market', this.handle_order_fetch);
+        // const socket_addr = "https://api.forkdelta.com";
+        // this.FD = io.connect(socket_addr, {
+        //     transports: ['websocket'],
+        // });
+        //
+        // this.FD.on('connect', function(data) { console.log('connected to FD api'); });
+        // this.FD.on('disconnect', function(data) { console.log('disconnected from FD api'); });
+        //
+        // // Listen for market response and update buy and sells if there is one
+        // this.FD.on('market', this.handle_order_fetch);
     };
 
     /* --- Navigate to next window -- */
     nextWindow() {
         let current_window = this.state.window;
-        if (current_window < 5) {
+        if (current_window < 4) {
             current_window += 1;
             this.setState({
                 window: current_window
@@ -163,20 +168,23 @@ class Application extends React.Component {
         // Check that balances are only fetched once
         if (!this.state.balances_fetched) {
             let temp_addresses = get_balances_options();
-            let order_fetches_needed = temp_addresses.length;
+            // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
+            // let order_fetches_needed = temp_addresses.length;
             this.setState({
                 balances_options: temp_addresses,
                 balances_fetched: true,
-                order_fetches_needed: order_fetches_needed
+                // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
+                // order_fetches_needed: order_fetches_needed
             });
 
+            // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
             // Fetch orders
-            let user_addr = this.state.user_address.toString();
-            let FD = this.FD;
-            this.state.balances_options.forEach(function(balance) {
-                // Emit getMarket API call to FD socket to get user orders
-                FD.emit('getMarket', {token: balance.addr, user: user_addr});
-            });
+            // let user_addr = this.state.user_address.toString();
+            // let FD = this.FD;
+            // this.state.balances_options.forEach(function(balance) {
+            //     // Emit getMarket API call to FD socket to get user orders
+            //     FD.emit('getMarket', {token: balance.addr, user: user_addr});
+            // });
 
         }
     }
@@ -191,48 +199,49 @@ class Application extends React.Component {
     * 2. Prompt user to enter token address of any orders that are missing
      */
 
-    handle_order_fetch(data) {
-        console.log('Returned market from ForkDelta API');
-
-        if (data.hasOwnProperty('myOrders')) {
-            //add sell orders
-            let sells = [];
-            if (data.myOrders.hasOwnProperty('sells')) {
-                data.myOrders.sells.forEach(function(val){
-                    // Order selected for migration by default
-                    val['is_selected'] = true;
-                    // Get token symbols for displaying orders
-                    val['tokenGetName'] = get_token_symbol(val.tokenGet);
-                    val['tokenGiveName'] = get_token_symbol(val.tokenGive);
-                    sells.push(val);
-                });
-            }
-
-            //add buy orders
-            let buys = [];
-            if (data.myOrders.hasOwnProperty('buys')) {
-                data.myOrders.buys.forEach(function(val){
-                    // Order selected for migration by default
-                    val['is_selected'] = true;
-                    // Get token symbols for displaying orders
-                    val['tokenGetName'] = get_token_symbol(val.tokenGet);
-                    val['tokenGiveName'] = get_token_symbol(val.tokenGive);
-                    buys.push(val);
-                });
-            }
-
-            let new_sells = this.state.orders_sell_options.concat(sells);
-            let new_buys = this.state.orders_sell_options.concat(buys);
-            let incremented_fetched = this.state.order_fetched_progress + 1;
-
-            this.setState({
-                orders_sell_options: new_sells,
-                orders_buy_options: new_buys,
-                order_fetched_progress: incremented_fetched
-            });
-
-        }
-    }
+    // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
+    // handle_order_fetch(data) {
+    //     console.log('Returned market from ForkDelta API');
+    //
+    //     if (data.hasOwnProperty('myOrders')) {
+    //         //add sell orders
+    //         let sells = [];
+    //         if (data.myOrders.hasOwnProperty('sells')) {
+    //             data.myOrders.sells.forEach(function(val){
+    //                 // Order selected for migration by default
+    //                 val['is_selected'] = true;
+    //                 // Get token symbols for displaying orders
+    //                 val['tokenGetName'] = get_token_symbol(val.tokenGet);
+    //                 val['tokenGiveName'] = get_token_symbol(val.tokenGive);
+    //                 sells.push(val);
+    //             });
+    //         }
+    //
+    //         //add buy orders
+    //         let buys = [];
+    //         if (data.myOrders.hasOwnProperty('buys')) {
+    //             data.myOrders.buys.forEach(function(val){
+    //                 // Order selected for migration by default
+    //                 val['is_selected'] = true;
+    //                 // Get token symbols for displaying orders
+    //                 val['tokenGetName'] = get_token_symbol(val.tokenGet);
+    //                 val['tokenGiveName'] = get_token_symbol(val.tokenGive);
+    //                 buys.push(val);
+    //             });
+    //         }
+    //
+    //         let new_sells = this.state.orders_sell_options.concat(sells);
+    //         let new_buys = this.state.orders_sell_options.concat(buys);
+    //         let incremented_fetched = this.state.order_fetched_progress + 1;
+    //
+    //         this.setState({
+    //             orders_sell_options: new_sells,
+    //             orders_buy_options: new_buys,
+    //             order_fetched_progress: incremented_fetched
+    //         });
+    //
+    //     }
+    // }
 
     get_user_address() {
         let user_address_temp = get_user_address();
@@ -248,24 +257,50 @@ class Application extends React.Component {
         this.setState({balances_options: balances_updated});
     }
 
-    // Toggle sell order selected
-    on_order_sell_select(index) {
-        let sells_updated = this.state.orders_sell_options;
-        sells_updated[index].is_selected = !sells_updated[index].is_selected;
-        this.setState({orders_sell_options: sells_updated});
+    // Select all balances
+    select_all_balances() {
+        let balances_updated = this.state.balances_options;
+        for (let i = 0; i < balances_updated.length; i++) {
+            if (!balances_updated[i].is_selected) {
+                balances_updated[i].is_selected = true;
+            }
+        }
+        this.setState({balances_options: balances_updated});
     }
 
-    // Toggle buy order selected
-    on_order_buy_select(index) {
-        let buys_updated = this.state.orders_buy_options;
-        buys_updated[index].is_selected = !buys_updated[index].is_selected;
-        this.setState({orders_buy_options: buys_updated});
+    // Deselect all balances
+    deselect_all_balances() {
+        let balances_updated = this.state.balances_options;
+        for (let i = 0; i < balances_updated.length; i++) {
+            if (balances_updated[i].is_selected) {
+                balances_updated[i].is_selected = false;
+            }
+        }
+        this.setState({balances_options: balances_updated});
     }
+
+    // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
+    // Toggle sell order selected
+    // on_order_sell_select(index) {
+    //     let sells_updated = this.state.orders_sell_options;
+    //     sells_updated[index].is_selected = !sells_updated[index].is_selected;
+    //     this.setState({orders_sell_options: sells_updated});
+    // }
+
+    // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
+    // Toggle buy order selected
+    // on_order_buy_select(index) {
+    //     let buys_updated = this.state.orders_buy_options;
+    //     buys_updated[index].is_selected = !buys_updated[index].is_selected;
+    //     this.setState({orders_buy_options: buys_updated});
+    // }
 
     // TODO: Estimate gas. Would it be better to create helper / utility contract that migrates everything?
     estimate_gas() {
-        let all_options = this.state.balances_options.concat(this.state.orders_buy_options)
-                                                     .concat(this.state.orders_sell_options);
+        // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
+        // let all_options = this.state.balances_options.concat(this.state.orders_buy_options)
+        //                                              .concat(this.state.orders_sell_options);
+        let all_options = this.state.balances_options;
         all_options.forEach(function(option) {
             let new_estimated_gas = this.state.estimated_gas;
             web3.estim
@@ -300,22 +335,25 @@ class Application extends React.Component {
                                                  balances_options={this.state.balances_options}
                                                  balances_selected={this.state.balances_selected}
                                                  onBalanceSelect={index => this.on_balance_select(index)}
-                                                 handleTokenAdd={(e) => this.add_token(e)}/>;
+                                                 handleTokenAdd={(e) => this.add_token(e)}
+                                                 selectAllBalances={() => this.select_all_balances()}
+                                                 deselectAllBalances={() => this.deselect_all_balances()}/>;
                 break;
+            // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
+            // case 3:
+            //     current_window = <OrdersWindow nextWindow={() => this.nextWindow()}
+            //                                    previousWindow={() => this.previousWindow()}
+            //                                    orders_buy_options={this.state.orders_buy_options}
+            //                                    orders_sell_options={this.state.orders_sell_options}
+            //                                    onSellSelect={index => this.on_order_sell_select(index)}
+            //                                    onBuySelect={index => this.on_order_buy_select(index)}/>;
+            //     break;
             case 3:
-                current_window = <OrdersWindow nextWindow={() => this.nextWindow()}
-                                               previousWindow={() => this.previousWindow()}
-                                               orders_buy_options={this.state.orders_buy_options}
-                                               orders_sell_options={this.state.orders_sell_options}
-                                               onSellSelect={index => this.on_order_sell_select(index)}
-                                               onBuySelect={index => this.on_order_buy_select(index)}/>;
-                break;
-            case 4:
                 current_window = <ConfirmationWindow nextWindow={() => this.nextWindow()}
                                                      previousWindow={() => this.previousWindow()}
                                                      estimated_gas={this.state.estimated_gas}/>;
                 break;
-            case 5:
+            case 4:
                 current_window = <SuccessWindow closeWindow={() => this.closeWindow()}
                                                 begin_migration={() => this.begin_migration()}/>;
                 break;
@@ -349,11 +387,12 @@ tokens_JSON.forEach(function (token) {
 });
 var token_addresses_with_balances = [];
 
-//-- init web3 objects for fetching tokens, and balances --
+//-- init web3 objects for fetching tokens and balances --
 var web3 = new Web3(new Web3.providers.HttpProvider(rpc_api_provider));
-// utility balance-fetching smart contract
-let balance_fetch_contract = web3.eth.contract(balance_fetch_contract_abi);
-var balance_fetch = balance_fetch_contract.at(balance_fetch_contract_addr);
+
+// utility migration tool smart contract
+let migration_tool_contract_obj = web3.eth.contract(balance_fetch_contract_abi);
+var migration_tool_contract = migration_tool_contract_obj.at(balance_fetch_contract_addr);
 
 // old EtherDelta smart contract, URL: https://github.com/etherdelta/smart_contract
 let ED_contract = web3.eth.contract(old_contract_abi);
@@ -409,7 +448,7 @@ $('#migrateTool').click(function(event) {
 function fetch_balances(user, token_addresses, contract_addr) {
     let addr_index = 0;
     // use utility smart contract to fetch multiple ED balances with single call
-    let contract_fetch = balance_fetch.multiDeltaBalances([contract_addr], user, token_addresses);
+    let contract_fetch = migration_tool_contract.multiDeltaBalances([contract_addr], user, token_addresses);
     contract_fetch.forEach(function (balance) {
         // get big number from balance string returned from contract call
         let big_number_str = balance['c'];

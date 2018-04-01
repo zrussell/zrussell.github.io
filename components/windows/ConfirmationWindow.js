@@ -19,7 +19,7 @@ class ConfirmationWindow extends React.Component {
                     <ul className="list-group">
                     </ul>
                     <br />
-                    <button className="btn btn-default" onClick={this.props.previousWindow}>Previous (Orders)</button>
+                    <button className="btn btn-default" onClick={this.props.previousWindow}>Previous (Balances)</button>
                     <button className="btn btn-default" onClick={this.props.nextWindow}>Begin Migration</button>
                 </div>
             </div>

@@ -7,10 +7,13 @@ class Balance extends React.Component {
 
     render() {
         return (
-            <li><input type="checkbox"
-                       onChange={this.props.onChange}
-                       checked={this.props.checked}/>
-                {this.props.label}</li>
+            <tr onClick={this.props.onChange} className={this.props.checked ? "success" : ""}>
+                <td><input type="checkbox"
+                           onChange={this.props.onChange}
+                           checked={this.props.checked}/></td>
+                <td>{this.props.symbol}</td>
+                <td>{this.props.balance}</td>
+            </tr>
         )
     }
 }
