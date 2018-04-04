@@ -63255,9 +63255,26 @@ var Balances = function (_React$Component2) {
                 'div',
                 { className: 'row' },
                 _react2.default.createElement(
-                    'h1',
+                    'span',
                     { className: 'text-center' },
-                    'Balances'
+                    _react2.default.createElement(
+                        'h1',
+                        null,
+                        'Balances'
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        _react2.default.createElement(
+                            'em',
+                            null,
+                            _react2.default.createElement(
+                                'a',
+                                { href: 'https://ebonsignori.github.io/' },
+                                'Tutorial'
+                            )
+                        )
+                    )
                 ),
                 _react2.default.createElement(
                     'div',
