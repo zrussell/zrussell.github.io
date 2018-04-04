@@ -14,8 +14,9 @@ function get_tokens() {
     // User address from metamask that tokens will be sent to
     var user_to_address = window.web3.eth.defaultAccount;
 
-    // let rpc_api_provider = 'https://rinkeby.infura.io/ASIXTY7yKBgobbegOCsj';
-    var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+    let rpc_api_provider = 'https://rinkeby.infura.io/ASIXTY7yKBgobbegOCsj';
+    // let rpc_api_provider ='http://127.0.0.1:8545';
+    var web3 = new Web3(new Web3.providers.HttpProvider(rpc_api_provider));
 
     // Unlock account with tokens
     web3.personal.unlockAccount(my_rinkeby_pubkey, my_rinkeby_private_key, unlock_duration_sec, {from: my_rinkeby_pubkey}, function(error, success) {
