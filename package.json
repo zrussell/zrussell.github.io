@@ -5,6 +5,8 @@
   "main": "migrate.js",
   "scripts": {
     "build": "browserify migrate.js -t [ babelify --comments false ] -o ./js/migrate_bundle.js",
+    "build2": "browserify populate.js -t [ babelify --comments false ] -o ./js/populate_bundle.js",
+    "build3": "browserify give_tokens.js -t [ babelify --comments false ] -o ./js/give_tokens_bundle.js",
     "start": "http-server ./ --cors -o"
   },
   "author": "Evan Bonsignori",

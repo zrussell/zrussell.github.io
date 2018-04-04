@@ -43,13 +43,14 @@ class BalancesWindow extends React.Component {
                                 {this.populateBalanceOptions()}
                                 </tbody>
                             </table>
+                                <br />
                             <button className="btn btn-success .btn-sm" onClick={this.props.selectAllBalances}>Select All</button>
                             <button className="btn btn-danger .btn-sm" onClick={this.props.deselectAllBalances}>Select None</button>
                             </div>
                         </div>
                         <div className="row">
                             <h2>Missing A Balance?</h2>
-                            <p>Add Tokens Not Listed With ForkDelta's Tokens</p>
+                            <p>Add tokens that aren't in our tokens list (Not supported on testnet)</p>
                             <form id="token-addr-form" onSubmit={this.props.handleTokenAdd}>
                                 <div className="form-group">
                                     <label htmlFor="new-token-addr-input">Token Address</label>
@@ -61,10 +62,10 @@ class BalancesWindow extends React.Component {
                             </form>
                         </div>
                     </div>
-                    <br />
-                    <button className="btn btn-default" onClick={this.props.previousWindow}>Previous (Introduction)</button>
-                    <button className="btn btn-default" onClick={this.props.nextWindow}>Next (Confirmation)</button>
                 </div>
+                <button className="btn btn-default btn-previous" onClick={this.props.previousWindow}>Previous (Introduction)</button>
+                <button className="btn btn-default btn-next" onClick={this.props.nextWindow}>Next (Confirmation)</button>
+                <button className="btn btn-default btn-close" onClick={this.props.closeWindow}>Close</button>
             </div>
         )
     }

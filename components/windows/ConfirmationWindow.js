@@ -3,6 +3,7 @@ import React from "react";
 class ConfirmationWindow extends React.Component {
     constructor(props) {
         super(props);
+        this.props.estimateGas();
     }
 
     render() {
@@ -19,9 +20,10 @@ class ConfirmationWindow extends React.Component {
                     <ul className="list-group">
                     </ul>
                     <br />
-                    <button className="btn btn-default" onClick={this.props.previousWindow}>Previous (Balances)</button>
-                    <button className="btn btn-default" onClick={this.props.nextWindow}>Begin Migration</button>
                 </div>
+                <button className="btn btn-default btn-previous" onClick={this.props.previousWindow}>Previous (Balances)</button>
+                <button className="btn btn-default btn-next" onClick={this.props.nextWindow}>Begin Migration</button>
+                <button className="btn btn-default btn-close" onClick={this.props.closeWindow}>Close</button>
             </div>
         )
     }

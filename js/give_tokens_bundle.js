@@ -1,10 +1,6 @@
 (function(){function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s}return e})()({1:[function(require,module,exports){
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
 var _getPrototypeOf = require("babel-runtime/core-js/object/get-prototype-of");
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
@@ -29,1622 +25,74 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Balance = function (_React$Component) {
-    (0, _inherits3.default)(Balance, _React$Component);
-
-    function Balance(props) {
-        (0, _classCallCheck3.default)(this, Balance);
-        return (0, _possibleConstructorReturn3.default)(this, (Balance.__proto__ || (0, _getPrototypeOf2.default)(Balance)).call(this, props));
-    }
-
-    (0, _createClass3.default)(Balance, [{
-        key: "render",
-        value: function render() {
-            return _react2.default.createElement(
-                "tr",
-                { onClick: this.props.onChange, className: this.props.checked ? "success" : "" },
-                _react2.default.createElement(
-                    "td",
-                    null,
-                    _react2.default.createElement("input", { type: "checkbox",
-                        onChange: this.props.onChange,
-                        checked: this.props.checked })
-                ),
-                _react2.default.createElement(
-                    "td",
-                    null,
-                    this.props.symbol
-                ),
-                _react2.default.createElement(
-                    "td",
-                    null,
-                    this.props.balance
-                )
-            );
-        }
-    }]);
-    return Balance;
-}(_react2.default.Component);
-
-exports.default = Balance;
-
-},{"babel-runtime/core-js/object/get-prototype-of":26,"babel-runtime/helpers/classCallCheck":32,"babel-runtime/helpers/createClass":33,"babel-runtime/helpers/inherits":34,"babel-runtime/helpers/possibleConstructorReturn":35,"react":305}],2:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
-
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = require('babel-runtime/helpers/createClass');
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = require('babel-runtime/helpers/inherits');
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Balance = require('../Balance');
-
-var _Balance2 = _interopRequireDefault(_Balance);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var BalancesWindow = function (_React$Component) {
-    (0, _inherits3.default)(BalancesWindow, _React$Component);
-
-    function BalancesWindow(props) {
-        (0, _classCallCheck3.default)(this, BalancesWindow);
-        return (0, _possibleConstructorReturn3.default)(this, (BalancesWindow.__proto__ || (0, _getPrototypeOf2.default)(BalancesWindow)).call(this, props));
-    }
-
-    (0, _createClass3.default)(BalancesWindow, [{
-        key: 'populateBalanceOptions',
-        value: function populateBalanceOptions() {
-            var _this2 = this;
-
-            return this.props.balances_options.map(function (balance, index) {
-                return _react2.default.createElement(_Balance2.default, {
-                    onChange: function onChange() {
-                        return _this2.props.onBalanceSelect(index);
-                    },
-                    checked: balance.is_selected,
-                    key: balance.addr,
-                    symbol: balance.name,
-                    balance: balance.balance });
-            });
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { className: 'modal-content' },
-                _react2.default.createElement(
-                    'div',
-                    { className: 'modal-header text-center' },
-                    _react2.default.createElement(
-                        'h2',
-                        null,
-                        'Balances'
-                    ),
-                    _react2.default.createElement(
-                        'p',
-                        null,
-                        'Currently on the EtherDelta Contract to be Transferred to the ForkDelta Contract '
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'modal-body text-center' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'container migration-container' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'table-container' },
-                                _react2.default.createElement(
-                                    'table',
-                                    { className: 'table table-hover' },
-                                    _react2.default.createElement(
-                                        'thead',
-                                        null,
-                                        _react2.default.createElement(
-                                            'tr',
-                                            null,
-                                            _react2.default.createElement(
-                                                'th',
-                                                null,
-                                                'Migrate'
-                                            ),
-                                            _react2.default.createElement(
-                                                'th',
-                                                null,
-                                                'Symbol'
-                                            ),
-                                            _react2.default.createElement(
-                                                'th',
-                                                null,
-                                                'Balance'
-                                            )
-                                        )
-                                    ),
-                                    _react2.default.createElement(
-                                        'tbody',
-                                        null,
-                                        this.populateBalanceOptions()
-                                    )
-                                ),
-                                _react2.default.createElement('br', null),
-                                _react2.default.createElement(
-                                    'button',
-                                    { className: 'btn btn-success .btn-sm', onClick: this.props.selectAllBalances },
-                                    'Select All'
-                                ),
-                                _react2.default.createElement(
-                                    'button',
-                                    { className: 'btn btn-danger .btn-sm', onClick: this.props.deselectAllBalances },
-                                    'Select None'
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'h2',
-                                null,
-                                'Missing A Balance?'
-                            ),
-                            _react2.default.createElement(
-                                'p',
-                                null,
-                                'Add tokens that aren\'t in our tokens list (Not supported on testnet)'
-                            ),
-                            _react2.default.createElement(
-                                'form',
-                                { id: 'token-addr-form', onSubmit: this.props.handleTokenAdd },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'form-group' },
-                                    _react2.default.createElement(
-                                        'label',
-                                        { htmlFor: 'new-token-addr-input' },
-                                        'Token Address'
-                                    ),
-                                    _react2.default.createElement('input', { required: true, size: '42', pattern: '^0x.{40}$', className: 'form-control',
-                                        id: 'new-token-addr-input',
-                                        placeholder: '0x0000000000000000000000000000000000000000' })
-                                ),
-                                _react2.default.createElement(
-                                    'button',
-                                    { type: 'submit', className: 'btn btn-default' },
-                                    'Add token'
-                                )
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'button',
-                    { className: 'btn btn-default btn-previous', onClick: this.props.previousWindow },
-                    'Previous (Introduction)'
-                ),
-                _react2.default.createElement(
-                    'button',
-                    { className: 'btn btn-default btn-next', onClick: this.props.nextWindow },
-                    'Next (Confirmation)'
-                ),
-                _react2.default.createElement(
-                    'button',
-                    { className: 'btn btn-default btn-close', onClick: this.props.closeWindow },
-                    'Close'
-                )
-            );
-        }
-    }]);
-    return BalancesWindow;
-}(_react2.default.Component);
-
-exports.default = BalancesWindow;
-
-},{"../Balance":1,"babel-runtime/core-js/object/get-prototype-of":26,"babel-runtime/helpers/classCallCheck":32,"babel-runtime/helpers/createClass":33,"babel-runtime/helpers/inherits":34,"babel-runtime/helpers/possibleConstructorReturn":35,"react":305}],3:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _getPrototypeOf = require("babel-runtime/core-js/object/get-prototype-of");
-
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = require("babel-runtime/helpers/createClass");
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = require("babel-runtime/helpers/possibleConstructorReturn");
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = require("babel-runtime/helpers/inherits");
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _react = require("react");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var ConfirmationWindow = function (_React$Component) {
-    (0, _inherits3.default)(ConfirmationWindow, _React$Component);
-
-    function ConfirmationWindow(props) {
-        (0, _classCallCheck3.default)(this, ConfirmationWindow);
-
-        var _this = (0, _possibleConstructorReturn3.default)(this, (ConfirmationWindow.__proto__ || (0, _getPrototypeOf2.default)(ConfirmationWindow)).call(this, props));
-
-        _this.props.estimateGas();
-        return _this;
-    }
-
-    (0, _createClass3.default)(ConfirmationWindow, [{
-        key: "render",
-        value: function render() {
-            return _react2.default.createElement(
-                "div",
-                { className: "modal-content" },
-                _react2.default.createElement(
-                    "div",
-                    { className: "modal-header text-center" },
-                    _react2.default.createElement(
-                        "h2",
-                        null,
-                        "Confirmation"
-                    )
-                ),
-                _react2.default.createElement(
-                    "div",
-                    { className: "modal-body text-center" },
-                    _react2.default.createElement(
-                        "p",
-                        null,
-                        "If all the information is correct, begin "
-                    ),
-                    _react2.default.createElement(
-                        "h3",
-                        null,
-                        " Estimated Gas Cost "
-                    ),
-                    _react2.default.createElement(
-                        "h3",
-                        null,
-                        " Added tokens "
-                    ),
-                    _react2.default.createElement("ul", { className: "list-group" }),
-                    _react2.default.createElement("br", null)
-                ),
-                _react2.default.createElement(
-                    "button",
-                    { className: "btn btn-default btn-previous", onClick: this.props.previousWindow },
-                    "Previous (Balances)"
-                ),
-                _react2.default.createElement(
-                    "button",
-                    { className: "btn btn-default btn-next", onClick: this.props.nextWindow },
-                    "Begin Migration"
-                ),
-                _react2.default.createElement(
-                    "button",
-                    { className: "btn btn-default btn-close", onClick: this.props.closeWindow },
-                    "Close"
-                )
-            );
-        }
-    }]);
-    return ConfirmationWindow;
-}(_react2.default.Component);
-
-exports.default = ConfirmationWindow;
-
-},{"babel-runtime/core-js/object/get-prototype-of":26,"babel-runtime/helpers/classCallCheck":32,"babel-runtime/helpers/createClass":33,"babel-runtime/helpers/inherits":34,"babel-runtime/helpers/possibleConstructorReturn":35,"react":305}],4:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _getPrototypeOf = require("babel-runtime/core-js/object/get-prototype-of");
-
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = require("babel-runtime/helpers/createClass");
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = require("babel-runtime/helpers/possibleConstructorReturn");
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = require("babel-runtime/helpers/inherits");
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _react = require("react");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var IntroductionWindow = function (_React$Component) {
-    (0, _inherits3.default)(IntroductionWindow, _React$Component);
-
-    function IntroductionWindow(props) {
-        (0, _classCallCheck3.default)(this, IntroductionWindow);
-
-        var _this = (0, _possibleConstructorReturn3.default)(this, (IntroductionWindow.__proto__ || (0, _getPrototypeOf2.default)(IntroductionWindow)).call(this, props));
-
-        _this.props.get_user_address();
-        return _this;
-    }
-
-    (0, _createClass3.default)(IntroductionWindow, [{
-        key: "render",
-        value: function render() {
-            var user_addr = this.props.user_address;
-            return _react2.default.createElement(
-                "div",
-                { className: "modal-content" },
-                _react2.default.createElement(
-                    "div",
-                    { className: "modal-header text-center" },
-                    _react2.default.createElement(
-                        "h2",
-                        null,
-                        "Migration Tool"
-                    ),
-                    _react2.default.createElement(
-                        "p",
-                        null,
-                        "Migrating balances from contractFrom to contractTo"
-                    )
-                ),
-                _react2.default.createElement(
-                    "div",
-                    { className: "modal-body text-center" },
-                    _react2.default.createElement(
-                        "p",
-                        null,
-                        "This tool is currently checking balances on the following account address"
-                    ),
-                    _react2.default.createElement(
-                        "p",
-                        null,
-                        _react2.default.createElement(
-                            "strong",
-                            null,
-                            user_addr
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    "button",
-                    { className: "btn btn-default btn-close", onClick: this.props.closeWindow },
-                    "Close"
-                ),
-                _react2.default.createElement(
-                    "button",
-                    { className: "btn btn-default btn-next", onClick: this.props.nextWindow },
-                    "Proceed"
-                )
-            );
-        }
-    }]);
-    return IntroductionWindow;
-}(_react2.default.Component);
-
-exports.default = IntroductionWindow;
-
-},{"babel-runtime/core-js/object/get-prototype-of":26,"babel-runtime/helpers/classCallCheck":32,"babel-runtime/helpers/createClass":33,"babel-runtime/helpers/inherits":34,"babel-runtime/helpers/possibleConstructorReturn":35,"react":305}],5:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _getPrototypeOf = require("babel-runtime/core-js/object/get-prototype-of");
-
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = require("babel-runtime/helpers/createClass");
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = require("babel-runtime/helpers/possibleConstructorReturn");
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = require("babel-runtime/helpers/inherits");
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _react = require("react");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var LoadingWindow = function (_React$Component) {
-    (0, _inherits3.default)(LoadingWindow, _React$Component);
-
-    function LoadingWindow() {
-        (0, _classCallCheck3.default)(this, LoadingWindow);
-        return (0, _possibleConstructorReturn3.default)(this, (LoadingWindow.__proto__ || (0, _getPrototypeOf2.default)(LoadingWindow)).apply(this, arguments));
-    }
-
-    (0, _createClass3.default)(LoadingWindow, [{
-        key: "render",
-        value: function render() {
-            return _react2.default.createElement(
-                "div",
-                { className: "migration-loader" },
-                _react2.default.createElement("i", { className: "fa fa-spinner fa-pulse" })
-            );
-        }
-    }]);
-    return LoadingWindow;
-}(_react2.default.Component);
-
-exports.default = LoadingWindow;
-
-},{"babel-runtime/core-js/object/get-prototype-of":26,"babel-runtime/helpers/classCallCheck":32,"babel-runtime/helpers/createClass":33,"babel-runtime/helpers/inherits":34,"babel-runtime/helpers/possibleConstructorReturn":35,"react":305}],6:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _getPrototypeOf = require("babel-runtime/core-js/object/get-prototype-of");
-
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = require("babel-runtime/helpers/createClass");
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = require("babel-runtime/helpers/possibleConstructorReturn");
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = require("babel-runtime/helpers/inherits");
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _react = require("react");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var NoAccountWindow = function (_React$Component) {
-    (0, _inherits3.default)(NoAccountWindow, _React$Component);
-
-    function NoAccountWindow() {
-        (0, _classCallCheck3.default)(this, NoAccountWindow);
-        return (0, _possibleConstructorReturn3.default)(this, (NoAccountWindow.__proto__ || (0, _getPrototypeOf2.default)(NoAccountWindow)).apply(this, arguments));
-    }
-
-    (0, _createClass3.default)(NoAccountWindow, [{
-        key: "render",
-        value: function render() {
-            return _react2.default.createElement(
-                "div",
-                { className: "modal-content" },
-                _react2.default.createElement(
-                    "div",
-                    { className: "modal-header text-center" },
-                    _react2.default.createElement(
-                        "h2",
-                        null,
-                        "Migration Tool"
-                    ),
-                    _react2.default.createElement(
-                        "p",
-                        null,
-                        "From The EtherDelta's Smart Contract to the Improved ForkDelta Smart Contract "
-                    )
-                ),
-                _react2.default.createElement(
-                    "div",
-                    { className: "modal-body text-center" },
-                    _react2.default.createElement(
-                        "p",
-                        null,
-                        _react2.default.createElement(
-                            "strong",
-                            null,
-                            " Please select an account to use the migration tool. "
-                        )
-                    ),
-                    _react2.default.createElement("br", null),
-                    _react2.default.createElement(
-                        "button",
-                        { className: "btn btn-default", onClick: this.props.closeWindow },
-                        "Close Tool"
-                    )
-                )
-            );
-        }
-    }]);
-    return NoAccountWindow;
-}(_react2.default.Component);
-
-exports.default = NoAccountWindow;
-
-},{"babel-runtime/core-js/object/get-prototype-of":26,"babel-runtime/helpers/classCallCheck":32,"babel-runtime/helpers/createClass":33,"babel-runtime/helpers/inherits":34,"babel-runtime/helpers/possibleConstructorReturn":35,"react":305}],7:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _getPrototypeOf = require("babel-runtime/core-js/object/get-prototype-of");
-
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = require("babel-runtime/helpers/createClass");
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = require("babel-runtime/helpers/possibleConstructorReturn");
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = require("babel-runtime/helpers/inherits");
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _react = require("react");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var NoBalancesWindow = function (_React$Component) {
-    (0, _inherits3.default)(NoBalancesWindow, _React$Component);
-
-    function NoBalancesWindow() {
-        (0, _classCallCheck3.default)(this, NoBalancesWindow);
-        return (0, _possibleConstructorReturn3.default)(this, (NoBalancesWindow.__proto__ || (0, _getPrototypeOf2.default)(NoBalancesWindow)).apply(this, arguments));
-    }
-
-    (0, _createClass3.default)(NoBalancesWindow, [{
-        key: "render",
-        value: function render() {
-            return _react2.default.createElement(
-                "div",
-                { className: "modal-content" },
-                _react2.default.createElement(
-                    "div",
-                    { className: "modal-header text-center" },
-                    _react2.default.createElement(
-                        "h2",
-                        null,
-                        "Migration Tool"
-                    ),
-                    _react2.default.createElement(
-                        "p",
-                        null,
-                        "From The EtherDelta's Smart Contract to the Improved ForkDelta Smart Contract "
-                    )
-                ),
-                _react2.default.createElement(
-                    "div",
-                    { className: "modal-body text-center" },
-                    _react2.default.createElement(
-                        "p",
-                        null,
-                        _react2.default.createElement(
-                            "strong",
-                            null,
-                            " Your account has no balances on the old EtherDelta Smart Contract!"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "p",
-                        null,
-                        " Your selected account has no need of this migration tool. "
-                    ),
-                    _react2.default.createElement(
-                        "p",
-                        null,
-                        " If you'd like to check another account, return to ForkDelta and select a different account in the top-right. "
-                    ),
-                    _react2.default.createElement("br", null),
-                    _react2.default.createElement(
-                        "button",
-                        { className: "btn btn-default", onClick: this.props.closeWindow },
-                        "Return to ForkDelta"
-                    )
-                )
-            );
-        }
-    }]);
-    return NoBalancesWindow;
-}(_react2.default.Component);
-
-exports.default = NoBalancesWindow;
-
-},{"babel-runtime/core-js/object/get-prototype-of":26,"babel-runtime/helpers/classCallCheck":32,"babel-runtime/helpers/createClass":33,"babel-runtime/helpers/inherits":34,"babel-runtime/helpers/possibleConstructorReturn":35,"react":305}],8:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _getPrototypeOf = require("babel-runtime/core-js/object/get-prototype-of");
-
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = require("babel-runtime/helpers/createClass");
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = require("babel-runtime/helpers/possibleConstructorReturn");
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = require("babel-runtime/helpers/inherits");
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _react = require("react");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var SuccessWindow = function (_React$Component) {
-    (0, _inherits3.default)(SuccessWindow, _React$Component);
-
-    function SuccessWindow() {
-        (0, _classCallCheck3.default)(this, SuccessWindow);
-        return (0, _possibleConstructorReturn3.default)(this, (SuccessWindow.__proto__ || (0, _getPrototypeOf2.default)(SuccessWindow)).apply(this, arguments));
-    }
-
-    (0, _createClass3.default)(SuccessWindow, [{
-        key: "render",
-        value: function render() {
-            return _react2.default.createElement(
-                "div",
-                { className: "modal-content" },
-                _react2.default.createElement(
-                    "div",
-                    { className: "modal-header text-center" },
-                    _react2.default.createElement(
-                        "h2",
-                        null,
-                        "Begin Migration"
-                    ),
-                    _react2.default.createElement(
-                        "p",
-                        null,
-                        "If you're satisfied with the selected balances and gas cost, begin migration"
-                    )
-                ),
-                _react2.default.createElement(
-                    "div",
-                    { className: "modal-body text-center" },
-                    _react2.default.createElement(
-                        "button",
-                        { className: "btn btn-success", onClick: this.props.begin_migration },
-                        "Begin Migration"
-                    )
-                ),
-                _react2.default.createElement(
-                    "button",
-                    { className: "btn btn-default btn-previous", onClick: this.props.previousWindow },
-                    "Previous"
-                ),
-                _react2.default.createElement(
-                    "button",
-                    { className: "btn btn-default btn-close", onClick: this.props.closeWindow },
-                    "Close Migration Tool"
-                )
-            );
-        }
-    }]);
-    return SuccessWindow;
-}(_react2.default.Component);
-
-exports.default = SuccessWindow;
-
-},{"babel-runtime/core-js/object/get-prototype-of":26,"babel-runtime/helpers/classCallCheck":32,"babel-runtime/helpers/createClass":33,"babel-runtime/helpers/inherits":34,"babel-runtime/helpers/possibleConstructorReturn":35,"react":305}],9:[function(require,module,exports){
-"use strict";
-//================================================================================
-// Node.js dependencies
-//================================================================================
-
-var _regenerator = require('babel-runtime/regenerator');
-
-var _regenerator2 = _interopRequireDefault(_regenerator);
-
-var _promise = require('babel-runtime/core-js/promise');
-
-var _promise2 = _interopRequireDefault(_promise);
-
-var _asyncToGenerator2 = require('babel-runtime/helpers/asyncToGenerator');
-
-var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
-
-var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
-
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = require('babel-runtime/helpers/createClass');
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = require('babel-runtime/helpers/inherits');
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var fetch_balances = function () {
-    var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee(user, token_addresses, contract_addr) {
-        return _regenerator2.default.wrap(function _callee$(_context) {
-            while (1) {
-                switch (_context.prev = _context.next) {
-                    case 0:
-                        _context.next = 2;
-                        return new _promise2.default(function (resolve, reject) {
-                            migration_tool_contract.deltaBalances(contract_addr, user, token_addresses, function (error, results) {
-                                if (!error) {
-                                    console.log("Balances fetched from ED-like contract at : " + contract_from_addr);
-                                    // Empty previous balances
-                                    token_addresses_with_balances = [];
-                                    balances_options = [];
-
-                                    var addr_index = 0;
-                                    results.forEach(function (balance) {
-                                        // get big number from balance string returned from contract call
-                                        var big_number_str = balance['c'];
-                                        // if balances are a split integer, join it into single value
-                                        var big_number = new BN(big_number_str.join(''));
-                                        // Only tokens with non-zero balances are added to balances
-                                        if (big_number.toString() !== "0") {
-                                            // add balance to balances in big-number form (where decimal is = 0)
-                                            balances[token_addresses[addr_index]] = big_number;
-                                            unformatted_balances[token_addresses[addr_index]] = balance;
-                                            token_addresses_with_balances.push(token_addresses[addr_index]);
-                                        }
-                                        addr_index++;
-                                    });
-
-                                    // Populate non-zero options for front-end user to select
-                                    token_addresses_with_balances.forEach(function (token_addr) {
-                                        var name = get_token_symbol(token_addr);
-                                        var balance = get_token_balance(token_addr, user);
-                                        balances_options.push({ "addr": token_addr, "name": name, "balance": balance, "is_selected": true });
-                                    });
-                                    resolve();
-                                } else {
-                                    console.log("Error fetching balances for migration tool... " + error);
-                                    reject();
-                                }
-                            });
-                        });
-
-                    case 2:
-                    case 'end':
-                        return _context.stop();
-                }
-            }
-        }, _callee, this);
-    }));
-
-    return function fetch_balances(_x, _x2, _x3) {
-        return _ref.apply(this, arguments);
-    };
-}();
-
-//--- utils ---
-// get user's current account from redux store after the store loads
-
-
-var fetch_user_addr = function () {
-    var _ref2 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee2() {
-        var user_from_store;
-        return _regenerator2.default.wrap(function _callee2$(_context2) {
-            while (1) {
-                switch (_context2.prev = _context2.next) {
-                    case 0:
-                        if (!(typeof window.main.EtherDelta.store.getState().user.accounts[window.main.EtherDelta.store.getState().user.selectedAccount] !== "undefined")) {
-                            _context2.next = 5;
-                            break;
-                        }
-
-                        user_from_store = window.main.EtherDelta.store.getState().user;
-                        return _context2.abrupt('return', user_from_store.accounts[user_from_store.selectedAccount].addr);
-
-                    case 5:
-                        console.log("Waiting on store to populate user address, or for user to select an account...");
-                        _context2.next = 8;
-                        return sleep(5000);
-
-                    case 8:
-                        if (typeof window.main.EtherDelta.store.getState().user.accounts[window.main.EtherDelta.store.getState().user.selectedAccount] === "undefined") {
-                            // Change window to NoAccountWindow
-                            change_window(-2);
-                        }
-                        return _context2.abrupt('return', fetch_user_addr());
-
-                    case 10:
-                    case 'end':
-                        return _context2.stop();
-                }
-            }
-        }, _callee2, this);
-    }));
-
-    return function fetch_user_addr() {
-        return _ref2.apply(this, arguments);
-    };
-}();
-
-// converts the big number stored in eth contracts to its user-friendly decimal equivalent
-
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = require('react-dom');
+var _reactDom = require("react-dom");
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _BalancesWindow = require('./components/windows/BalancesWindow');
-
-var _BalancesWindow2 = _interopRequireDefault(_BalancesWindow);
-
-var _ConfirmationWindow = require('./components/windows/ConfirmationWindow');
-
-var _ConfirmationWindow2 = _interopRequireDefault(_ConfirmationWindow);
-
-var _IntroductionWindow = require('./components/windows/IntroductionWindow');
-
-var _IntroductionWindow2 = _interopRequireDefault(_IntroductionWindow);
-
-var _LoadingWindow = require('./components/windows/LoadingWindow');
-
-var _LoadingWindow2 = _interopRequireDefault(_LoadingWindow);
-
-var _NoAccountWindow = require('./components/windows/NoAccountWindow');
-
-var _NoAccountWindow2 = _interopRequireDefault(_NoAccountWindow);
-
-var _NoBalancesWindow = require('./components/windows/NoBalancesWindow');
-
-var _NoBalancesWindow2 = _interopRequireDefault(_NoBalancesWindow);
-
-var _SuccessWindow = require('./components/windows/SuccessWindow');
-
-var _SuccessWindow2 = _interopRequireDefault(_SuccessWindow);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Web3 = require('web3');
-var BN = require('bignumber.js');
-// FORORDERS : Everything with this label is for adding order transfer features to the migration tool
-// const io = require('socket.io-client');
 
-// React
+function get_tokens() {
+    console.log("Beginning Transfer");
+    var my_rinkeby_pubkey = '0x471b488c328631833d212d528c8f6c599a43888d';
+    var my_rinkeby_private_key = 'wgXuN3wfcCZ6ypj2X87wxLRqHRPczn';
 
+    // Unlock account duration
+    var unlock_duration_sec = 9999;
 
-// try {
-//     var tokens_JSON = JSON.parse(get_JSON('https://raw.githubusercontent.com/forkdelta/forkdelta.github.io/master/config/main.json')).tokens;
-// } catch (err) {
-//     alert("Error fetching tokens from https://raw.githubusercontent.com/forkdelta/forkdelta.github.io/master/config/main.json. " +
-//         "\n Please contact site administrator.");
-//     console.log(err);
-// }
+    // User address from metamask that tokens will be sent to
+    var user_to_address = window.web3.eth.defaultAccount;
 
+    // let rpc_api_provider = 'https://rinkeby.infura.io/ASIXTY7yKBgobbegOCsj';
+    var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
-// import OrdersWindow from './components/windows/OrdersWindow'
+    // Unlock account with tokens
+    web3.personal.unlockAccount(my_rinkeby_pubkey, my_rinkeby_private_key, unlock_duration_sec, { from: my_rinkeby_pubkey }, function (error, success) {
+        if (!error) {
+            console.log("Rinkeby account unlocked: " + success);
+        } else {
+            console.log("Unable to unlock Rinkeby account." + error);
+        }
+    });
 
-// Parent React component that controls window state
-var Application = function (_React$Component) {
-    (0, _inherits3.default)(Application, _React$Component);
+    // Get config from config.json
+    var main_config = JSON.parse(get_JSON("http://127.0.0.1:8080/config.json"));
+    // Variables from json
+    var erc20_contract_abi = main_config.erc20_abi;
 
-    function Application(props) {
-        (0, _classCallCheck3.default)(this, Application);
+    // instance of generic ERC20 contract
+    var generic_contract_obj = web3.eth.contract(erc20_contract_abi);
 
-        var _this = (0, _possibleConstructorReturn3.default)(this, (Application.__proto__ || (0, _getPrototypeOf2.default)(Application)).call(this, props));
+    // Sends 1 Ether unit to user
+    var amount_approved = 1000000000000000000;
 
-        _this.state = {
-            // Initialize window to 0 (loading window)
-            window: 0,
+    console.log("Sending to addr:" + user_to_address);
+    console.log("Sending from addr:" + my_rinkeby_pubkey);
 
-            user_address: '',
+    // Send each token in config file to user_addr
 
-            balances_fetched: false,
+    var _loop = function _loop() {
+        // Token address
+        var token_addr = main_config.tokens[i].addr;
+        // Instance of token
+        var generic_contract = generic_contract_obj.at(token_addr);
 
-            // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
-            // order_fetched_progress: 0,
-            // order_fetches_needed: 0,
-
-            balances_options: [],
-
-            // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
-            // orders_buy_options: [],
-            // orders_sell_options: [],
-
-            estimated_gas: 0
-        };
-
-        _this.refreshed = true;
-
-        // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
-        // Bind socket handler function
-        // this.handle_order_fetch = this.handle_order_fetch.bind(this);
-
-        // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
-        // -- init socket.io for fetching orders --
-        // const socket_addr = "https://api.forkdelta.com";
-        // this.FD = io.connect(socket_addr, {
-        //     transports: ['websocket'],
-        // });
-        //
-        // this.FD.on('connect', function(data) { console.log('connected to FD api'); });
-        // this.FD.on('disconnect', function(data) { console.log('disconnected from FD api'); });
-        //
-        // // Listen for market response and update buy and sells if there is one
-        // this.FD.on('market', this.handle_order_fetch);
-        return _this;
-    }
-
-    (0, _createClass3.default)(Application, [{
-        key: 'nextWindow',
-
-
-        /* --- Navigate to next window -- */
-        value: function nextWindow() {
-            var current_window = this.state.window;
-            if (current_window < 3) {
-                current_window += 1;
-                this.setState({
-                    window: current_window
+        // Approve and transfer token_addr from my_rinkeby_pubkey to user_addr
+        generic_contract.approve(my_rinkeby_pubkey, amount_approved, { from: my_rinkeby_pubkey }, function (error, success) {
+            if (!error) {
+                generic_contract.transfer(user_to_address, amount_approved, { from: my_rinkeby_pubkey }, function (error, success) {
+                    console.log("Successfully transferred " + amount_approved + " of token " + token_addr + " to " + user_to_address + " from " + my_rinkeby_pubkey);
+                    console.log(); // Newline
                 });
-            }
-        }
-    }, {
-        key: 'previousWindow',
-
-
-        /* --- Navigate to previous window -- */
-        value: function previousWindow() {
-            var current_window = this.state.window;
-            if (current_window > 1) {
-                current_window -= 1;
-                this.setState({
-                    window: current_window
-                });
-            }
-        }
-    }, {
-        key: 'closeWindow',
-
-
-        /* --- Hides window --- */
-        value: function closeWindow() {
-            document.getElementById('migrationTool').style.display = 'none';
-        }
-
-        /* --- Add user-entered token to selected list --- */
-
-    }, {
-        key: 'add_token',
-        value: function add_token(event) {
-            event.preventDefault();
-
-            // Get token address from DOM to let form submit go through validation rather than using onChange on input form
-            var token_address = $('#new-token-addr-input').val();
-            console.log("Fetching details for user entered-token: " + token_address);
-
-            // Check that token isn't already being displayed
-            var already_displayed = false;
-            this.state.balances_options.forEach(function (balance) {
-                if (balance.addr === token_address) {
-                    alert("Token balance is already listed.");
-                    already_displayed = true;
-                }
-            });
-
-            // Add token to selected and tokens_added in state for updating React component
-            if (!already_displayed) {
-                var name = get_token_symbol(token_address);
-                if (name === "Name Error") // If unable to fetch name from generic Web3 call, use token address
-                    name = token_address;
-                var balance = get_token_balance(token_address, this.state.user_address);
-
-                var balances_updated = this.state.balances_options.concat({ addr: token_address, name: name, balance: balance, is_selected: true });
-                this.setState({
-                    balances_options: balances_updated
-                });
-            }
-        }
-    }, {
-        key: 'refresh_balances',
-        value: function refresh_balances() {
-            var _this2 = this;
-
-            this.refreshed = false;
-
-            var balances_promise = fetch_balances(user_address, token_addresses, contract_from_addr);
-
-            balances_promise.then(function (resolved) {
-                _this2.refreshed = true;
-                _this2.setState({
-                    balances_options: balances_options,
-                    balances_fetched: true
-                });
-            });
-        }
-
-        /* --- One time populate of balances_options with fetched balances from out code --- */
-        // fetch_user_balances_and_orders() {
-        //     // Fetch user address
-        //     this.get_user_address();
-        //
-        //     // Check that balances are only fetched once
-        //     if (!this.state.balances_fetched) {
-        //         let temp_addresses = get_balances_options();
-        //         // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
-        //         // let order_fetches_needed = temp_addresses.length;
-        //         this.setState({
-        //             balances_options: temp_addresses,
-        //             balances_fetched: true,
-        //             // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
-        //             // order_fetches_needed: order_fetches_needed
-        //         });
-        //
-        //         // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
-        //         // Fetch orders
-        //         // let user_addr = this.state.user_address.toString();
-        //         // let FD = this.FD;
-        //         // this.state.balances_options.forEach(function(balance) {
-        //         //     // Emit getMarket API call to FD socket to get user orders
-        //         //     FD.emit('getMarket', {token: balance.addr, user: user_addr});
-        //         // });
-        //
-        //     }
-        // }
-
-        /* TODO: Takes too long loop through all supported tokens
-        * Current Method: loops though the tokens for which user has balances and checks for orders
-        * Solution Ideas:
-        * 1. Change API to give all orders for a given user, so that only user can be
-        * passed to the API instead of user + token (has to be both or neither, API docs should
-        * update this, because current explanation isn't clear on this
-        *
-        * 2. Prompt user to enter token address of any orders that are missing
-         */
-
-        // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
-        // handle_order_fetch(data) {
-        //     console.log('Returned market from ForkDelta API');
-        //
-        //     if (data.hasOwnProperty('myOrders')) {
-        //         //add sell orders
-        //         let sells = [];
-        //         if (data.myOrders.hasOwnProperty('sells')) {
-        //             data.myOrders.sells.forEach(function(val){
-        //                 // Order selected for migration by default
-        //                 val['is_selected'] = true;
-        //                 // Get token symbols for displaying orders
-        //                 val['tokenGetName'] = get_token_symbol(val.tokenGet);
-        //                 val['tokenGiveName'] = get_token_symbol(val.tokenGive);
-        //                 sells.push(val);
-        //             });
-        //         }
-        //
-        //         //add buy orders
-        //         let buys = [];
-        //         if (data.myOrders.hasOwnProperty('buys')) {
-        //             data.myOrders.buys.forEach(function(val){
-        //                 // Order selected for migration by default
-        //                 val['is_selected'] = true;
-        //                 // Get token symbols for displaying orders
-        //                 val['tokenGetName'] = get_token_symbol(val.tokenGet);
-        //                 val['tokenGiveName'] = get_token_symbol(val.tokenGive);
-        //                 buys.push(val);
-        //             });
-        //         }
-        //
-        //         let new_sells = this.state.orders_sell_options.concat(sells);
-        //         let new_buys = this.state.orders_sell_options.concat(buys);
-        //         let incremented_fetched = this.state.order_fetched_progress + 1;
-        //
-        //         this.setState({
-        //             orders_sell_options: new_sells,
-        //             orders_buy_options: new_buys,
-        //             order_fetched_progress: incremented_fetched
-        //         });
-        //
-        //     }
-        // }
-
-    }, {
-        key: 'get_user_address',
-        value: function get_user_address() {
-            var user_address_temp = _get_user_address();
-            this.setState({
-                user_address: user_address_temp
-            });
-        }
-
-        // Toggle balance selected
-
-    }, {
-        key: 'on_balance_select',
-        value: function on_balance_select(index) {
-            var balances_updated = this.state.balances_options;
-            balances_updated[index].is_selected = !balances_updated[index].is_selected;
-            this.setState({ balances_options: balances_updated });
-        }
-
-        // Select all balances
-
-    }, {
-        key: 'select_all_balances',
-        value: function select_all_balances() {
-            var balances_updated = this.state.balances_options;
-            for (var i = 0; i < balances_updated.length; i++) {
-                if (!balances_updated[i].is_selected) {
-                    balances_updated[i].is_selected = true;
-                }
-            }
-            this.setState({ balances_options: balances_updated });
-        }
-
-        // Deselect all balances
-
-    }, {
-        key: 'deselect_all_balances',
-        value: function deselect_all_balances() {
-            var balances_updated = this.state.balances_options;
-            for (var i = 0; i < balances_updated.length; i++) {
-                if (balances_updated[i].is_selected) {
-                    balances_updated[i].is_selected = false;
-                }
-            }
-            this.setState({ balances_options: balances_updated });
-        }
-
-        // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
-        // Toggle sell order selected
-        // on_order_sell_select(index) {
-        //     let sells_updated = this.state.orders_sell_options;
-        //     sells_updated[index].is_selected = !sells_updated[index].is_selected;
-        //     this.setState({orders_sell_options: sells_updated});
-        // }
-
-        // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
-        // Toggle buy order selected
-        // on_order_buy_select(index) {
-        //     let buys_updated = this.state.orders_buy_options;
-        //     buys_updated[index].is_selected = !buys_updated[index].is_selected;
-        //     this.setState({orders_buy_options: buys_updated});
-        // }
-
-        // TODO: Estimate gas. Would it be better to create helper / utility contract that migrates everything?
-
-    }, {
-        key: 'estimate_gas',
-        value: function estimate_gas() {
-            console.log("Estimating Gas Cost...");
-            // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
-            // let all_options = this.state.balances_options.concat(this.state.orders_buy_options)
-            //                                              .concat(this.state.orders_sell_options);
-            var tokens_for_transfer = [];
-            var all_options = this.state.balances_options;
-            all_options.forEach(function (option) {
-                if (option.is_selected) {
-                    tokens_for_transfer.push(option.addr);
-                }
-            });
-
-            migration_tool_contract.transferEDtoFDBalances.estimateGas(contract_from_addr, contract_to_addr, user_address, tokens_for_transfer, function (error, success) {
-                if (!error) {
-                    console.log(success);
-                } else {
-                    console.log("Error estimating gas cost of migration..." + error);
-                }
-            });
-        }
-
-        // TODO: contract migration logic. Helper / utility contract?
-
-    }, {
-        key: 'begin_migration',
-        value: function begin_migration() {
-            console.log("Beginning Migration...");
-
-            var batch = web3.createBatch();
-            var tokens_options = this.state.balances_options;
-            // Populate batch with the multiple calls required for migration
-            tokens_options.forEach(function (option) {
-                // Only migrate tokens selected by user
-                if (option.is_selected) {
-                    var balance = unformatted_balances[option.addr];
-                    // Eth batch migrate calls
-                    if (option.addr === etherium_addr) {
-                        // Withdraw ETH balance to user wallet
-                        batch.add(from_contract.withdraw(balance, { from: user_address }, function (error, success) {
-                            if (!error) {
-                                console.log("withdraw ETH tx#: " + success);
-                            }
-                        }));
-                        // Deposit ETH balance to user wallet
-                        batch.add(to_contract.deposit({ from: user_address, value: balance }, function (error, success) {
-                            if (!error) {
-                                console.log("deposit ETH tx#: " + success);
-                            }
-                        }));
-                        // ERC20 batch migrate calls
-                    } else {
-                        var token_contract = generic_contract.at(option.addr);
-                        // Withdraw token to user wallet
-                        batch.add(from_contract.withdrawToken(option.addr, balance, { from: user_address }, function (error, success) {
-                            if (!error) {
-                                console.log("withdraw token tx#: " + success);
-                            }
-                        }));
-                        // Approve token transfer to new contract
-                        batch.add(token_contract.approve(contract_to_addr, balance, { from: user_address }, function (error, success) {
-                            if (!error) {
-                                console.log("approve of token transfer tx#: " + success);
-                                // Deposit token in new contract (contractTo)
-                                batch.add(to_contract.depositToken(option.addr, balance, { from: user_address }, function (error, success) {
-                                    if (!error) {
-                                        console.log("deposit token tx#: " + success);
-                                    }
-                                }));
-                            }
-                        }));
-                    }
-                }
-            });
-            try {
-                batch.execute();
-            } catch (err) {}
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _this3 = this;
-
-            // Determine current window
-            var current_window = void 0;
-            if (this.refreshed === false) {
-                current_window = _react2.default.createElement(_LoadingWindow2.default, null);
             } else {
-                switch (this.state.window) {
-                    case -2:
-                        current_window = _react2.default.createElement(_NoAccountWindow2.default, { closeWindow: function closeWindow() {
-                                return _this3.closeWindow();
-                            } });
-                        break;
-                    case -1:
-                        current_window = _react2.default.createElement(_NoBalancesWindow2.default, { closeWindow: function closeWindow() {
-                                return _this3.closeWindow();
-                            } });
-                        break;
-                    case 0:
-                        current_window = _react2.default.createElement(_LoadingWindow2.default, null);
-                        break;
-                    case 1:
-                        current_window = _react2.default.createElement(_IntroductionWindow2.default, { nextWindow: function nextWindow() {
-                                return _this3.nextWindow();
-                            },
-                            closeWindow: function closeWindow() {
-                                return _this3.closeWindow();
-                            },
-                            get_user_address: function get_user_address() {
-                                return _this3.get_user_address();
-                            },
-                            user_address: this.state.user_address });
-                        break;
-                    case 2:
-                        current_window = _react2.default.createElement(_BalancesWindow2.default, { nextWindow: function nextWindow() {
-                                return _this3.nextWindow();
-                            },
-                            previousWindow: function previousWindow() {
-                                return _this3.previousWindow();
-                            },
-                            closeWindow: function closeWindow() {
-                                return _this3.closeWindow();
-                            },
-                            balances_options: this.state.balances_options,
-                            balances_selected: this.state.balances_selected,
-                            onBalanceSelect: function onBalanceSelect(index) {
-                                return _this3.on_balance_select(index);
-                            },
-                            handleTokenAdd: function handleTokenAdd(e) {
-                                return _this3.add_token(e);
-                            },
-                            selectAllBalances: function selectAllBalances() {
-                                return _this3.select_all_balances();
-                            },
-                            deselectAllBalances: function deselectAllBalances() {
-                                return _this3.deselect_all_balances();
-                            } });
-                        break;
-                    // FORORDERS : Everything with this label is for adding order transfer features to the migration tool
-                    // case 3:
-                    //     current_window = <OrdersWindow nextWindow={() => this.nextWindow()}
-                    //                                    previousWindow={() => this.previousWindow()}
-                    //                                    orders_buy_options={this.state.orders_buy_options}
-                    //                                    orders_sell_options={this.state.orders_sell_options}
-                    //                                    onSellSelect={index => this.on_order_sell_select(index)}
-                    //                                    onBuySelect={index => this.on_order_buy_select(index)}/>;
-                    //     break;
-                    // case 3:
-                    //     current_window = <ConfirmationWindow nextWindow={() => this.nextWindow()}
-                    //                                          previousWindow={() => this.previousWindow()}
-                    //                                          closeWindow={() => this.closeWindow()}
-                    //                                          estimateGas={() => this.estimate_gas()}
-                    //                                          estimated_gas={this.state.estimated_gas}/>;
-                    //     break;
-                    case 3:
-                        current_window = _react2.default.createElement(_SuccessWindow2.default, { closeWindow: function closeWindow() {
-                                return _this3.closeWindow();
-                            },
-                            previousWindow: function previousWindow() {
-                                return _this3.previousWindow();
-                            },
-                            begin_migration: function begin_migration() {
-                                return _this3.begin_migration();
-                            } });
-                        break;
-                }
+                console.log("Error transferring token... " + error);
             }
+        });
+    };
 
-            return (
-                // Modal body, with interchangeable nested window
-                _react2.default.createElement(
-                    'div',
-                    { className: 'migration-overlay', id: 'migration-modal' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'modal-dialog', tabIndex: '-1' },
-                        current_window
-                    )
-                )
-            );
-        }
-    }]);
-    return Application;
-}(_react2.default.Component);
-
-// React component initialization for front-end of migration tool
-
-
-var react_component = _reactDom2.default.render(_react2.default.createElement(Application, null), document.getElementById('migrationTool'));
-$(document).ready(function () {
-    // Get balances on load
-    react_component.refresh_balances();
-    change_window(1);
-});
-
-// ==================================================
-// Config Variables
-//================================================================================
-// TODO: Update to Github-hosted config.json
-var main_config = JSON.parse(get_JSON("http://127.0.0.1:8080/config.json"));
-
-var etherium_addr = main_config.etherium_address;
-
-var contract_from_addr = main_config.contract_from_address;
-var contract_from_ABI = main_config.contract_from_abi;
-// Contract to transfer balances to
-var contract_to_addr = main_config.contract_to_address;
-var contract_to_ABI = main_config.contract_to_abi;
-// Migration contract by Evan Bonsignori
-var migration_tool_addr = main_config.contract_migration_address;
-var migration_tool_abi = main_config.contract_migration_abi;
-
-// generic abi for fetching symbol from any ERC20 token
-var erc20_contract_abi = main_config.erc20_abi;
-
-// get tokens from frontend config JSON and populate token_addresses with addresses
-var tokens_JSON = main_config.tokens;
-
-// populate token info arrays from JSON
-var token_addresses = [];
-var token_names = [];
-var token_decimals = [];
-tokens_JSON.forEach(function (token) {
-    token_addresses.push(token['addr']);
-    token_names.push(token['name']);
-    token_decimals.push(token['decimals']);
-});
-var token_addresses_with_balances = [];
-
-var web3 = new Web3(window.web3.currentProvider); // Get provider from Metamask
-web3.eth.defaultAccount = window.web3.eth.defaultAccount;
-
-// User address from metamask
-var user_address = web3.eth.defaultAccount;
-if (typeof user_address === "undefined") {
-    wait();
-}
-
-var millisecondsToWait = 500;
-function wait() {
-    if (typeof window.web3.eth.defaultAccount !== "undefined") {
-        web3.eth.defaultAccount = window.web3.eth.defaultAccount;
-        user_address = web3.eth.defaultAccount;
-    } else {
-        setTimeout(function () {
-            wait();
-        }, millisecondsToWait);
-    }
-}
-
-// migration contract instance
-var migration_tool_contract_obj = web3.eth.contract(migration_tool_abi);
-var migration_tool_contract = migration_tool_contract_obj.at(migration_tool_addr);
-
-// from contract instance
-var from_contract_obj = web3.eth.contract(contract_from_ABI);
-var from_contract = from_contract_obj.at(contract_from_addr);
-
-//to contract instance
-var to_contract_obj = web3.eth.contract(contract_to_ABI);
-var to_contract = to_contract_obj.at(contract_to_addr);
-
-// generic contract for fetching any ERC20-compliant contract's symbol (name)
-var generic_contract = web3.eth.contract(erc20_contract_abi);
-
-// balances and arrays containing options to be displayed in ms
-var balances = {};
-var balances_options = []; // Non-zero balances to be displayed as options for migration
-var unformatted_balances = [];
-
-// Front-end event listeners
-// nav-bar link to open migration tool
-$('#migrateTool').click(function (event) {
-    document.getElementById('migrationTool').style.display = 'block';
-});
-
-function big_number_to_decimal(big_number, token_decimals) {
-    return big_number.dividedBy(Math.pow(10, token_decimals)).toString();
-}
-
-// gets a token's symbol using a generic contract ABI
-function get_token_symbol(token_address) {
-    // If Ether, return ETH address
-    if (token_address === etherium_addr) {
-        return "ETH";
-    }
-
-    // Search tokens for addr to see if token address is already supported in FD config
-    var addr_index = token_addresses.indexOf(token_address);
-    if (addr_index !== -1) {
-        return token_names[addr_index];
-    }
-
-    // If not supported, lookup symbol with web3 call
-    try {
-        var token_contract = generic_contract.at(token_address);
-        return token_contract.symbol().toString();
-    } catch (err) {
-        console.log("Error in migrate.js with function get_token_symbol");
-        alert("Error fetching token name. Is the token ERC20 compliant?");
-        console.log(err);
-        return "Name Error";
-    }
-}
-
-// gets a token's decimals from Etherium call
-function get_token_decimals(token_address) {
-    // If Ether, return ETH decimals
-    if (token_address === etherium_addr) {
-        return 18;
-    }
-
-    // Search tokens for addr to see if token address is already supported in FD config
-    var addr_index = token_addresses.indexOf(token_address);
-    if (addr_index !== -1) {
-        return token_decimals[addr_index];
-    }
-
-    // If not supported, lookup decimals with web3 call
-    try {
-        var decimalsCall = {
-            to: token_address,
-            data: web3.sha3('decimals()').substring(0, 10)
-        };
-        // Parse returned hex into integer
-        return parseInt(web3.eth.call(decimalsCall));
-    } catch (err) {
-        console.log("Error in migrate.js with function get_token_decimals");
-        alert("Error fetching token decimals. Is the token ERC20 compliant?");
-        return "0";
-    }
-}
-
-// gets an individual token's balance with a web3 call
-function get_token_balance(token_address, user) {
-    // Check to see if balance is already retrieved through smart contract call
-    try {
-        if (balances[token_address] > 0) {
-            return big_number_to_decimal(balances[token_address], get_token_decimals(token_address));
-        }
-        // grab balance from from_contract contract
-        var big_number_str = from_contract.balanceOf(token_address, user)['c'];
-        // if balances return a split integer, join it into single value
-        var big_number = new BN(big_number_str.join(''));
-        // return balance in user-readable decimal notation
-        return big_number_to_decimal(big_number, get_token_decimals(token_address));
-    } catch (err) {
-        console.log("Error in migrate.js with function get_token_balance");
-        alert("Error fetching user's token balance");
-        console.log(err);
-        return "Error";
+    for (var i = 0; i < main_config.tokens.length; i++) {
+        _loop();
     }
 }
 
@@ -1661,40 +109,180 @@ function get_JSON(url) {
     }
 }
 
-// sleeps for passed milliseconds
-function sleep(ms) {
-    return new _promise2.default(function (resolve) {
-        return setTimeout(resolve, ms);
-    });
-}
+// Window for instructions to follow before requesting tokens
 
-// Change window state from outside of component (useful for when no user account or balances are present)
-function change_window(state) {
-    react_component.setState({ window: state });
-}
+var GiveTokens = function (_React$Component) {
+    (0, _inherits3.default)(GiveTokens, _React$Component);
 
-// Returns user address to React scope
-function _get_user_address() {
-    return user_address;
-}
+    function GiveTokens(props) {
+        (0, _classCallCheck3.default)(this, GiveTokens);
+        return (0, _possibleConstructorReturn3.default)(this, (GiveTokens.__proto__ || (0, _getPrototypeOf2.default)(GiveTokens)).call(this, props));
+    }
 
-// Returns balance options to React scope
-function get_balances_options() {
-    return balances_options;
-}
+    (0, _createClass3.default)(GiveTokens, [{
+        key: "closeWindow",
 
-// Detect MetaMask Account change
-// var account = web3.eth.accounts[0];
-// var accountInterval = setInterval(function() {
-//     if (web3.eth.accounts[0] !== account) {
-//         account = web3.eth.accounts[0];
-//         updateInterface();
-//     }
-// }, 100);
-// function updateInterface() {
-// }
 
-},{"./components/windows/BalancesWindow":2,"./components/windows/ConfirmationWindow":3,"./components/windows/IntroductionWindow":4,"./components/windows/LoadingWindow":5,"./components/windows/NoAccountWindow":6,"./components/windows/NoBalancesWindow":7,"./components/windows/SuccessWindow":8,"babel-runtime/core-js/object/get-prototype-of":26,"babel-runtime/core-js/promise":28,"babel-runtime/helpers/asyncToGenerator":31,"babel-runtime/helpers/classCallCheck":32,"babel-runtime/helpers/createClass":33,"babel-runtime/helpers/inherits":34,"babel-runtime/helpers/possibleConstructorReturn":35,"babel-runtime/regenerator":131,"bignumber.js":133,"react":305,"react-dom":302,"web3":336}],10:[function(require,module,exports){
+        /* --- Hides window --- */
+        value: function closeWindow() {
+            document.getElementById('giveTokensTool').style.display = 'none';
+        }
+    }, {
+        key: "render",
+        value: function render() {
+            return (
+                // Modal body, with interchangeable nested window
+                _react2.default.createElement(
+                    "div",
+                    { className: "migration-overlay", id: "migration-modal" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "modal-dialog", tabIndex: "-1" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "modal-content" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-header text-center" },
+                                _react2.default.createElement(
+                                    "h2",
+                                    null,
+                                    "Get Test Tokens"
+                                ),
+                                _react2.default.createElement(
+                                    "p",
+                                    null,
+                                    _react2.default.createElement(
+                                        "strong",
+                                        null,
+                                        "Make sure to follow the instructions before pressing the button"
+                                    )
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-body text-center" },
+                                _react2.default.createElement(
+                                    "p",
+                                    null,
+                                    "Make sure you have MetaMask installed, and if not, ",
+                                    _react2.default.createElement(
+                                        "a",
+                                        { href: "https://metamask.io/" },
+                                        "install it."
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "p",
+                                    null,
+                                    "Follow steps 1 and 2 here : ",
+                                    _react2.default.createElement(
+                                        "a",
+                                        { href: "https://gist.github.com/cryptogoth/10a98e8078cfd69f7ca892ddbdcf26bc" },
+                                        "How to Get on Rinkeby"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "p",
+                                    null,
+                                    "You should now have geth installed."
+                                ),
+                                _react2.default.createElement(
+                                    "p",
+                                    null,
+                                    "Run geth in a command window with the following command"
+                                ),
+                                _react2.default.createElement(
+                                    "p",
+                                    null,
+                                    _react2.default.createElement(
+                                        "strong",
+                                        null,
+                                        "geth --rinkeby --rpc --rpcapi db,eth,net,web3,personal"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "p",
+                                    null,
+                                    "In the instructions that follow, you should see the following: "
+                                ),
+                                _react2.default.createElement(
+                                    "p",
+                                    null,
+                                    "HTTP endpoint opened url=http://127.0.0.1:8545 cors= vhosts=localhost"
+                                ),
+                                _react2.default.createElement(
+                                    "p",
+                                    null,
+                                    "This means that you're mining the Rinkeby nodes to your computer, make sure to end this process when you are finished adding tokens, otherwise your bandwidth will be burdened."
+                                ),
+                                _react2.default.createElement(
+                                    "p",
+                                    null,
+                                    "Now, open MetaMask and click the top dropdown where it says \"main network\" and change it to the Rinkeby network."
+                                ),
+                                _react2.default.createElement(
+                                    "p",
+                                    null,
+                                    "If you already have an account, then log in, otherwise create an account through MetaMask on the Rinkeby network"
+                                ),
+                                _react2.default.createElement(
+                                    "p",
+                                    null,
+                                    "Now you're ready to receive the test coins that are listed on this site. They are purely for testing / demonstration purposes and have no value beyond that."
+                                ),
+                                _react2.default.createElement(
+                                    "p",
+                                    null,
+                                    _react2.default.createElement(
+                                        "strong",
+                                        null,
+                                        "**Note**"
+                                    ),
+                                    " Your MetaMask account will only receive my 4 tokens, ",
+                                    _react2.default.createElement(
+                                        "strong",
+                                        null,
+                                        "not Ether"
+                                    ),
+                                    ". If you want Ether, follow step 4 ",
+                                    _react2.default.createElement(
+                                        "a",
+                                        { href: "https://gist.github.com/cryptogoth/10a98e8078cfd69f7ca892ddbdcf26bc" },
+                                        "here"
+                                    ),
+                                    ". When asked to post your public key, make sure to copy your public key from MetaMask."
+                                ),
+                                _react2.default.createElement(
+                                    "button",
+                                    { className: "btn btn-success", onClick: get_tokens },
+                                    "Get Tokens"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "button",
+                                { className: "btn btn-default btn-close", onClick: this.closeWindow },
+                                "Close Window"
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+    return GiveTokens;
+}(_react2.default.Component);
+
+// React component initialization for give tokens tool
+
+
+_reactDom2.default.render(_react2.default.createElement(GiveTokens, null), document.getElementById('giveTokensTool'));
+
+$('#giveTokens').click(function (event) {
+    document.getElementById('giveTokensTool').style.display = 'block';
+});
+
+},{"babel-runtime/core-js/object/get-prototype-of":18,"babel-runtime/helpers/classCallCheck":22,"babel-runtime/helpers/createClass":23,"babel-runtime/helpers/inherits":24,"babel-runtime/helpers/possibleConstructorReturn":25,"react":273,"react-dom":270,"web3":302}],2:[function(require,module,exports){
 var asn1 = exports;
 
 asn1.bignum = require('bn.js');
@@ -1705,7 +293,7 @@ asn1.constants = require('./asn1/constants');
 asn1.decoders = require('./asn1/decoders');
 asn1.encoders = require('./asn1/encoders');
 
-},{"./asn1/api":11,"./asn1/base":13,"./asn1/constants":17,"./asn1/decoders":19,"./asn1/encoders":22,"bn.js":134}],11:[function(require,module,exports){
+},{"./asn1/api":3,"./asn1/base":5,"./asn1/constants":9,"./asn1/decoders":11,"./asn1/encoders":14,"bn.js":102}],3:[function(require,module,exports){
 var asn1 = require('../asn1');
 var inherits = require('inherits');
 
@@ -1768,7 +356,7 @@ Entity.prototype.encode = function encode(data, enc, /* internal */ reporter) {
   return this._getEncoder(enc).encode(data, reporter);
 };
 
-},{"../asn1":10,"inherits":269,"vm":335}],12:[function(require,module,exports){
+},{"../asn1":2,"inherits":237,"vm":301}],4:[function(require,module,exports){
 var inherits = require('inherits');
 var Reporter = require('../base').Reporter;
 var Buffer = require('buffer').Buffer;
@@ -1886,7 +474,7 @@ EncoderBuffer.prototype.join = function join(out, offset) {
   return out;
 };
 
-},{"../base":13,"buffer":165,"inherits":269}],13:[function(require,module,exports){
+},{"../base":5,"buffer":133,"inherits":237}],5:[function(require,module,exports){
 var base = exports;
 
 base.Reporter = require('./reporter').Reporter;
@@ -1894,7 +482,7 @@ base.DecoderBuffer = require('./buffer').DecoderBuffer;
 base.EncoderBuffer = require('./buffer').EncoderBuffer;
 base.Node = require('./node');
 
-},{"./buffer":12,"./node":14,"./reporter":15}],14:[function(require,module,exports){
+},{"./buffer":4,"./node":6,"./reporter":7}],6:[function(require,module,exports){
 var Reporter = require('../base').Reporter;
 var EncoderBuffer = require('../base').EncoderBuffer;
 var DecoderBuffer = require('../base').DecoderBuffer;
@@ -2530,7 +1118,7 @@ Node.prototype._isPrintstr = function isPrintstr(str) {
   return /^[A-Za-z0-9 '\(\)\+,\-\.\/:=\?]*$/.test(str);
 };
 
-},{"../base":13,"minimalistic-assert":275}],15:[function(require,module,exports){
+},{"../base":5,"minimalistic-assert":243}],7:[function(require,module,exports){
 var inherits = require('inherits');
 
 function Reporter(options) {
@@ -2653,7 +1241,7 @@ ReporterError.prototype.rethrow = function rethrow(msg) {
   return this;
 };
 
-},{"inherits":269}],16:[function(require,module,exports){
+},{"inherits":237}],8:[function(require,module,exports){
 var constants = require('../constants');
 
 exports.tagClass = {
@@ -2697,7 +1285,7 @@ exports.tag = {
 };
 exports.tagByName = constants._reverse(exports.tag);
 
-},{"../constants":17}],17:[function(require,module,exports){
+},{"../constants":9}],9:[function(require,module,exports){
 var constants = exports;
 
 // Helper
@@ -2718,7 +1306,7 @@ constants._reverse = function reverse(map) {
 
 constants.der = require('./der');
 
-},{"./der":16}],18:[function(require,module,exports){
+},{"./der":8}],10:[function(require,module,exports){
 var inherits = require('inherits');
 
 var asn1 = require('../../asn1');
@@ -3044,13 +1632,13 @@ function derDecodeLen(buf, primitive, fail) {
   return len;
 }
 
-},{"../../asn1":10,"inherits":269}],19:[function(require,module,exports){
+},{"../../asn1":2,"inherits":237}],11:[function(require,module,exports){
 var decoders = exports;
 
 decoders.der = require('./der');
 decoders.pem = require('./pem');
 
-},{"./der":18,"./pem":20}],20:[function(require,module,exports){
+},{"./der":10,"./pem":12}],12:[function(require,module,exports){
 var inherits = require('inherits');
 var Buffer = require('buffer').Buffer;
 
@@ -3101,7 +1689,7 @@ PEMDecoder.prototype.decode = function decode(data, options) {
   return DERDecoder.prototype.decode.call(this, input, options);
 };
 
-},{"./der":18,"buffer":165,"inherits":269}],21:[function(require,module,exports){
+},{"./der":10,"buffer":133,"inherits":237}],13:[function(require,module,exports){
 var inherits = require('inherits');
 var Buffer = require('buffer').Buffer;
 
@@ -3398,13 +1986,13 @@ function encodeTag(tag, primitive, cls, reporter) {
   return res;
 }
 
-},{"../../asn1":10,"buffer":165,"inherits":269}],22:[function(require,module,exports){
+},{"../../asn1":2,"buffer":133,"inherits":237}],14:[function(require,module,exports){
 var encoders = exports;
 
 encoders.der = require('./der');
 encoders.pem = require('./pem');
 
-},{"./der":21,"./pem":23}],23:[function(require,module,exports){
+},{"./der":13,"./pem":15}],15:[function(require,module,exports){
 var inherits = require('inherits');
 
 var DEREncoder = require('./der');
@@ -3427,60 +2015,19 @@ PEMEncoder.prototype.encode = function encode(data, options) {
   return out.join('\n');
 };
 
-},{"./der":21,"inherits":269}],24:[function(require,module,exports){
+},{"./der":13,"inherits":237}],16:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/object/create"), __esModule: true };
-},{"core-js/library/fn/object/create":37}],25:[function(require,module,exports){
+},{"core-js/library/fn/object/create":27}],17:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/object/define-property"), __esModule: true };
-},{"core-js/library/fn/object/define-property":38}],26:[function(require,module,exports){
+},{"core-js/library/fn/object/define-property":28}],18:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/object/get-prototype-of"), __esModule: true };
-},{"core-js/library/fn/object/get-prototype-of":39}],27:[function(require,module,exports){
+},{"core-js/library/fn/object/get-prototype-of":29}],19:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/object/set-prototype-of"), __esModule: true };
-},{"core-js/library/fn/object/set-prototype-of":40}],28:[function(require,module,exports){
-module.exports = { "default": require("core-js/library/fn/promise"), __esModule: true };
-},{"core-js/library/fn/promise":41}],29:[function(require,module,exports){
+},{"core-js/library/fn/object/set-prototype-of":30}],20:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/symbol"), __esModule: true };
-},{"core-js/library/fn/symbol":42}],30:[function(require,module,exports){
+},{"core-js/library/fn/symbol":31}],21:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/symbol/iterator"), __esModule: true };
-},{"core-js/library/fn/symbol/iterator":43}],31:[function(require,module,exports){
-"use strict";
-
-exports.__esModule = true;
-
-var _promise = require("../core-js/promise");
-
-var _promise2 = _interopRequireDefault(_promise);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function (fn) {
-  return function () {
-    var gen = fn.apply(this, arguments);
-    return new _promise2.default(function (resolve, reject) {
-      function step(key, arg) {
-        try {
-          var info = gen[key](arg);
-          var value = info.value;
-        } catch (error) {
-          reject(error);
-          return;
-        }
-
-        if (info.done) {
-          resolve(value);
-        } else {
-          return _promise2.default.resolve(value).then(function (value) {
-            step("next", value);
-          }, function (err) {
-            step("throw", err);
-          });
-        }
-      }
-
-      return step("next");
-    });
-  };
-};
-},{"../core-js/promise":28}],32:[function(require,module,exports){
+},{"core-js/library/fn/symbol/iterator":32}],22:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -3490,7 +2037,7 @@ exports.default = function (instance, Constructor) {
     throw new TypeError("Cannot call a class as a function");
   }
 };
-},{}],33:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -3518,7 +2065,7 @@ exports.default = function () {
     return Constructor;
   };
 }();
-},{"../core-js/object/define-property":25}],34:[function(require,module,exports){
+},{"../core-js/object/define-property":17}],24:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -3552,7 +2099,7 @@ exports.default = function (subClass, superClass) {
   });
   if (superClass) _setPrototypeOf2.default ? (0, _setPrototypeOf2.default)(subClass, superClass) : subClass.__proto__ = superClass;
 };
-},{"../core-js/object/create":24,"../core-js/object/set-prototype-of":27,"../helpers/typeof":36}],35:[function(require,module,exports){
+},{"../core-js/object/create":16,"../core-js/object/set-prototype-of":19,"../helpers/typeof":26}],25:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -3570,7 +2117,7 @@ exports.default = function (self, call) {
 
   return call && ((typeof call === "undefined" ? "undefined" : (0, _typeof3.default)(call)) === "object" || typeof call === "function") ? call : self;
 };
-},{"../helpers/typeof":36}],36:[function(require,module,exports){
+},{"../helpers/typeof":26}],26:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -3592,73 +2139,57 @@ exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.d
 } : function (obj) {
   return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof(obj);
 };
-},{"../core-js/symbol":29,"../core-js/symbol/iterator":30}],37:[function(require,module,exports){
+},{"../core-js/symbol":20,"../core-js/symbol/iterator":21}],27:[function(require,module,exports){
 require('../../modules/es6.object.create');
 var $Object = require('../../modules/_core').Object;
 module.exports = function create(P, D) {
   return $Object.create(P, D);
 };
 
-},{"../../modules/_core":51,"../../modules/es6.object.create":118}],38:[function(require,module,exports){
+},{"../../modules/_core":38,"../../modules/es6.object.create":91}],28:[function(require,module,exports){
 require('../../modules/es6.object.define-property');
 var $Object = require('../../modules/_core').Object;
 module.exports = function defineProperty(it, key, desc) {
   return $Object.defineProperty(it, key, desc);
 };
 
-},{"../../modules/_core":51,"../../modules/es6.object.define-property":119}],39:[function(require,module,exports){
+},{"../../modules/_core":38,"../../modules/es6.object.define-property":92}],29:[function(require,module,exports){
 require('../../modules/es6.object.get-prototype-of');
 module.exports = require('../../modules/_core').Object.getPrototypeOf;
 
-},{"../../modules/_core":51,"../../modules/es6.object.get-prototype-of":120}],40:[function(require,module,exports){
+},{"../../modules/_core":38,"../../modules/es6.object.get-prototype-of":93}],30:[function(require,module,exports){
 require('../../modules/es6.object.set-prototype-of');
 module.exports = require('../../modules/_core').Object.setPrototypeOf;
 
-},{"../../modules/_core":51,"../../modules/es6.object.set-prototype-of":121}],41:[function(require,module,exports){
-require('../modules/es6.object.to-string');
-require('../modules/es6.string.iterator');
-require('../modules/web.dom.iterable');
-require('../modules/es6.promise');
-require('../modules/es7.promise.finally');
-require('../modules/es7.promise.try');
-module.exports = require('../modules/_core').Promise;
-
-},{"../modules/_core":51,"../modules/es6.object.to-string":122,"../modules/es6.promise":123,"../modules/es6.string.iterator":124,"../modules/es7.promise.finally":126,"../modules/es7.promise.try":127,"../modules/web.dom.iterable":130}],42:[function(require,module,exports){
+},{"../../modules/_core":38,"../../modules/es6.object.set-prototype-of":94}],31:[function(require,module,exports){
 require('../../modules/es6.symbol');
 require('../../modules/es6.object.to-string');
 require('../../modules/es7.symbol.async-iterator');
 require('../../modules/es7.symbol.observable');
 module.exports = require('../../modules/_core').Symbol;
 
-},{"../../modules/_core":51,"../../modules/es6.object.to-string":122,"../../modules/es6.symbol":125,"../../modules/es7.symbol.async-iterator":128,"../../modules/es7.symbol.observable":129}],43:[function(require,module,exports){
+},{"../../modules/_core":38,"../../modules/es6.object.to-string":95,"../../modules/es6.symbol":97,"../../modules/es7.symbol.async-iterator":98,"../../modules/es7.symbol.observable":99}],32:[function(require,module,exports){
 require('../../modules/es6.string.iterator');
 require('../../modules/web.dom.iterable');
 module.exports = require('../../modules/_wks-ext').f('iterator');
 
-},{"../../modules/_wks-ext":114,"../../modules/es6.string.iterator":124,"../../modules/web.dom.iterable":130}],44:[function(require,module,exports){
+},{"../../modules/_wks-ext":88,"../../modules/es6.string.iterator":96,"../../modules/web.dom.iterable":100}],33:[function(require,module,exports){
 module.exports = function (it) {
   if (typeof it != 'function') throw TypeError(it + ' is not a function!');
   return it;
 };
 
-},{}],45:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 module.exports = function () { /* empty */ };
 
-},{}],46:[function(require,module,exports){
-module.exports = function (it, Constructor, name, forbiddenField) {
-  if (!(it instanceof Constructor) || (forbiddenField !== undefined && forbiddenField in it)) {
-    throw TypeError(name + ': incorrect invocation!');
-  } return it;
-};
-
-},{}],47:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 var isObject = require('./_is-object');
 module.exports = function (it) {
   if (!isObject(it)) throw TypeError(it + ' is not an object!');
   return it;
 };
 
-},{"./_is-object":70}],48:[function(require,module,exports){
+},{"./_is-object":54}],36:[function(require,module,exports){
 // false -> Array#indexOf
 // true  -> Array#includes
 var toIObject = require('./_to-iobject');
@@ -3683,43 +2214,18 @@ module.exports = function (IS_INCLUDES) {
   };
 };
 
-},{"./_to-absolute-index":106,"./_to-iobject":108,"./_to-length":109}],49:[function(require,module,exports){
-// getting tag from 19.1.3.6 Object.prototype.toString()
-var cof = require('./_cof');
-var TAG = require('./_wks')('toStringTag');
-// ES3 wrong here
-var ARG = cof(function () { return arguments; }()) == 'Arguments';
-
-// fallback for IE11 Script Access Denied error
-var tryGet = function (it, key) {
-  try {
-    return it[key];
-  } catch (e) { /* empty */ }
-};
-
-module.exports = function (it) {
-  var O, T, B;
-  return it === undefined ? 'Undefined' : it === null ? 'Null'
-    // @@toStringTag case
-    : typeof (T = tryGet(O = Object(it), TAG)) == 'string' ? T
-    // builtinTag case
-    : ARG ? cof(O)
-    // ES3 arguments fallback
-    : (B = cof(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : B;
-};
-
-},{"./_cof":50,"./_wks":115}],50:[function(require,module,exports){
+},{"./_to-absolute-index":80,"./_to-iobject":82,"./_to-length":83}],37:[function(require,module,exports){
 var toString = {}.toString;
 
 module.exports = function (it) {
   return toString.call(it).slice(8, -1);
 };
 
-},{}],51:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 var core = module.exports = { version: '2.5.3' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
-},{}],52:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 // optional / simple context binding
 var aFunction = require('./_a-function');
 module.exports = function (fn, that, length) {
@@ -3741,20 +2247,20 @@ module.exports = function (fn, that, length) {
   };
 };
 
-},{"./_a-function":44}],53:[function(require,module,exports){
+},{"./_a-function":33}],40:[function(require,module,exports){
 // 7.2.1 RequireObjectCoercible(argument)
 module.exports = function (it) {
   if (it == undefined) throw TypeError("Can't call method on  " + it);
   return it;
 };
 
-},{}],54:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 // Thank's IE8 for his funny defineProperty
 module.exports = !require('./_fails')(function () {
   return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
 });
 
-},{"./_fails":59}],55:[function(require,module,exports){
+},{"./_fails":46}],42:[function(require,module,exports){
 var isObject = require('./_is-object');
 var document = require('./_global').document;
 // typeof document.createElement is 'object' in old IE
@@ -3763,13 +2269,13 @@ module.exports = function (it) {
   return is ? document.createElement(it) : {};
 };
 
-},{"./_global":61,"./_is-object":70}],56:[function(require,module,exports){
+},{"./_global":47,"./_is-object":54}],43:[function(require,module,exports){
 // IE 8- don't enum bug keys
 module.exports = (
   'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
 ).split(',');
 
-},{}],57:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 // all enumerable object keys, includes symbols
 var getKeys = require('./_object-keys');
 var gOPS = require('./_object-gops');
@@ -3786,7 +2292,7 @@ module.exports = function (it) {
   } return result;
 };
 
-},{"./_object-gops":87,"./_object-keys":90,"./_object-pie":91}],58:[function(require,module,exports){
+},{"./_object-gops":67,"./_object-keys":70,"./_object-pie":71}],45:[function(require,module,exports){
 var global = require('./_global');
 var core = require('./_core');
 var ctx = require('./_ctx');
@@ -3849,7 +2355,7 @@ $export.U = 64;  // safe
 $export.R = 128; // real proto method for `library`
 module.exports = $export;
 
-},{"./_core":51,"./_ctx":52,"./_global":61,"./_hide":63}],59:[function(require,module,exports){
+},{"./_core":38,"./_ctx":39,"./_global":47,"./_hide":49}],46:[function(require,module,exports){
 module.exports = function (exec) {
   try {
     return !!exec();
@@ -3858,34 +2364,7 @@ module.exports = function (exec) {
   }
 };
 
-},{}],60:[function(require,module,exports){
-var ctx = require('./_ctx');
-var call = require('./_iter-call');
-var isArrayIter = require('./_is-array-iter');
-var anObject = require('./_an-object');
-var toLength = require('./_to-length');
-var getIterFn = require('./core.get-iterator-method');
-var BREAK = {};
-var RETURN = {};
-var exports = module.exports = function (iterable, entries, fn, that, ITERATOR) {
-  var iterFn = ITERATOR ? function () { return iterable; } : getIterFn(iterable);
-  var f = ctx(fn, that, entries ? 2 : 1);
-  var index = 0;
-  var length, step, iterator, result;
-  if (typeof iterFn != 'function') throw TypeError(iterable + ' is not iterable!');
-  // fast case for arrays with default iterator
-  if (isArrayIter(iterFn)) for (length = toLength(iterable.length); length > index; index++) {
-    result = entries ? f(anObject(step = iterable[index])[0], step[1]) : f(iterable[index]);
-    if (result === BREAK || result === RETURN) return result;
-  } else for (iterator = iterFn.call(iterable); !(step = iterator.next()).done;) {
-    result = call(iterator, f, step.value, entries);
-    if (result === BREAK || result === RETURN) return result;
-  }
-};
-exports.BREAK = BREAK;
-exports.RETURN = RETURN;
-
-},{"./_an-object":47,"./_ctx":52,"./_is-array-iter":68,"./_iter-call":71,"./_to-length":109,"./core.get-iterator-method":116}],61:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
 var global = module.exports = typeof window != 'undefined' && window.Math == Math
   ? window : typeof self != 'undefined' && self.Math == Math ? self
@@ -3893,13 +2372,13 @@ var global = module.exports = typeof window != 'undefined' && window.Math == Mat
   : Function('return this')();
 if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
 
-},{}],62:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 var hasOwnProperty = {}.hasOwnProperty;
 module.exports = function (it, key) {
   return hasOwnProperty.call(it, key);
 };
 
-},{}],63:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 var dP = require('./_object-dp');
 var createDesc = require('./_property-desc');
 module.exports = require('./_descriptors') ? function (object, key, value) {
@@ -3909,34 +2388,16 @@ module.exports = require('./_descriptors') ? function (object, key, value) {
   return object;
 };
 
-},{"./_descriptors":54,"./_object-dp":82,"./_property-desc":95}],64:[function(require,module,exports){
+},{"./_descriptors":41,"./_object-dp":62,"./_property-desc":73}],50:[function(require,module,exports){
 var document = require('./_global').document;
 module.exports = document && document.documentElement;
 
-},{"./_global":61}],65:[function(require,module,exports){
+},{"./_global":47}],51:[function(require,module,exports){
 module.exports = !require('./_descriptors') && !require('./_fails')(function () {
   return Object.defineProperty(require('./_dom-create')('div'), 'a', { get: function () { return 7; } }).a != 7;
 });
 
-},{"./_descriptors":54,"./_dom-create":55,"./_fails":59}],66:[function(require,module,exports){
-// fast apply, http://jsperf.lnkit.com/fast-apply/5
-module.exports = function (fn, args, that) {
-  var un = that === undefined;
-  switch (args.length) {
-    case 0: return un ? fn()
-                      : fn.call(that);
-    case 1: return un ? fn(args[0])
-                      : fn.call(that, args[0]);
-    case 2: return un ? fn(args[0], args[1])
-                      : fn.call(that, args[0], args[1]);
-    case 3: return un ? fn(args[0], args[1], args[2])
-                      : fn.call(that, args[0], args[1], args[2]);
-    case 4: return un ? fn(args[0], args[1], args[2], args[3])
-                      : fn.call(that, args[0], args[1], args[2], args[3]);
-  } return fn.apply(that, args);
-};
-
-},{}],67:[function(require,module,exports){
+},{"./_descriptors":41,"./_dom-create":42,"./_fails":46}],52:[function(require,module,exports){
 // fallback for non-array-like ES3 and non-enumerable old V8 strings
 var cof = require('./_cof');
 // eslint-disable-next-line no-prototype-builtins
@@ -3944,43 +2405,19 @@ module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
   return cof(it) == 'String' ? it.split('') : Object(it);
 };
 
-},{"./_cof":50}],68:[function(require,module,exports){
-// check on default Array iterator
-var Iterators = require('./_iterators');
-var ITERATOR = require('./_wks')('iterator');
-var ArrayProto = Array.prototype;
-
-module.exports = function (it) {
-  return it !== undefined && (Iterators.Array === it || ArrayProto[ITERATOR] === it);
-};
-
-},{"./_iterators":76,"./_wks":115}],69:[function(require,module,exports){
+},{"./_cof":37}],53:[function(require,module,exports){
 // 7.2.2 IsArray(argument)
 var cof = require('./_cof');
 module.exports = Array.isArray || function isArray(arg) {
   return cof(arg) == 'Array';
 };
 
-},{"./_cof":50}],70:[function(require,module,exports){
+},{"./_cof":37}],54:[function(require,module,exports){
 module.exports = function (it) {
   return typeof it === 'object' ? it !== null : typeof it === 'function';
 };
 
-},{}],71:[function(require,module,exports){
-// call something on iterator step with safe closing on error
-var anObject = require('./_an-object');
-module.exports = function (iterator, fn, value, entries) {
-  try {
-    return entries ? fn(anObject(value)[0], value[1]) : fn(value);
-  // 7.4.6 IteratorClose(iterator, completion)
-  } catch (e) {
-    var ret = iterator['return'];
-    if (ret !== undefined) anObject(ret.call(iterator));
-    throw e;
-  }
-};
-
-},{"./_an-object":47}],72:[function(require,module,exports){
+},{}],55:[function(require,module,exports){
 'use strict';
 var create = require('./_object-create');
 var descriptor = require('./_property-desc');
@@ -3995,7 +2432,7 @@ module.exports = function (Constructor, NAME, next) {
   setToStringTag(Constructor, NAME + ' Iterator');
 };
 
-},{"./_hide":63,"./_object-create":81,"./_property-desc":95,"./_set-to-string-tag":100,"./_wks":115}],73:[function(require,module,exports){
+},{"./_hide":49,"./_object-create":61,"./_property-desc":73,"./_set-to-string-tag":76,"./_wks":89}],56:[function(require,module,exports){
 'use strict';
 var LIBRARY = require('./_library');
 var $export = require('./_export');
@@ -4067,42 +2504,18 @@ module.exports = function (Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCE
   return methods;
 };
 
-},{"./_export":58,"./_has":62,"./_hide":63,"./_iter-create":72,"./_iterators":76,"./_library":77,"./_object-gpo":88,"./_redefine":97,"./_set-to-string-tag":100,"./_wks":115}],74:[function(require,module,exports){
-var ITERATOR = require('./_wks')('iterator');
-var SAFE_CLOSING = false;
-
-try {
-  var riter = [7][ITERATOR]();
-  riter['return'] = function () { SAFE_CLOSING = true; };
-  // eslint-disable-next-line no-throw-literal
-  Array.from(riter, function () { throw 2; });
-} catch (e) { /* empty */ }
-
-module.exports = function (exec, skipClosing) {
-  if (!skipClosing && !SAFE_CLOSING) return false;
-  var safe = false;
-  try {
-    var arr = [7];
-    var iter = arr[ITERATOR]();
-    iter.next = function () { return { done: safe = true }; };
-    arr[ITERATOR] = function () { return iter; };
-    exec(arr);
-  } catch (e) { /* empty */ }
-  return safe;
-};
-
-},{"./_wks":115}],75:[function(require,module,exports){
+},{"./_export":45,"./_has":48,"./_hide":49,"./_iter-create":55,"./_iterators":58,"./_library":59,"./_object-gpo":68,"./_redefine":74,"./_set-to-string-tag":76,"./_wks":89}],57:[function(require,module,exports){
 module.exports = function (done, value) {
   return { value: value, done: !!done };
 };
 
-},{}],76:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 module.exports = {};
 
-},{}],77:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 module.exports = true;
 
-},{}],78:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 var META = require('./_uid')('meta');
 var isObject = require('./_is-object');
 var has = require('./_has');
@@ -4157,97 +2570,7 @@ var meta = module.exports = {
   onFreeze: onFreeze
 };
 
-},{"./_fails":59,"./_has":62,"./_is-object":70,"./_object-dp":82,"./_uid":112}],79:[function(require,module,exports){
-var global = require('./_global');
-var macrotask = require('./_task').set;
-var Observer = global.MutationObserver || global.WebKitMutationObserver;
-var process = global.process;
-var Promise = global.Promise;
-var isNode = require('./_cof')(process) == 'process';
-
-module.exports = function () {
-  var head, last, notify;
-
-  var flush = function () {
-    var parent, fn;
-    if (isNode && (parent = process.domain)) parent.exit();
-    while (head) {
-      fn = head.fn;
-      head = head.next;
-      try {
-        fn();
-      } catch (e) {
-        if (head) notify();
-        else last = undefined;
-        throw e;
-      }
-    } last = undefined;
-    if (parent) parent.enter();
-  };
-
-  // Node.js
-  if (isNode) {
-    notify = function () {
-      process.nextTick(flush);
-    };
-  // browsers with MutationObserver, except iOS Safari - https://github.com/zloirock/core-js/issues/339
-  } else if (Observer && !(global.navigator && global.navigator.standalone)) {
-    var toggle = true;
-    var node = document.createTextNode('');
-    new Observer(flush).observe(node, { characterData: true }); // eslint-disable-line no-new
-    notify = function () {
-      node.data = toggle = !toggle;
-    };
-  // environments with maybe non-completely correct, but existent Promise
-  } else if (Promise && Promise.resolve) {
-    var promise = Promise.resolve();
-    notify = function () {
-      promise.then(flush);
-    };
-  // for other environments - macrotask based on:
-  // - setImmediate
-  // - MessageChannel
-  // - window.postMessag
-  // - onreadystatechange
-  // - setTimeout
-  } else {
-    notify = function () {
-      // strange IE + webpack dev server bug - use .call(global)
-      macrotask.call(global, flush);
-    };
-  }
-
-  return function (fn) {
-    var task = { fn: fn, next: undefined };
-    if (last) last.next = task;
-    if (!head) {
-      head = task;
-      notify();
-    } last = task;
-  };
-};
-
-},{"./_cof":50,"./_global":61,"./_task":105}],80:[function(require,module,exports){
-'use strict';
-// 25.4.1.5 NewPromiseCapability(C)
-var aFunction = require('./_a-function');
-
-function PromiseCapability(C) {
-  var resolve, reject;
-  this.promise = new C(function ($$resolve, $$reject) {
-    if (resolve !== undefined || reject !== undefined) throw TypeError('Bad Promise constructor');
-    resolve = $$resolve;
-    reject = $$reject;
-  });
-  this.resolve = aFunction(resolve);
-  this.reject = aFunction(reject);
-}
-
-module.exports.f = function (C) {
-  return new PromiseCapability(C);
-};
-
-},{"./_a-function":44}],81:[function(require,module,exports){
+},{"./_fails":46,"./_has":48,"./_is-object":54,"./_object-dp":62,"./_uid":86}],61:[function(require,module,exports){
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 var anObject = require('./_an-object');
 var dPs = require('./_object-dps');
@@ -4290,7 +2613,7 @@ module.exports = Object.create || function create(O, Properties) {
   return Properties === undefined ? result : dPs(result, Properties);
 };
 
-},{"./_an-object":47,"./_dom-create":55,"./_enum-bug-keys":56,"./_html":64,"./_object-dps":83,"./_shared-key":101}],82:[function(require,module,exports){
+},{"./_an-object":35,"./_dom-create":42,"./_enum-bug-keys":43,"./_html":50,"./_object-dps":63,"./_shared-key":77}],62:[function(require,module,exports){
 var anObject = require('./_an-object');
 var IE8_DOM_DEFINE = require('./_ie8-dom-define');
 var toPrimitive = require('./_to-primitive');
@@ -4308,7 +2631,7 @@ exports.f = require('./_descriptors') ? Object.defineProperty : function defineP
   return O;
 };
 
-},{"./_an-object":47,"./_descriptors":54,"./_ie8-dom-define":65,"./_to-primitive":111}],83:[function(require,module,exports){
+},{"./_an-object":35,"./_descriptors":41,"./_ie8-dom-define":51,"./_to-primitive":85}],63:[function(require,module,exports){
 var dP = require('./_object-dp');
 var anObject = require('./_an-object');
 var getKeys = require('./_object-keys');
@@ -4323,7 +2646,7 @@ module.exports = require('./_descriptors') ? Object.defineProperties : function 
   return O;
 };
 
-},{"./_an-object":47,"./_descriptors":54,"./_object-dp":82,"./_object-keys":90}],84:[function(require,module,exports){
+},{"./_an-object":35,"./_descriptors":41,"./_object-dp":62,"./_object-keys":70}],64:[function(require,module,exports){
 var pIE = require('./_object-pie');
 var createDesc = require('./_property-desc');
 var toIObject = require('./_to-iobject');
@@ -4341,7 +2664,7 @@ exports.f = require('./_descriptors') ? gOPD : function getOwnPropertyDescriptor
   if (has(O, P)) return createDesc(!pIE.f.call(O, P), O[P]);
 };
 
-},{"./_descriptors":54,"./_has":62,"./_ie8-dom-define":65,"./_object-pie":91,"./_property-desc":95,"./_to-iobject":108,"./_to-primitive":111}],85:[function(require,module,exports){
+},{"./_descriptors":41,"./_has":48,"./_ie8-dom-define":51,"./_object-pie":71,"./_property-desc":73,"./_to-iobject":82,"./_to-primitive":85}],65:[function(require,module,exports){
 // fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
 var toIObject = require('./_to-iobject');
 var gOPN = require('./_object-gopn').f;
@@ -4362,7 +2685,7 @@ module.exports.f = function getOwnPropertyNames(it) {
   return windowNames && toString.call(it) == '[object Window]' ? getWindowNames(it) : gOPN(toIObject(it));
 };
 
-},{"./_object-gopn":86,"./_to-iobject":108}],86:[function(require,module,exports){
+},{"./_object-gopn":66,"./_to-iobject":82}],66:[function(require,module,exports){
 // 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
 var $keys = require('./_object-keys-internal');
 var hiddenKeys = require('./_enum-bug-keys').concat('length', 'prototype');
@@ -4371,10 +2694,10 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
   return $keys(O, hiddenKeys);
 };
 
-},{"./_enum-bug-keys":56,"./_object-keys-internal":89}],87:[function(require,module,exports){
+},{"./_enum-bug-keys":43,"./_object-keys-internal":69}],67:[function(require,module,exports){
 exports.f = Object.getOwnPropertySymbols;
 
-},{}],88:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
 var has = require('./_has');
 var toObject = require('./_to-object');
@@ -4389,7 +2712,7 @@ module.exports = Object.getPrototypeOf || function (O) {
   } return O instanceof Object ? ObjectProto : null;
 };
 
-},{"./_has":62,"./_shared-key":101,"./_to-object":110}],89:[function(require,module,exports){
+},{"./_has":48,"./_shared-key":77,"./_to-object":84}],69:[function(require,module,exports){
 var has = require('./_has');
 var toIObject = require('./_to-iobject');
 var arrayIndexOf = require('./_array-includes')(false);
@@ -4408,7 +2731,7 @@ module.exports = function (object, names) {
   return result;
 };
 
-},{"./_array-includes":48,"./_has":62,"./_shared-key":101,"./_to-iobject":108}],90:[function(require,module,exports){
+},{"./_array-includes":36,"./_has":48,"./_shared-key":77,"./_to-iobject":82}],70:[function(require,module,exports){
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
 var $keys = require('./_object-keys-internal');
 var enumBugKeys = require('./_enum-bug-keys');
@@ -4417,10 +2740,10 @@ module.exports = Object.keys || function keys(O) {
   return $keys(O, enumBugKeys);
 };
 
-},{"./_enum-bug-keys":56,"./_object-keys-internal":89}],91:[function(require,module,exports){
+},{"./_enum-bug-keys":43,"./_object-keys-internal":69}],71:[function(require,module,exports){
 exports.f = {}.propertyIsEnumerable;
 
-},{}],92:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 // most Object methods by ES6 should accept primitives
 var $export = require('./_export');
 var core = require('./_core');
@@ -4432,30 +2755,7 @@ module.exports = function (KEY, exec) {
   $export($export.S + $export.F * fails(function () { fn(1); }), 'Object', exp);
 };
 
-},{"./_core":51,"./_export":58,"./_fails":59}],93:[function(require,module,exports){
-module.exports = function (exec) {
-  try {
-    return { e: false, v: exec() };
-  } catch (e) {
-    return { e: true, v: e };
-  }
-};
-
-},{}],94:[function(require,module,exports){
-var anObject = require('./_an-object');
-var isObject = require('./_is-object');
-var newPromiseCapability = require('./_new-promise-capability');
-
-module.exports = function (C, x) {
-  anObject(C);
-  if (isObject(x) && x.constructor === C) return x;
-  var promiseCapability = newPromiseCapability.f(C);
-  var resolve = promiseCapability.resolve;
-  resolve(x);
-  return promiseCapability.promise;
-};
-
-},{"./_an-object":47,"./_is-object":70,"./_new-promise-capability":80}],95:[function(require,module,exports){
+},{"./_core":38,"./_export":45,"./_fails":46}],73:[function(require,module,exports){
 module.exports = function (bitmap, value) {
   return {
     enumerable: !(bitmap & 1),
@@ -4465,19 +2765,10 @@ module.exports = function (bitmap, value) {
   };
 };
 
-},{}],96:[function(require,module,exports){
-var hide = require('./_hide');
-module.exports = function (target, src, safe) {
-  for (var key in src) {
-    if (safe && target[key]) target[key] = src[key];
-    else hide(target, key, src[key]);
-  } return target;
-};
-
-},{"./_hide":63}],97:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 module.exports = require('./_hide');
 
-},{"./_hide":63}],98:[function(require,module,exports){
+},{"./_hide":49}],75:[function(require,module,exports){
 // Works with __proto__ only. Old v8 can't work with null proto objects.
 /* eslint-disable no-proto */
 var isObject = require('./_is-object');
@@ -4504,23 +2795,7 @@ module.exports = {
   check: check
 };
 
-},{"./_an-object":47,"./_ctx":52,"./_is-object":70,"./_object-gopd":84}],99:[function(require,module,exports){
-'use strict';
-var global = require('./_global');
-var core = require('./_core');
-var dP = require('./_object-dp');
-var DESCRIPTORS = require('./_descriptors');
-var SPECIES = require('./_wks')('species');
-
-module.exports = function (KEY) {
-  var C = typeof core[KEY] == 'function' ? core[KEY] : global[KEY];
-  if (DESCRIPTORS && C && !C[SPECIES]) dP.f(C, SPECIES, {
-    configurable: true,
-    get: function () { return this; }
-  });
-};
-
-},{"./_core":51,"./_descriptors":54,"./_global":61,"./_object-dp":82,"./_wks":115}],100:[function(require,module,exports){
+},{"./_an-object":35,"./_ctx":39,"./_is-object":54,"./_object-gopd":64}],76:[function(require,module,exports){
 var def = require('./_object-dp').f;
 var has = require('./_has');
 var TAG = require('./_wks')('toStringTag');
@@ -4529,14 +2804,14 @@ module.exports = function (it, tag, stat) {
   if (it && !has(it = stat ? it : it.prototype, TAG)) def(it, TAG, { configurable: true, value: tag });
 };
 
-},{"./_has":62,"./_object-dp":82,"./_wks":115}],101:[function(require,module,exports){
+},{"./_has":48,"./_object-dp":62,"./_wks":89}],77:[function(require,module,exports){
 var shared = require('./_shared')('keys');
 var uid = require('./_uid');
 module.exports = function (key) {
   return shared[key] || (shared[key] = uid(key));
 };
 
-},{"./_shared":102,"./_uid":112}],102:[function(require,module,exports){
+},{"./_shared":78,"./_uid":86}],78:[function(require,module,exports){
 var global = require('./_global');
 var SHARED = '__core-js_shared__';
 var store = global[SHARED] || (global[SHARED] = {});
@@ -4544,18 +2819,7 @@ module.exports = function (key) {
   return store[key] || (store[key] = {});
 };
 
-},{"./_global":61}],103:[function(require,module,exports){
-// 7.3.20 SpeciesConstructor(O, defaultConstructor)
-var anObject = require('./_an-object');
-var aFunction = require('./_a-function');
-var SPECIES = require('./_wks')('species');
-module.exports = function (O, D) {
-  var C = anObject(O).constructor;
-  var S;
-  return C === undefined || (S = anObject(C)[SPECIES]) == undefined ? D : aFunction(S);
-};
-
-},{"./_a-function":44,"./_an-object":47,"./_wks":115}],104:[function(require,module,exports){
+},{"./_global":47}],79:[function(require,module,exports){
 var toInteger = require('./_to-integer');
 var defined = require('./_defined');
 // true  -> String#at
@@ -4574,93 +2838,7 @@ module.exports = function (TO_STRING) {
   };
 };
 
-},{"./_defined":53,"./_to-integer":107}],105:[function(require,module,exports){
-var ctx = require('./_ctx');
-var invoke = require('./_invoke');
-var html = require('./_html');
-var cel = require('./_dom-create');
-var global = require('./_global');
-var process = global.process;
-var setTask = global.setImmediate;
-var clearTask = global.clearImmediate;
-var MessageChannel = global.MessageChannel;
-var Dispatch = global.Dispatch;
-var counter = 0;
-var queue = {};
-var ONREADYSTATECHANGE = 'onreadystatechange';
-var defer, channel, port;
-var run = function () {
-  var id = +this;
-  // eslint-disable-next-line no-prototype-builtins
-  if (queue.hasOwnProperty(id)) {
-    var fn = queue[id];
-    delete queue[id];
-    fn();
-  }
-};
-var listener = function (event) {
-  run.call(event.data);
-};
-// Node.js 0.9+ & IE10+ has setImmediate, otherwise:
-if (!setTask || !clearTask) {
-  setTask = function setImmediate(fn) {
-    var args = [];
-    var i = 1;
-    while (arguments.length > i) args.push(arguments[i++]);
-    queue[++counter] = function () {
-      // eslint-disable-next-line no-new-func
-      invoke(typeof fn == 'function' ? fn : Function(fn), args);
-    };
-    defer(counter);
-    return counter;
-  };
-  clearTask = function clearImmediate(id) {
-    delete queue[id];
-  };
-  // Node.js 0.8-
-  if (require('./_cof')(process) == 'process') {
-    defer = function (id) {
-      process.nextTick(ctx(run, id, 1));
-    };
-  // Sphere (JS game engine) Dispatch API
-  } else if (Dispatch && Dispatch.now) {
-    defer = function (id) {
-      Dispatch.now(ctx(run, id, 1));
-    };
-  // Browsers with MessageChannel, includes WebWorkers
-  } else if (MessageChannel) {
-    channel = new MessageChannel();
-    port = channel.port2;
-    channel.port1.onmessage = listener;
-    defer = ctx(port.postMessage, port, 1);
-  // Browsers with postMessage, skip WebWorkers
-  // IE8 has postMessage, but it's sync & typeof its postMessage is 'object'
-  } else if (global.addEventListener && typeof postMessage == 'function' && !global.importScripts) {
-    defer = function (id) {
-      global.postMessage(id + '', '*');
-    };
-    global.addEventListener('message', listener, false);
-  // IE8-
-  } else if (ONREADYSTATECHANGE in cel('script')) {
-    defer = function (id) {
-      html.appendChild(cel('script'))[ONREADYSTATECHANGE] = function () {
-        html.removeChild(this);
-        run.call(id);
-      };
-    };
-  // Rest old browsers
-  } else {
-    defer = function (id) {
-      setTimeout(ctx(run, id, 1), 0);
-    };
-  }
-}
-module.exports = {
-  set: setTask,
-  clear: clearTask
-};
-
-},{"./_cof":50,"./_ctx":52,"./_dom-create":55,"./_global":61,"./_html":64,"./_invoke":66}],106:[function(require,module,exports){
+},{"./_defined":40,"./_to-integer":81}],80:[function(require,module,exports){
 var toInteger = require('./_to-integer');
 var max = Math.max;
 var min = Math.min;
@@ -4669,7 +2847,7 @@ module.exports = function (index, length) {
   return index < 0 ? max(index + length, 0) : min(index, length);
 };
 
-},{"./_to-integer":107}],107:[function(require,module,exports){
+},{"./_to-integer":81}],81:[function(require,module,exports){
 // 7.1.4 ToInteger
 var ceil = Math.ceil;
 var floor = Math.floor;
@@ -4677,7 +2855,7 @@ module.exports = function (it) {
   return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
 };
 
-},{}],108:[function(require,module,exports){
+},{}],82:[function(require,module,exports){
 // to indexed object, toObject with fallback for non-array-like ES3 strings
 var IObject = require('./_iobject');
 var defined = require('./_defined');
@@ -4685,7 +2863,7 @@ module.exports = function (it) {
   return IObject(defined(it));
 };
 
-},{"./_defined":53,"./_iobject":67}],109:[function(require,module,exports){
+},{"./_defined":40,"./_iobject":52}],83:[function(require,module,exports){
 // 7.1.15 ToLength
 var toInteger = require('./_to-integer');
 var min = Math.min;
@@ -4693,14 +2871,14 @@ module.exports = function (it) {
   return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
 };
 
-},{"./_to-integer":107}],110:[function(require,module,exports){
+},{"./_to-integer":81}],84:[function(require,module,exports){
 // 7.1.13 ToObject(argument)
 var defined = require('./_defined');
 module.exports = function (it) {
   return Object(defined(it));
 };
 
-},{"./_defined":53}],111:[function(require,module,exports){
+},{"./_defined":40}],85:[function(require,module,exports){
 // 7.1.1 ToPrimitive(input [, PreferredType])
 var isObject = require('./_is-object');
 // instead of the ES6 spec version, we didn't implement @@toPrimitive case
@@ -4714,14 +2892,14 @@ module.exports = function (it, S) {
   throw TypeError("Can't convert object to primitive value");
 };
 
-},{"./_is-object":70}],112:[function(require,module,exports){
+},{"./_is-object":54}],86:[function(require,module,exports){
 var id = 0;
 var px = Math.random();
 module.exports = function (key) {
   return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
 };
 
-},{}],113:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 var global = require('./_global');
 var core = require('./_core');
 var LIBRARY = require('./_library');
@@ -4732,10 +2910,10 @@ module.exports = function (name) {
   if (name.charAt(0) != '_' && !(name in $Symbol)) defineProperty($Symbol, name, { value: wksExt.f(name) });
 };
 
-},{"./_core":51,"./_global":61,"./_library":77,"./_object-dp":82,"./_wks-ext":114}],114:[function(require,module,exports){
+},{"./_core":38,"./_global":47,"./_library":59,"./_object-dp":62,"./_wks-ext":88}],88:[function(require,module,exports){
 exports.f = require('./_wks');
 
-},{"./_wks":115}],115:[function(require,module,exports){
+},{"./_wks":89}],89:[function(require,module,exports){
 var store = require('./_shared')('wks');
 var uid = require('./_uid');
 var Symbol = require('./_global').Symbol;
@@ -4748,17 +2926,7 @@ var $exports = module.exports = function (name) {
 
 $exports.store = store;
 
-},{"./_global":61,"./_shared":102,"./_uid":112}],116:[function(require,module,exports){
-var classof = require('./_classof');
-var ITERATOR = require('./_wks')('iterator');
-var Iterators = require('./_iterators');
-module.exports = require('./_core').getIteratorMethod = function (it) {
-  if (it != undefined) return it[ITERATOR]
-    || it['@@iterator']
-    || Iterators[classof(it)];
-};
-
-},{"./_classof":49,"./_core":51,"./_iterators":76,"./_wks":115}],117:[function(require,module,exports){
+},{"./_global":47,"./_shared":78,"./_uid":86}],90:[function(require,module,exports){
 'use strict';
 var addToUnscopables = require('./_add-to-unscopables');
 var step = require('./_iter-step');
@@ -4794,17 +2962,17 @@ addToUnscopables('keys');
 addToUnscopables('values');
 addToUnscopables('entries');
 
-},{"./_add-to-unscopables":45,"./_iter-define":73,"./_iter-step":75,"./_iterators":76,"./_to-iobject":108}],118:[function(require,module,exports){
+},{"./_add-to-unscopables":34,"./_iter-define":56,"./_iter-step":57,"./_iterators":58,"./_to-iobject":82}],91:[function(require,module,exports){
 var $export = require('./_export');
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 $export($export.S, 'Object', { create: require('./_object-create') });
 
-},{"./_export":58,"./_object-create":81}],119:[function(require,module,exports){
+},{"./_export":45,"./_object-create":61}],92:[function(require,module,exports){
 var $export = require('./_export');
 // 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
 $export($export.S + $export.F * !require('./_descriptors'), 'Object', { defineProperty: require('./_object-dp').f });
 
-},{"./_descriptors":54,"./_export":58,"./_object-dp":82}],120:[function(require,module,exports){
+},{"./_descriptors":41,"./_export":45,"./_object-dp":62}],93:[function(require,module,exports){
 // 19.1.2.9 Object.getPrototypeOf(O)
 var toObject = require('./_to-object');
 var $getPrototypeOf = require('./_object-gpo');
@@ -4815,289 +2983,14 @@ require('./_object-sap')('getPrototypeOf', function () {
   };
 });
 
-},{"./_object-gpo":88,"./_object-sap":92,"./_to-object":110}],121:[function(require,module,exports){
+},{"./_object-gpo":68,"./_object-sap":72,"./_to-object":84}],94:[function(require,module,exports){
 // 19.1.3.19 Object.setPrototypeOf(O, proto)
 var $export = require('./_export');
 $export($export.S, 'Object', { setPrototypeOf: require('./_set-proto').set });
 
-},{"./_export":58,"./_set-proto":98}],122:[function(require,module,exports){
+},{"./_export":45,"./_set-proto":75}],95:[function(require,module,exports){
 
-},{}],123:[function(require,module,exports){
-'use strict';
-var LIBRARY = require('./_library');
-var global = require('./_global');
-var ctx = require('./_ctx');
-var classof = require('./_classof');
-var $export = require('./_export');
-var isObject = require('./_is-object');
-var aFunction = require('./_a-function');
-var anInstance = require('./_an-instance');
-var forOf = require('./_for-of');
-var speciesConstructor = require('./_species-constructor');
-var task = require('./_task').set;
-var microtask = require('./_microtask')();
-var newPromiseCapabilityModule = require('./_new-promise-capability');
-var perform = require('./_perform');
-var promiseResolve = require('./_promise-resolve');
-var PROMISE = 'Promise';
-var TypeError = global.TypeError;
-var process = global.process;
-var $Promise = global[PROMISE];
-var isNode = classof(process) == 'process';
-var empty = function () { /* empty */ };
-var Internal, newGenericPromiseCapability, OwnPromiseCapability, Wrapper;
-var newPromiseCapability = newGenericPromiseCapability = newPromiseCapabilityModule.f;
-
-var USE_NATIVE = !!function () {
-  try {
-    // correct subclassing with @@species support
-    var promise = $Promise.resolve(1);
-    var FakePromise = (promise.constructor = {})[require('./_wks')('species')] = function (exec) {
-      exec(empty, empty);
-    };
-    // unhandled rejections tracking support, NodeJS Promise without it fails @@species test
-    return (isNode || typeof PromiseRejectionEvent == 'function') && promise.then(empty) instanceof FakePromise;
-  } catch (e) { /* empty */ }
-}();
-
-// helpers
-var isThenable = function (it) {
-  var then;
-  return isObject(it) && typeof (then = it.then) == 'function' ? then : false;
-};
-var notify = function (promise, isReject) {
-  if (promise._n) return;
-  promise._n = true;
-  var chain = promise._c;
-  microtask(function () {
-    var value = promise._v;
-    var ok = promise._s == 1;
-    var i = 0;
-    var run = function (reaction) {
-      var handler = ok ? reaction.ok : reaction.fail;
-      var resolve = reaction.resolve;
-      var reject = reaction.reject;
-      var domain = reaction.domain;
-      var result, then;
-      try {
-        if (handler) {
-          if (!ok) {
-            if (promise._h == 2) onHandleUnhandled(promise);
-            promise._h = 1;
-          }
-          if (handler === true) result = value;
-          else {
-            if (domain) domain.enter();
-            result = handler(value);
-            if (domain) domain.exit();
-          }
-          if (result === reaction.promise) {
-            reject(TypeError('Promise-chain cycle'));
-          } else if (then = isThenable(result)) {
-            then.call(result, resolve, reject);
-          } else resolve(result);
-        } else reject(value);
-      } catch (e) {
-        reject(e);
-      }
-    };
-    while (chain.length > i) run(chain[i++]); // variable length - can't use forEach
-    promise._c = [];
-    promise._n = false;
-    if (isReject && !promise._h) onUnhandled(promise);
-  });
-};
-var onUnhandled = function (promise) {
-  task.call(global, function () {
-    var value = promise._v;
-    var unhandled = isUnhandled(promise);
-    var result, handler, console;
-    if (unhandled) {
-      result = perform(function () {
-        if (isNode) {
-          process.emit('unhandledRejection', value, promise);
-        } else if (handler = global.onunhandledrejection) {
-          handler({ promise: promise, reason: value });
-        } else if ((console = global.console) && console.error) {
-          console.error('Unhandled promise rejection', value);
-        }
-      });
-      // Browsers should not trigger `rejectionHandled` event if it was handled here, NodeJS - should
-      promise._h = isNode || isUnhandled(promise) ? 2 : 1;
-    } promise._a = undefined;
-    if (unhandled && result.e) throw result.v;
-  });
-};
-var isUnhandled = function (promise) {
-  return promise._h !== 1 && (promise._a || promise._c).length === 0;
-};
-var onHandleUnhandled = function (promise) {
-  task.call(global, function () {
-    var handler;
-    if (isNode) {
-      process.emit('rejectionHandled', promise);
-    } else if (handler = global.onrejectionhandled) {
-      handler({ promise: promise, reason: promise._v });
-    }
-  });
-};
-var $reject = function (value) {
-  var promise = this;
-  if (promise._d) return;
-  promise._d = true;
-  promise = promise._w || promise; // unwrap
-  promise._v = value;
-  promise._s = 2;
-  if (!promise._a) promise._a = promise._c.slice();
-  notify(promise, true);
-};
-var $resolve = function (value) {
-  var promise = this;
-  var then;
-  if (promise._d) return;
-  promise._d = true;
-  promise = promise._w || promise; // unwrap
-  try {
-    if (promise === value) throw TypeError("Promise can't be resolved itself");
-    if (then = isThenable(value)) {
-      microtask(function () {
-        var wrapper = { _w: promise, _d: false }; // wrap
-        try {
-          then.call(value, ctx($resolve, wrapper, 1), ctx($reject, wrapper, 1));
-        } catch (e) {
-          $reject.call(wrapper, e);
-        }
-      });
-    } else {
-      promise._v = value;
-      promise._s = 1;
-      notify(promise, false);
-    }
-  } catch (e) {
-    $reject.call({ _w: promise, _d: false }, e); // wrap
-  }
-};
-
-// constructor polyfill
-if (!USE_NATIVE) {
-  // 25.4.3.1 Promise(executor)
-  $Promise = function Promise(executor) {
-    anInstance(this, $Promise, PROMISE, '_h');
-    aFunction(executor);
-    Internal.call(this);
-    try {
-      executor(ctx($resolve, this, 1), ctx($reject, this, 1));
-    } catch (err) {
-      $reject.call(this, err);
-    }
-  };
-  // eslint-disable-next-line no-unused-vars
-  Internal = function Promise(executor) {
-    this._c = [];             // <- awaiting reactions
-    this._a = undefined;      // <- checked in isUnhandled reactions
-    this._s = 0;              // <- state
-    this._d = false;          // <- done
-    this._v = undefined;      // <- value
-    this._h = 0;              // <- rejection state, 0 - default, 1 - handled, 2 - unhandled
-    this._n = false;          // <- notify
-  };
-  Internal.prototype = require('./_redefine-all')($Promise.prototype, {
-    // 25.4.5.3 Promise.prototype.then(onFulfilled, onRejected)
-    then: function then(onFulfilled, onRejected) {
-      var reaction = newPromiseCapability(speciesConstructor(this, $Promise));
-      reaction.ok = typeof onFulfilled == 'function' ? onFulfilled : true;
-      reaction.fail = typeof onRejected == 'function' && onRejected;
-      reaction.domain = isNode ? process.domain : undefined;
-      this._c.push(reaction);
-      if (this._a) this._a.push(reaction);
-      if (this._s) notify(this, false);
-      return reaction.promise;
-    },
-    // 25.4.5.1 Promise.prototype.catch(onRejected)
-    'catch': function (onRejected) {
-      return this.then(undefined, onRejected);
-    }
-  });
-  OwnPromiseCapability = function () {
-    var promise = new Internal();
-    this.promise = promise;
-    this.resolve = ctx($resolve, promise, 1);
-    this.reject = ctx($reject, promise, 1);
-  };
-  newPromiseCapabilityModule.f = newPromiseCapability = function (C) {
-    return C === $Promise || C === Wrapper
-      ? new OwnPromiseCapability(C)
-      : newGenericPromiseCapability(C);
-  };
-}
-
-$export($export.G + $export.W + $export.F * !USE_NATIVE, { Promise: $Promise });
-require('./_set-to-string-tag')($Promise, PROMISE);
-require('./_set-species')(PROMISE);
-Wrapper = require('./_core')[PROMISE];
-
-// statics
-$export($export.S + $export.F * !USE_NATIVE, PROMISE, {
-  // 25.4.4.5 Promise.reject(r)
-  reject: function reject(r) {
-    var capability = newPromiseCapability(this);
-    var $$reject = capability.reject;
-    $$reject(r);
-    return capability.promise;
-  }
-});
-$export($export.S + $export.F * (LIBRARY || !USE_NATIVE), PROMISE, {
-  // 25.4.4.6 Promise.resolve(x)
-  resolve: function resolve(x) {
-    return promiseResolve(LIBRARY && this === Wrapper ? $Promise : this, x);
-  }
-});
-$export($export.S + $export.F * !(USE_NATIVE && require('./_iter-detect')(function (iter) {
-  $Promise.all(iter)['catch'](empty);
-})), PROMISE, {
-  // 25.4.4.1 Promise.all(iterable)
-  all: function all(iterable) {
-    var C = this;
-    var capability = newPromiseCapability(C);
-    var resolve = capability.resolve;
-    var reject = capability.reject;
-    var result = perform(function () {
-      var values = [];
-      var index = 0;
-      var remaining = 1;
-      forOf(iterable, false, function (promise) {
-        var $index = index++;
-        var alreadyCalled = false;
-        values.push(undefined);
-        remaining++;
-        C.resolve(promise).then(function (value) {
-          if (alreadyCalled) return;
-          alreadyCalled = true;
-          values[$index] = value;
-          --remaining || resolve(values);
-        }, reject);
-      });
-      --remaining || resolve(values);
-    });
-    if (result.e) reject(result.v);
-    return capability.promise;
-  },
-  // 25.4.4.4 Promise.race(iterable)
-  race: function race(iterable) {
-    var C = this;
-    var capability = newPromiseCapability(C);
-    var reject = capability.reject;
-    var result = perform(function () {
-      forOf(iterable, false, function (promise) {
-        C.resolve(promise).then(capability.resolve, reject);
-      });
-    });
-    if (result.e) reject(result.v);
-    return capability.promise;
-  }
-});
-
-},{"./_a-function":44,"./_an-instance":46,"./_classof":49,"./_core":51,"./_ctx":52,"./_export":58,"./_for-of":60,"./_global":61,"./_is-object":70,"./_iter-detect":74,"./_library":77,"./_microtask":79,"./_new-promise-capability":80,"./_perform":93,"./_promise-resolve":94,"./_redefine-all":96,"./_set-species":99,"./_set-to-string-tag":100,"./_species-constructor":103,"./_task":105,"./_wks":115}],124:[function(require,module,exports){
+},{}],96:[function(require,module,exports){
 'use strict';
 var $at = require('./_string-at')(true);
 
@@ -5116,7 +3009,7 @@ require('./_iter-define')(String, 'String', function (iterated) {
   return { value: point, done: false };
 });
 
-},{"./_iter-define":73,"./_string-at":104}],125:[function(require,module,exports){
+},{"./_iter-define":56,"./_string-at":79}],97:[function(require,module,exports){
 'use strict';
 // ECMAScript 6 symbols shim
 var global = require('./_global');
@@ -5352,49 +3245,13 @@ setToStringTag(Math, 'Math', true);
 // 24.3.3 JSON[@@toStringTag]
 setToStringTag(global.JSON, 'JSON', true);
 
-},{"./_an-object":47,"./_descriptors":54,"./_enum-keys":57,"./_export":58,"./_fails":59,"./_global":61,"./_has":62,"./_hide":63,"./_is-array":69,"./_is-object":70,"./_library":77,"./_meta":78,"./_object-create":81,"./_object-dp":82,"./_object-gopd":84,"./_object-gopn":86,"./_object-gopn-ext":85,"./_object-gops":87,"./_object-keys":90,"./_object-pie":91,"./_property-desc":95,"./_redefine":97,"./_set-to-string-tag":100,"./_shared":102,"./_to-iobject":108,"./_to-primitive":111,"./_uid":112,"./_wks":115,"./_wks-define":113,"./_wks-ext":114}],126:[function(require,module,exports){
-// https://github.com/tc39/proposal-promise-finally
-'use strict';
-var $export = require('./_export');
-var core = require('./_core');
-var global = require('./_global');
-var speciesConstructor = require('./_species-constructor');
-var promiseResolve = require('./_promise-resolve');
-
-$export($export.P + $export.R, 'Promise', { 'finally': function (onFinally) {
-  var C = speciesConstructor(this, core.Promise || global.Promise);
-  var isFunction = typeof onFinally == 'function';
-  return this.then(
-    isFunction ? function (x) {
-      return promiseResolve(C, onFinally()).then(function () { return x; });
-    } : onFinally,
-    isFunction ? function (e) {
-      return promiseResolve(C, onFinally()).then(function () { throw e; });
-    } : onFinally
-  );
-} });
-
-},{"./_core":51,"./_export":58,"./_global":61,"./_promise-resolve":94,"./_species-constructor":103}],127:[function(require,module,exports){
-'use strict';
-// https://github.com/tc39/proposal-promise-try
-var $export = require('./_export');
-var newPromiseCapability = require('./_new-promise-capability');
-var perform = require('./_perform');
-
-$export($export.S, 'Promise', { 'try': function (callbackfn) {
-  var promiseCapability = newPromiseCapability.f(this);
-  var result = perform(callbackfn);
-  (result.e ? promiseCapability.reject : promiseCapability.resolve)(result.v);
-  return promiseCapability.promise;
-} });
-
-},{"./_export":58,"./_new-promise-capability":80,"./_perform":93}],128:[function(require,module,exports){
+},{"./_an-object":35,"./_descriptors":41,"./_enum-keys":44,"./_export":45,"./_fails":46,"./_global":47,"./_has":48,"./_hide":49,"./_is-array":53,"./_is-object":54,"./_library":59,"./_meta":60,"./_object-create":61,"./_object-dp":62,"./_object-gopd":64,"./_object-gopn":66,"./_object-gopn-ext":65,"./_object-gops":67,"./_object-keys":70,"./_object-pie":71,"./_property-desc":73,"./_redefine":74,"./_set-to-string-tag":76,"./_shared":78,"./_to-iobject":82,"./_to-primitive":85,"./_uid":86,"./_wks":89,"./_wks-define":87,"./_wks-ext":88}],98:[function(require,module,exports){
 require('./_wks-define')('asyncIterator');
 
-},{"./_wks-define":113}],129:[function(require,module,exports){
+},{"./_wks-define":87}],99:[function(require,module,exports){
 require('./_wks-define')('observable');
 
-},{"./_wks-define":113}],130:[function(require,module,exports){
+},{"./_wks-define":87}],100:[function(require,module,exports){
 require('./es6.array.iterator');
 var global = require('./_global');
 var hide = require('./_hide');
@@ -5415,10 +3272,7 @@ for (var i = 0; i < DOMIterables.length; i++) {
   Iterators[NAME] = Iterators.Array;
 }
 
-},{"./_global":61,"./_hide":63,"./_iterators":76,"./_wks":115,"./es6.array.iterator":117}],131:[function(require,module,exports){
-module.exports = require("regenerator-runtime");
-
-},{"regenerator-runtime":319}],132:[function(require,module,exports){
+},{"./_global":47,"./_hide":49,"./_iterators":58,"./_wks":89,"./es6.array.iterator":90}],101:[function(require,module,exports){
 'use strict'
 
 exports.byteLength = byteLength
@@ -5536,2734 +3390,7 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-},{}],133:[function(require,module,exports){
-;(function (globalObject) {
-    'use strict';
-
-/*
- *      bignumber.js v6.0.0
- *      A JavaScript library for arbitrary-precision arithmetic.
- *      https://github.com/MikeMcl/bignumber.js
- *      Copyright (c) 2018 Michael Mclaughlin <M8ch88l@gmail.com>
- *      MIT Licensed.
- *
- *      BigNumber.prototype methods     |  BigNumber methods
- *                                      |
- *      absoluteValue            abs    |  clone
- *      comparedTo                      |  config               set
- *      decimalPlaces            dp     |      DECIMAL_PLACES
- *      dividedBy                div    |      ROUNDING_MODE
- *      dividedToIntegerBy       idiv   |      EXPONENTIAL_AT
- *      exponentiatedBy          pow    |      RANGE
- *      integerValue                    |      CRYPTO
- *      isEqualTo                eq     |      MODULO_MODE
- *      isFinite                        |      POW_PRECISION
- *      isGreaterThan            gt     |      FORMAT
- *      isGreaterThanOrEqualTo   gte    |      ALPHABET
- *      isInteger                       |  isBigNumber
- *      isLessThan               lt     |  maximum              max
- *      isLessThanOrEqualTo      lte    |  minimum              min
- *      isNaN                           |  random
- *      isNegative                      |
- *      isPositive                      |
- *      isZero                          |
- *      minus                           |
- *      modulo                   mod    |
- *      multipliedBy             times  |
- *      negated                         |
- *      plus                            |
- *      precision                sd     |
- *      shiftedBy                       |
- *      squareRoot               sqrt   |
- *      toExponential                   |
- *      toFixed                         |
- *      toFormat                        |
- *      toFraction                      |
- *      toJSON                          |
- *      toNumber                        |
- *      toPrecision                     |
- *      toString                        |
- *      valueOf                         |
- *
- */
-
-
-    var BigNumber,
-        isNumeric = /^-?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?$/i,
-
-        mathceil = Math.ceil,
-        mathfloor = Math.floor,
-
-        bignumberError = '[BigNumber Error] ',
-        tooManyDigits = bignumberError + 'Number primitive has more than 15 significant digits: ',
-
-        BASE = 1e14,
-        LOG_BASE = 14,
-        MAX_SAFE_INTEGER = 0x1fffffffffffff,         // 2^53 - 1
-        // MAX_INT32 = 0x7fffffff,                   // 2^31 - 1
-        POWS_TEN = [1, 10, 100, 1e3, 1e4, 1e5, 1e6, 1e7, 1e8, 1e9, 1e10, 1e11, 1e12, 1e13],
-        SQRT_BASE = 1e7,
-
-        // EDITABLE
-        // The limit on the value of DECIMAL_PLACES, TO_EXP_NEG, TO_EXP_POS, MIN_EXP, MAX_EXP, and
-        // the arguments to toExponential, toFixed, toFormat, and toPrecision.
-        MAX = 1E9;                                   // 0 to MAX_INT32
-
-
-    /*
-     * Create and return a BigNumber constructor.
-     */
-    function clone(configObject) {
-        var div, convertBase, parseNumeric,
-            P = BigNumber.prototype,
-            ONE = new BigNumber(1),
-
-
-            //----------------------------- EDITABLE CONFIG DEFAULTS -------------------------------
-
-
-            // The default values below must be integers within the inclusive ranges stated.
-            // The values can also be changed at run-time using BigNumber.set.
-
-            // The maximum number of decimal places for operations involving division.
-            DECIMAL_PLACES = 20,                     // 0 to MAX
-
-            // The rounding mode used when rounding to the above decimal places, and when using
-            // toExponential, toFixed, toFormat and toPrecision, and round (default value).
-            // UP         0 Away from zero.
-            // DOWN       1 Towards zero.
-            // CEIL       2 Towards +Infinity.
-            // FLOOR      3 Towards -Infinity.
-            // HALF_UP    4 Towards nearest neighbour. If equidistant, up.
-            // HALF_DOWN  5 Towards nearest neighbour. If equidistant, down.
-            // HALF_EVEN  6 Towards nearest neighbour. If equidistant, towards even neighbour.
-            // HALF_CEIL  7 Towards nearest neighbour. If equidistant, towards +Infinity.
-            // HALF_FLOOR 8 Towards nearest neighbour. If equidistant, towards -Infinity.
-            ROUNDING_MODE = 4,                       // 0 to 8
-
-            // EXPONENTIAL_AT : [TO_EXP_NEG , TO_EXP_POS]
-
-            // The exponent value at and beneath which toString returns exponential notation.
-            // Number type: -7
-            TO_EXP_NEG = -7,                         // 0 to -MAX
-
-            // The exponent value at and above which toString returns exponential notation.
-            // Number type: 21
-            TO_EXP_POS = 21,                         // 0 to MAX
-
-            // RANGE : [MIN_EXP, MAX_EXP]
-
-            // The minimum exponent value, beneath which underflow to zero occurs.
-            // Number type: -324  (5e-324)
-            MIN_EXP = -1e7,                          // -1 to -MAX
-
-            // The maximum exponent value, above which overflow to Infinity occurs.
-            // Number type:  308  (1.7976931348623157e+308)
-            // For MAX_EXP > 1e7, e.g. new BigNumber('1e100000000').plus(1) may be slow.
-            MAX_EXP = 1e7,                           // 1 to MAX
-
-            // Whether to use cryptographically-secure random number generation, if available.
-            CRYPTO = false,                          // true or false
-
-            // The modulo mode used when calculating the modulus: a mod n.
-            // The quotient (q = a / n) is calculated according to the corresponding rounding mode.
-            // The remainder (r) is calculated as: r = a - n * q.
-            //
-            // UP        0 The remainder is positive if the dividend is negative, else is negative.
-            // DOWN      1 The remainder has the same sign as the dividend.
-            //             This modulo mode is commonly known as 'truncated division' and is
-            //             equivalent to (a % n) in JavaScript.
-            // FLOOR     3 The remainder has the same sign as the divisor (Python %).
-            // HALF_EVEN 6 This modulo mode implements the IEEE 754 remainder function.
-            // EUCLID    9 Euclidian division. q = sign(n) * floor(a / abs(n)).
-            //             The remainder is always positive.
-            //
-            // The truncated division, floored division, Euclidian division and IEEE 754 remainder
-            // modes are commonly used for the modulus operation.
-            // Although the other rounding modes can also be used, they may not give useful results.
-            MODULO_MODE = 1,                         // 0 to 9
-
-            // The maximum number of significant digits of the result of the exponentiatedBy operation.
-            // If POW_PRECISION is 0, there will be unlimited significant digits.
-            POW_PRECISION = 0,                    // 0 to MAX
-
-            // The format specification used by the BigNumber.prototype.toFormat method.
-            FORMAT = {
-                decimalSeparator: '.',
-                groupSeparator: ',',
-                groupSize: 3,
-                secondaryGroupSize: 0,
-                fractionGroupSeparator: '\xA0',      // non-breaking space
-                fractionGroupSize: 0
-            },
-
-            // The alphabet used for base conversion.
-            // It must be at least 2 characters long, with no '.' or repeated character.
-            // '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_'
-            ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyz';
-
-
-        //------------------------------------------------------------------------------------------
-
-
-        // CONSTRUCTOR
-
-
-        /*
-         * The BigNumber constructor and exported function.
-         * Create and return a new instance of a BigNumber object.
-         *
-         * n {number|string|BigNumber} A numeric value.
-         * [b] {number} The base of n. Integer, 2 to ALPHABET.length inclusive.
-         */
-        function BigNumber( n, b ) {
-            var alphabet, c, e, i, isNum, len, str,
-                x = this;
-
-            // Enable constructor usage without new.
-            if ( !( x instanceof BigNumber ) ) {
-
-                // Don't throw on constructor call without new (#81).
-                // '[BigNumber Error] Constructor call without new: {n}'
-                //throw Error( bignumberError + ' Constructor call without new: ' + n );
-                return new BigNumber( n, b );
-            }
-
-            if ( b == null ) {
-
-                // Duplicate.
-                if ( n instanceof BigNumber ) {
-                    x.s = n.s;
-                    x.e = n.e;
-                    x.c = ( n = n.c ) ? n.slice() : n;
-                    return;
-                }
-
-                isNum = typeof n == 'number';
-
-                if ( isNum && n * 0 == 0 ) {
-
-                    // Use `1 / n` to handle minus zero also.
-                    x.s = 1 / n < 0 ? ( n = -n, -1 ) : 1;
-
-                    // Faster path for integers.
-                    if ( n === ~~n ) {
-                        for ( e = 0, i = n; i >= 10; i /= 10, e++ );
-                        x.e = e;
-                        x.c = [n];
-                        return;
-                    }
-
-                    str = n + '';
-                } else {
-                    if ( !isNumeric.test( str = n + '' ) ) return parseNumeric( x, str, isNum );
-                    x.s = str.charCodeAt(0) == 45 ? ( str = str.slice(1), -1 ) : 1;
-                }
-
-            } else {
-
-                // '[BigNumber Error] Base {not a primitive number|not an integer|out of range}: {b}'
-                intCheck( b, 2, ALPHABET.length, 'Base' );
-                str = n + '';
-
-                // Allow exponential notation to be used with base 10 argument, while
-                // also rounding to DECIMAL_PLACES as with other bases.
-                if ( b == 10 ) {
-                    x = new BigNumber( n instanceof BigNumber ? n : str );
-                    return round( x, DECIMAL_PLACES + x.e + 1, ROUNDING_MODE );
-                }
-
-                isNum = typeof n == 'number';
-
-                if (isNum) {
-
-                    // Avoid potential interpretation of Infinity and NaN as base 44+ values.
-                    if ( n * 0 != 0 ) return parseNumeric( x, str, isNum, b );
-
-                    x.s = 1 / n < 0 ? ( str = str.slice(1), -1 ) : 1;
-
-                    // '[BigNumber Error] Number primitive has more than 15 significant digits: {n}'
-                    if ( str.replace( /^0\.0*|\./, '' ).length > 15 ) {
-                        throw Error
-                          ( tooManyDigits + n );
-                    }
-
-                    // Prevent later check for length on converted number.
-                    isNum = false;
-                } else {
-                    x.s = str.charCodeAt(0) === 45 ? ( str = str.slice(1), -1 ) : 1;
-
-                    // Allow e.g. hexadecimal 'FF' as well as 'ff'.
-                    if ( b > 10 && b < 37 ) str = str.toLowerCase();
-                }
-
-                alphabet = ALPHABET.slice( 0, b );
-                e = i = 0;
-
-                // Check that str is a valid base b number.
-                // Don't use RegExp so alphabet can contain special characters.
-                for ( len = str.length; i < len; i++ ) {
-                    if ( alphabet.indexOf( c = str.charAt(i) ) < 0 ) {
-                        if ( c == '.' ) {
-
-                            // If '.' is not the first character and it has not be found before.
-                            if ( i > e ) {
-                                e = len;
-                                continue;
-                            }
-                        }
-
-                        return parseNumeric( x, n + '', isNum, b );
-                    }
-                }
-
-                str = convertBase( str, b, 10, x.s );
-            }
-
-            // Decimal point?
-            if ( ( e = str.indexOf('.') ) > -1 ) str = str.replace( '.', '' );
-
-            // Exponential form?
-            if ( ( i = str.search( /e/i ) ) > 0 ) {
-
-                // Determine exponent.
-                if ( e < 0 ) e = i;
-                e += +str.slice( i + 1 );
-                str = str.substring( 0, i );
-            } else if ( e < 0 ) {
-
-                // Integer.
-                e = str.length;
-            }
-
-            // Determine leading zeros.
-            for ( i = 0; str.charCodeAt(i) === 48; i++ );
-
-            // Determine trailing zeros.
-            for ( len = str.length; str.charCodeAt(--len) === 48; );
-            str = str.slice( i, len + 1 );
-
-            if (str) {
-                len = str.length;
-
-                // '[BigNumber Error] Number primitive has more than 15 significant digits: {n}'
-                if ( isNum && len > 15 && ( n > MAX_SAFE_INTEGER || n !== mathfloor(n) ) ) {
-                    throw Error
-                      ( tooManyDigits + ( x.s * n ) );
-                }
-
-                e = e - i - 1;
-
-                 // Overflow?
-                if ( e > MAX_EXP ) {
-
-                    // Infinity.
-                    x.c = x.e = null;
-
-                // Underflow?
-                } else if ( e < MIN_EXP ) {
-
-                    // Zero.
-                    x.c = [ x.e = 0 ];
-                } else {
-                    x.e = e;
-                    x.c = [];
-
-                    // Transform base
-
-                    // e is the base 10 exponent.
-                    // i is where to slice str to get the first element of the coefficient array.
-                    i = ( e + 1 ) % LOG_BASE;
-                    if ( e < 0 ) i += LOG_BASE;
-
-                    if ( i < len ) {
-                        if (i) x.c.push( +str.slice( 0, i ) );
-
-                        for ( len -= LOG_BASE; i < len; ) {
-                            x.c.push( +str.slice( i, i += LOG_BASE ) );
-                        }
-
-                        str = str.slice(i);
-                        i = LOG_BASE - str.length;
-                    } else {
-                        i -= len;
-                    }
-
-                    for ( ; i--; str += '0' );
-                    x.c.push( +str );
-                }
-            } else {
-
-                // Zero.
-                x.c = [ x.e = 0 ];
-            }
-        }
-
-
-        // CONSTRUCTOR PROPERTIES
-
-
-        BigNumber.clone = clone;
-
-        BigNumber.ROUND_UP = 0;
-        BigNumber.ROUND_DOWN = 1;
-        BigNumber.ROUND_CEIL = 2;
-        BigNumber.ROUND_FLOOR = 3;
-        BigNumber.ROUND_HALF_UP = 4;
-        BigNumber.ROUND_HALF_DOWN = 5;
-        BigNumber.ROUND_HALF_EVEN = 6;
-        BigNumber.ROUND_HALF_CEIL = 7;
-        BigNumber.ROUND_HALF_FLOOR = 8;
-        BigNumber.EUCLID = 9;
-
-
-        /*
-         * Configure infrequently-changing library-wide settings.
-         *
-         * Accept an object with the following optional properties (if the value of a property is
-         * a number, it must be an integer within the inclusive range stated):
-         *
-         *   DECIMAL_PLACES   {number}           0 to MAX
-         *   ROUNDING_MODE    {number}           0 to 8
-         *   EXPONENTIAL_AT   {number|number[]}  -MAX to MAX  or  [-MAX to 0, 0 to MAX]
-         *   RANGE            {number|number[]}  -MAX to MAX (not zero)  or  [-MAX to -1, 1 to MAX]
-         *   CRYPTO           {boolean}          true or false
-         *   MODULO_MODE      {number}           0 to 9
-         *   POW_PRECISION       {number}           0 to MAX
-         *   ALPHABET         {string}           A string of two or more unique characters, and not
-         *                                       containing '.'. The empty string, null or undefined
-         *                                       resets the alphabet to its default value.
-         *   FORMAT           {object}           An object with some of the following properties:
-         *      decimalSeparator       {string}
-         *      groupSeparator         {string}
-         *      groupSize              {number}
-         *      secondaryGroupSize     {number}
-         *      fractionGroupSeparator {string}
-         *      fractionGroupSize      {number}
-         *
-         * (The values assigned to the above FORMAT object properties are not checked for validity.)
-         *
-         * E.g.
-         * BigNumber.config({ DECIMAL_PLACES : 20, ROUNDING_MODE : 4 })
-         *
-         * Ignore properties/parameters set to null or undefined, except for ALPHABET.
-         *
-         * Return an object with the properties current values.
-         */
-        BigNumber.config = BigNumber.set = function (obj) {
-            var p, v;
-
-            if ( obj != null ) {
-
-                if ( typeof obj == 'object' ) {
-
-                    // DECIMAL_PLACES {number} Integer, 0 to MAX inclusive.
-                    // '[BigNumber Error] DECIMAL_PLACES {not a primitive number|not an integer|out of range}: {v}'
-                    if ( obj.hasOwnProperty( p = 'DECIMAL_PLACES' ) ) {
-                        v = obj[p];
-                        intCheck( v, 0, MAX, p );
-                        DECIMAL_PLACES = v;
-                    }
-
-                    // ROUNDING_MODE {number} Integer, 0 to 8 inclusive.
-                    // '[BigNumber Error] ROUNDING_MODE {not a primitive number|not an integer|out of range}: {v}'
-                    if ( obj.hasOwnProperty( p = 'ROUNDING_MODE' ) ) {
-                        v = obj[p];
-                        intCheck( v, 0, 8, p );
-                        ROUNDING_MODE = v;
-                    }
-
-                    // EXPONENTIAL_AT {number|number[]}
-                    // Integer, -MAX to MAX inclusive or
-                    // [integer -MAX to 0 inclusive, 0 to MAX inclusive].
-                    // '[BigNumber Error] EXPONENTIAL_AT {not a primitive number|not an integer|out of range}: {v}'
-                    if ( obj.hasOwnProperty( p = 'EXPONENTIAL_AT' ) ) {
-                        v = obj[p];
-                        if ( isArray(v) ) {
-                            intCheck( v[0], -MAX, 0, p );
-                            intCheck( v[1], 0, MAX, p );
-                            TO_EXP_NEG = v[0];
-                            TO_EXP_POS = v[1];
-                        } else {
-                            intCheck( v, -MAX, MAX, p );
-                            TO_EXP_NEG = -( TO_EXP_POS = v < 0 ? -v : v );
-                        }
-                    }
-
-                    // RANGE {number|number[]} Non-zero integer, -MAX to MAX inclusive or
-                    // [integer -MAX to -1 inclusive, integer 1 to MAX inclusive].
-                    // '[BigNumber Error] RANGE {not a primitive number|not an integer|out of range|cannot be zero}: {v}'
-                    if ( obj.hasOwnProperty( p = 'RANGE' ) ) {
-                        v = obj[p];
-                        if ( isArray(v) ) {
-                            intCheck( v[0], -MAX, -1, p );
-                            intCheck( v[1], 1, MAX, p );
-                            MIN_EXP = v[0];
-                            MAX_EXP = v[1];
-                        } else {
-                            intCheck( v, -MAX, MAX, p );
-                            if (v) {
-                                MIN_EXP = -( MAX_EXP = v < 0 ? -v : v );
-                            } else {
-                                throw Error
-                                  ( bignumberError + p + ' cannot be zero: ' + v );
-                            }
-                        }
-                    }
-
-                    // CRYPTO {boolean} true or false.
-                    // '[BigNumber Error] CRYPTO not true or false: {v}'
-                    // '[BigNumber Error] crypto unavailable'
-                    if ( obj.hasOwnProperty( p = 'CRYPTO' ) ) {
-                        v = obj[p];
-                        if ( v === !!v ) {
-                            if (v) {
-                                if ( typeof crypto != 'undefined' && crypto &&
-                                  (crypto.getRandomValues || crypto.randomBytes) ) {
-                                    CRYPTO = v;
-                                } else {
-                                    CRYPTO = !v;
-                                    throw Error
-                                      ( bignumberError + 'crypto unavailable' );
-                                }
-                            } else {
-                                CRYPTO = v;
-                            }
-                        } else {
-                            throw Error
-                              ( bignumberError + p + ' not true or false: ' + v );
-                        }
-                    }
-
-                    // MODULO_MODE {number} Integer, 0 to 9 inclusive.
-                    // '[BigNumber Error] MODULO_MODE {not a primitive number|not an integer|out of range}: {v}'
-                    if ( obj.hasOwnProperty( p = 'MODULO_MODE' ) ) {
-                        v = obj[p];
-                        intCheck( v, 0, 9, p );
-                        MODULO_MODE = v;
-                    }
-
-                    // POW_PRECISION {number} Integer, 0 to MAX inclusive.
-                    // '[BigNumber Error] POW_PRECISION {not a primitive number|not an integer|out of range}: {v}'
-                    if ( obj.hasOwnProperty( p = 'POW_PRECISION' ) ) {
-                        v = obj[p];
-                        intCheck( v, 0, MAX, p );
-                        POW_PRECISION = v;
-                    }
-
-                    // FORMAT {object}
-                    // '[BigNumber Error] FORMAT not an object: {v}'
-                    if ( obj.hasOwnProperty( p = 'FORMAT' ) ) {
-                        v = obj[p];
-                        if ( typeof v == 'object' ) FORMAT = v;
-                        else throw Error
-                          ( bignumberError + p + ' not an object: ' + v );
-                    }
-
-                    // ALPHABET {string}
-                    // '[BigNumber Error] ALPHABET invalid: {v}'
-                    if ( obj.hasOwnProperty( p = 'ALPHABET' ) ) {
-                        v = obj[p];
-
-                        // Disallow if only one character, or contains '.' or a repeated character.
-                        if ( typeof v == 'string' && !/^.$|\.|(.).*\1/.test(v) ) {
-                            ALPHABET = v;
-                        } else {
-                            throw Error
-                              ( bignumberError + p + ' invalid: ' + v );
-                        }
-                    }
-
-                } else {
-
-                    // '[BigNumber Error] Object expected: {v}'
-                    throw Error
-                      ( bignumberError + 'Object expected: ' + obj );
-                }
-            }
-
-            return {
-                DECIMAL_PLACES: DECIMAL_PLACES,
-                ROUNDING_MODE: ROUNDING_MODE,
-                EXPONENTIAL_AT: [ TO_EXP_NEG, TO_EXP_POS ],
-                RANGE: [ MIN_EXP, MAX_EXP ],
-                CRYPTO: CRYPTO,
-                MODULO_MODE: MODULO_MODE,
-                POW_PRECISION: POW_PRECISION,
-                FORMAT: FORMAT,
-                ALPHABET: ALPHABET
-            };
-        };
-
-
-        /*
-         * Return true if v is a BigNumber instance, otherwise return false.
-         *
-         * v {any}
-         */
-        BigNumber.isBigNumber = function (v) {
-            return v instanceof BigNumber || v && v._isBigNumber === true || false;
-        };
-
-
-        /*
-         * Return a new BigNumber whose value is the maximum of the arguments.
-         *
-         * arguments {number|string|BigNumber}
-         */
-        BigNumber.maximum = BigNumber.max = function () {
-            return maxOrMin( arguments, P.lt );
-        };
-
-
-        /*
-         * Return a new BigNumber whose value is the minimum of the arguments.
-         *
-         * arguments {number|string|BigNumber}
-         */
-        BigNumber.minimum = BigNumber.min = function () {
-            return maxOrMin( arguments, P.gt );
-        };
-
-
-        /*
-         * Return a new BigNumber with a random value equal to or greater than 0 and less than 1,
-         * and with dp, or DECIMAL_PLACES if dp is omitted, decimal places (or less if trailing
-         * zeros are produced).
-         *
-         * [dp] {number} Decimal places. Integer, 0 to MAX inclusive.
-         *
-         * '[BigNumber Error] Argument {not a primitive number|not an integer|out of range}: {dp}'
-         * '[BigNumber Error] crypto unavailable'
-         */
-        BigNumber.random = (function () {
-            var pow2_53 = 0x20000000000000;
-
-            // Return a 53 bit integer n, where 0 <= n < 9007199254740992.
-            // Check if Math.random() produces more than 32 bits of randomness.
-            // If it does, assume at least 53 bits are produced, otherwise assume at least 30 bits.
-            // 0x40000000 is 2^30, 0x800000 is 2^23, 0x1fffff is 2^21 - 1.
-            var random53bitInt = (Math.random() * pow2_53) & 0x1fffff
-              ? function () { return mathfloor( Math.random() * pow2_53 ); }
-              : function () { return ((Math.random() * 0x40000000 | 0) * 0x800000) +
-                  (Math.random() * 0x800000 | 0); };
-
-            return function (dp) {
-                var a, b, e, k, v,
-                    i = 0,
-                    c = [],
-                    rand = new BigNumber(ONE);
-
-                if ( dp == null ) dp = DECIMAL_PLACES;
-                else intCheck( dp, 0, MAX );
-
-                k = mathceil( dp / LOG_BASE );
-
-                if (CRYPTO) {
-
-                    // Browsers supporting crypto.getRandomValues.
-                    if (crypto.getRandomValues) {
-
-                        a = crypto.getRandomValues( new Uint32Array( k *= 2 ) );
-
-                        for ( ; i < k; ) {
-
-                            // 53 bits:
-                            // ((Math.pow(2, 32) - 1) * Math.pow(2, 21)).toString(2)
-                            // 11111 11111111 11111111 11111111 11100000 00000000 00000000
-                            // ((Math.pow(2, 32) - 1) >>> 11).toString(2)
-                            //                                     11111 11111111 11111111
-                            // 0x20000 is 2^21.
-                            v = a[i] * 0x20000 + (a[i + 1] >>> 11);
-
-                            // Rejection sampling:
-                            // 0 <= v < 9007199254740992
-                            // Probability that v >= 9e15, is
-                            // 7199254740992 / 9007199254740992 ~= 0.0008, i.e. 1 in 1251
-                            if ( v >= 9e15 ) {
-                                b = crypto.getRandomValues( new Uint32Array(2) );
-                                a[i] = b[0];
-                                a[i + 1] = b[1];
-                            } else {
-
-                                // 0 <= v <= 8999999999999999
-                                // 0 <= (v % 1e14) <= 99999999999999
-                                c.push( v % 1e14 );
-                                i += 2;
-                            }
-                        }
-                        i = k / 2;
-
-                    // Node.js supporting crypto.randomBytes.
-                    } else if (crypto.randomBytes) {
-
-                        // buffer
-                        a = crypto.randomBytes( k *= 7 );
-
-                        for ( ; i < k; ) {
-
-                            // 0x1000000000000 is 2^48, 0x10000000000 is 2^40
-                            // 0x100000000 is 2^32, 0x1000000 is 2^24
-                            // 11111 11111111 11111111 11111111 11111111 11111111 11111111
-                            // 0 <= v < 9007199254740992
-                            v = ( ( a[i] & 31 ) * 0x1000000000000 ) + ( a[i + 1] * 0x10000000000 ) +
-                                  ( a[i + 2] * 0x100000000 ) + ( a[i + 3] * 0x1000000 ) +
-                                  ( a[i + 4] << 16 ) + ( a[i + 5] << 8 ) + a[i + 6];
-
-                            if ( v >= 9e15 ) {
-                                crypto.randomBytes(7).copy( a, i );
-                            } else {
-
-                                // 0 <= (v % 1e14) <= 99999999999999
-                                c.push( v % 1e14 );
-                                i += 7;
-                            }
-                        }
-                        i = k / 7;
-                    } else {
-                        CRYPTO = false;
-                        throw Error
-                          ( bignumberError + 'crypto unavailable' );
-                    }
-                }
-
-                // Use Math.random.
-                if (!CRYPTO) {
-
-                    for ( ; i < k; ) {
-                        v = random53bitInt();
-                        if ( v < 9e15 ) c[i++] = v % 1e14;
-                    }
-                }
-
-                k = c[--i];
-                dp %= LOG_BASE;
-
-                // Convert trailing digits to zeros according to dp.
-                if ( k && dp ) {
-                    v = POWS_TEN[LOG_BASE - dp];
-                    c[i] = mathfloor( k / v ) * v;
-                }
-
-                // Remove trailing elements which are zero.
-                for ( ; c[i] === 0; c.pop(), i-- );
-
-                // Zero?
-                if ( i < 0 ) {
-                    c = [ e = 0 ];
-                } else {
-
-                    // Remove leading elements which are zero and adjust exponent accordingly.
-                    for ( e = -1 ; c[0] === 0; c.splice(0, 1), e -= LOG_BASE);
-
-                    // Count the digits of the first element of c to determine leading zeros, and...
-                    for ( i = 1, v = c[0]; v >= 10; v /= 10, i++);
-
-                    // adjust the exponent accordingly.
-                    if ( i < LOG_BASE ) e -= LOG_BASE - i;
-                }
-
-                rand.e = e;
-                rand.c = c;
-                return rand;
-            };
-        })();
-
-
-        // PRIVATE FUNCTIONS
-
-
-        // Called by BigNumber and BigNumber.prototype.toString.
-        convertBase = ( function () {
-            var decimal = '0123456789';
-
-            /*
-             * Convert string of baseIn to an array of numbers of baseOut.
-             * Eg. toBaseOut('255', 10, 16) returns [15, 15].
-             * Eg. toBaseOut('ff', 16, 10) returns [2, 5, 5].
-             */
-            function toBaseOut( str, baseIn, baseOut, alphabet ) {
-                var j,
-                    arr = [0],
-                    arrL,
-                    i = 0,
-                    len = str.length;
-
-                for ( ; i < len; ) {
-                    for ( arrL = arr.length; arrL--; arr[arrL] *= baseIn );
-
-                    arr[0] += alphabet.indexOf( str.charAt( i++ ) );
-
-                    for ( j = 0; j < arr.length; j++ ) {
-
-                        if ( arr[j] > baseOut - 1 ) {
-                            if ( arr[j + 1] == null ) arr[j + 1] = 0;
-                            arr[j + 1] += arr[j] / baseOut | 0;
-                            arr[j] %= baseOut;
-                        }
-                    }
-                }
-
-                return arr.reverse();
-            }
-
-            // Convert a numeric string of baseIn to a numeric string of baseOut.
-            // If the caller is toString, we are converting from base 10 to baseOut.
-            // If the caller is BigNumber, we are converting from baseIn to base 10.
-            return function ( str, baseIn, baseOut, sign, callerIsToString ) {
-                var alphabet, d, e, k, r, x, xc, y,
-                    i = str.indexOf( '.' ),
-                    dp = DECIMAL_PLACES,
-                    rm = ROUNDING_MODE;
-
-                // Non-integer.
-                if ( i >= 0 ) {
-                    k = POW_PRECISION;
-
-                    // Unlimited precision.
-                    POW_PRECISION = 0;
-                    str = str.replace( '.', '' );
-                    y = new BigNumber(baseIn);
-                    x = y.pow( str.length - i );
-                    POW_PRECISION = k;
-
-                    // Convert str as if an integer, then restore the fraction part by dividing the
-                    // result by its base raised to a power.
-
-                    y.c = toBaseOut( toFixedPoint( coeffToString( x.c ), x.e, '0' ),
-                      10, baseOut, decimal );
-                    y.e = y.c.length;
-                }
-
-                // Convert the number as integer.
-
-                xc = toBaseOut( str, baseIn, baseOut, callerIsToString
-                  ? ( alphabet = ALPHABET, decimal )
-                  : ( alphabet = decimal, ALPHABET ) );
-
-
-                // xc now represents str as an integer and converted to baseOut. e is the exponent.
-                e = k = xc.length;
-
-                // Remove trailing zeros.
-                for ( ; xc[--k] == 0; xc.pop() );
-
-                // Zero?
-                if ( !xc[0] ) return alphabet.charAt(0);
-
-                // Does str represent an integer? If so, no need for the division.
-                if ( i < 0 ) {
-                    --e;
-                } else {
-                    x.c = xc;
-                    x.e = e;
-
-                    // The sign is needed for correct rounding.
-                    x.s = sign;
-                    x = div( x, y, dp, rm, baseOut );
-                    xc = x.c;
-                    r = x.r;
-                    e = x.e;
-                }
-
-                // xc now represents str converted to baseOut.
-
-                // THe index of the rounding digit.
-                d = e + dp + 1;
-
-                // The rounding digit: the digit to the right of the digit that may be rounded up.
-                i = xc[d];
-
-                // Look at the rounding digits and mode to determine whether to round up.
-
-                k = baseOut / 2;
-                r = r || d < 0 || xc[d + 1] != null;
-
-                r = rm < 4 ? ( i != null || r ) && ( rm == 0 || rm == ( x.s < 0 ? 3 : 2 ) )
-                           : i > k || i == k &&( rm == 4 || r || rm == 6 && xc[d - 1] & 1 ||
-                             rm == ( x.s < 0 ? 8 : 7 ) );
-
-                // If the index of the rounding digit is not greater than zero, or xc represents
-                // zero, then the result of the base conversion is zero or, if rounding up, a value
-                // such as 0.00001.
-                if ( d < 1 || !xc[0] ) {
-
-                    // 1^-dp or 0
-                    str = r ? toFixedPoint( alphabet.charAt(1), -dp, alphabet.charAt(0) )
-                            : alphabet.charAt(0);
-                } else {
-
-                    // Truncate xc to the required number of decimal places.
-                    xc.length = d;
-
-                    // Round up?
-                    if (r) {
-
-                        // Rounding up may mean the previous digit has to be rounded up and so on.
-                        for ( --baseOut; ++xc[--d] > baseOut; ) {
-                            xc[d] = 0;
-
-                            if ( !d ) {
-                                ++e;
-                                xc = [1].concat(xc);
-                            }
-                        }
-                    }
-
-                    // Determine trailing zeros.
-                    for ( k = xc.length; !xc[--k]; );
-
-                    // E.g. [4, 11, 15] becomes 4bf.
-                    for ( i = 0, str = ''; i <= k; str += alphabet.charAt( xc[i++] ) );
-
-                    // Add leading zeros, decimal point and trailing zeros as required.
-                    str = toFixedPoint( str, e, alphabet.charAt(0) );
-                }
-
-                // The caller will add the sign.
-                return str;
-            };
-        })();
-
-
-        // Perform division in the specified base. Called by div and convertBase.
-        div = (function () {
-
-            // Assume non-zero x and k.
-            function multiply( x, k, base ) {
-                var m, temp, xlo, xhi,
-                    carry = 0,
-                    i = x.length,
-                    klo = k % SQRT_BASE,
-                    khi = k / SQRT_BASE | 0;
-
-                for ( x = x.slice(); i--; ) {
-                    xlo = x[i] % SQRT_BASE;
-                    xhi = x[i] / SQRT_BASE | 0;
-                    m = khi * xlo + xhi * klo;
-                    temp = klo * xlo + ( ( m % SQRT_BASE ) * SQRT_BASE ) + carry;
-                    carry = ( temp / base | 0 ) + ( m / SQRT_BASE | 0 ) + khi * xhi;
-                    x[i] = temp % base;
-                }
-
-                if (carry) x = [carry].concat(x);
-
-                return x;
-            }
-
-            function compare( a, b, aL, bL ) {
-                var i, cmp;
-
-                if ( aL != bL ) {
-                    cmp = aL > bL ? 1 : -1;
-                } else {
-
-                    for ( i = cmp = 0; i < aL; i++ ) {
-
-                        if ( a[i] != b[i] ) {
-                            cmp = a[i] > b[i] ? 1 : -1;
-                            break;
-                        }
-                    }
-                }
-                return cmp;
-            }
-
-            function subtract( a, b, aL, base ) {
-                var i = 0;
-
-                // Subtract b from a.
-                for ( ; aL--; ) {
-                    a[aL] -= i;
-                    i = a[aL] < b[aL] ? 1 : 0;
-                    a[aL] = i * base + a[aL] - b[aL];
-                }
-
-                // Remove leading zeros.
-                for ( ; !a[0] && a.length > 1; a.splice(0, 1) );
-            }
-
-            // x: dividend, y: divisor.
-            return function ( x, y, dp, rm, base ) {
-                var cmp, e, i, more, n, prod, prodL, q, qc, rem, remL, rem0, xi, xL, yc0,
-                    yL, yz,
-                    s = x.s == y.s ? 1 : -1,
-                    xc = x.c,
-                    yc = y.c;
-
-                // Either NaN, Infinity or 0?
-                if ( !xc || !xc[0] || !yc || !yc[0] ) {
-
-                    return new BigNumber(
-
-                      // Return NaN if either NaN, or both Infinity or 0.
-                      !x.s || !y.s || ( xc ? yc && xc[0] == yc[0] : !yc ) ? NaN :
-
-                        // Return ±0 if x is ±0 or y is ±Infinity, or return ±Infinity as y is ±0.
-                        xc && xc[0] == 0 || !yc ? s * 0 : s / 0
-                    );
-                }
-
-                q = new BigNumber(s);
-                qc = q.c = [];
-                e = x.e - y.e;
-                s = dp + e + 1;
-
-                if ( !base ) {
-                    base = BASE;
-                    e = bitFloor( x.e / LOG_BASE ) - bitFloor( y.e / LOG_BASE );
-                    s = s / LOG_BASE | 0;
-                }
-
-                // Result exponent may be one less then the current value of e.
-                // The coefficients of the BigNumbers from convertBase may have trailing zeros.
-                for ( i = 0; yc[i] == ( xc[i] || 0 ); i++ );
-
-                if ( yc[i] > ( xc[i] || 0 ) ) e--;
-
-                if ( s < 0 ) {
-                    qc.push(1);
-                    more = true;
-                } else {
-                    xL = xc.length;
-                    yL = yc.length;
-                    i = 0;
-                    s += 2;
-
-                    // Normalise xc and yc so highest order digit of yc is >= base / 2.
-
-                    n = mathfloor( base / ( yc[0] + 1 ) );
-
-                    // Not necessary, but to handle odd bases where yc[0] == ( base / 2 ) - 1.
-                    // if ( n > 1 || n++ == 1 && yc[0] < base / 2 ) {
-                    if ( n > 1 ) {
-                        yc = multiply( yc, n, base );
-                        xc = multiply( xc, n, base );
-                        yL = yc.length;
-                        xL = xc.length;
-                    }
-
-                    xi = yL;
-                    rem = xc.slice( 0, yL );
-                    remL = rem.length;
-
-                    // Add zeros to make remainder as long as divisor.
-                    for ( ; remL < yL; rem[remL++] = 0 );
-                    yz = yc.slice();
-                    yz = [0].concat(yz);
-                    yc0 = yc[0];
-                    if ( yc[1] >= base / 2 ) yc0++;
-                    // Not necessary, but to prevent trial digit n > base, when using base 3.
-                    // else if ( base == 3 && yc0 == 1 ) yc0 = 1 + 1e-15;
-
-                    do {
-                        n = 0;
-
-                        // Compare divisor and remainder.
-                        cmp = compare( yc, rem, yL, remL );
-
-                        // If divisor < remainder.
-                        if ( cmp < 0 ) {
-
-                            // Calculate trial digit, n.
-
-                            rem0 = rem[0];
-                            if ( yL != remL ) rem0 = rem0 * base + ( rem[1] || 0 );
-
-                            // n is how many times the divisor goes into the current remainder.
-                            n = mathfloor( rem0 / yc0 );
-
-                            //  Algorithm:
-                            //  1. product = divisor * trial digit (n)
-                            //  2. if product > remainder: product -= divisor, n--
-                            //  3. remainder -= product
-                            //  4. if product was < remainder at 2:
-                            //    5. compare new remainder and divisor
-                            //    6. If remainder > divisor: remainder -= divisor, n++
-
-                            if ( n > 1 ) {
-
-                                // n may be > base only when base is 3.
-                                if (n >= base) n = base - 1;
-
-                                // product = divisor * trial digit.
-                                prod = multiply( yc, n, base );
-                                prodL = prod.length;
-                                remL = rem.length;
-
-                                // Compare product and remainder.
-                                // If product > remainder.
-                                // Trial digit n too high.
-                                // n is 1 too high about 5% of the time, and is not known to have
-                                // ever been more than 1 too high.
-                                while ( compare( prod, rem, prodL, remL ) == 1 ) {
-                                    n--;
-
-                                    // Subtract divisor from product.
-                                    subtract( prod, yL < prodL ? yz : yc, prodL, base );
-                                    prodL = prod.length;
-                                    cmp = 1;
-                                }
-                            } else {
-
-                                // n is 0 or 1, cmp is -1.
-                                // If n is 0, there is no need to compare yc and rem again below,
-                                // so change cmp to 1 to avoid it.
-                                // If n is 1, leave cmp as -1, so yc and rem are compared again.
-                                if ( n == 0 ) {
-
-                                    // divisor < remainder, so n must be at least 1.
-                                    cmp = n = 1;
-                                }
-
-                                // product = divisor
-                                prod = yc.slice();
-                                prodL = prod.length;
-                            }
-
-                            if ( prodL < remL ) prod = [0].concat(prod);
-
-                            // Subtract product from remainder.
-                            subtract( rem, prod, remL, base );
-                            remL = rem.length;
-
-                             // If product was < remainder.
-                            if ( cmp == -1 ) {
-
-                                // Compare divisor and new remainder.
-                                // If divisor < new remainder, subtract divisor from remainder.
-                                // Trial digit n too low.
-                                // n is 1 too low about 5% of the time, and very rarely 2 too low.
-                                while ( compare( yc, rem, yL, remL ) < 1 ) {
-                                    n++;
-
-                                    // Subtract divisor from remainder.
-                                    subtract( rem, yL < remL ? yz : yc, remL, base );
-                                    remL = rem.length;
-                                }
-                            }
-                        } else if ( cmp === 0 ) {
-                            n++;
-                            rem = [0];
-                        } // else cmp === 1 and n will be 0
-
-                        // Add the next digit, n, to the result array.
-                        qc[i++] = n;
-
-                        // Update the remainder.
-                        if ( rem[0] ) {
-                            rem[remL++] = xc[xi] || 0;
-                        } else {
-                            rem = [ xc[xi] ];
-                            remL = 1;
-                        }
-                    } while ( ( xi++ < xL || rem[0] != null ) && s-- );
-
-                    more = rem[0] != null;
-
-                    // Leading zero?
-                    if ( !qc[0] ) qc.splice(0, 1);
-                }
-
-                if ( base == BASE ) {
-
-                    // To calculate q.e, first get the number of digits of qc[0].
-                    for ( i = 1, s = qc[0]; s >= 10; s /= 10, i++ );
-
-                    round( q, dp + ( q.e = i + e * LOG_BASE - 1 ) + 1, rm, more );
-
-                // Caller is convertBase.
-                } else {
-                    q.e = e;
-                    q.r = +more;
-                }
-
-                return q;
-            };
-        })();
-
-
-        /*
-         * Return a string representing the value of BigNumber n in fixed-point or exponential
-         * notation rounded to the specified decimal places or significant digits.
-         *
-         * n: a BigNumber.
-         * i: the index of the last digit required (i.e. the digit that may be rounded up).
-         * rm: the rounding mode.
-         * id: 1 (toExponential) or 2 (toPrecision).
-         */
-        function format( n, i, rm, id ) {
-            var c0, e, ne, len, str;
-
-            if ( rm == null ) rm = ROUNDING_MODE;
-            else intCheck( rm, 0, 8 );
-
-            if ( !n.c ) return n.toString();
-
-            c0 = n.c[0];
-            ne = n.e;
-
-            if ( i == null ) {
-                str = coeffToString( n.c );
-                str = id == 1 || id == 2 && ne <= TO_EXP_NEG
-                  ? toExponential( str, ne )
-                  : toFixedPoint( str, ne, '0' );
-            } else {
-                n = round( new BigNumber(n), i, rm );
-
-                // n.e may have changed if the value was rounded up.
-                e = n.e;
-
-                str = coeffToString( n.c );
-                len = str.length;
-
-                // toPrecision returns exponential notation if the number of significant digits
-                // specified is less than the number of digits necessary to represent the integer
-                // part of the value in fixed-point notation.
-
-                // Exponential notation.
-                if ( id == 1 || id == 2 && ( i <= e || e <= TO_EXP_NEG ) ) {
-
-                    // Append zeros?
-                    for ( ; len < i; str += '0', len++ );
-                    str = toExponential( str, e );
-
-                // Fixed-point notation.
-                } else {
-                    i -= ne;
-                    str = toFixedPoint( str, e, '0' );
-
-                    // Append zeros?
-                    if ( e + 1 > len ) {
-                        if ( --i > 0 ) for ( str += '.'; i--; str += '0' );
-                    } else {
-                        i += e - len;
-                        if ( i > 0 ) {
-                            if ( e + 1 == len ) str += '.';
-                            for ( ; i--; str += '0' );
-                        }
-                    }
-                }
-            }
-
-            return n.s < 0 && c0 ? '-' + str : str;
-        }
-
-
-        // Handle BigNumber.max and BigNumber.min.
-        function maxOrMin( args, method ) {
-            var m, n,
-                i = 0;
-
-            if ( isArray( args[0] ) ) args = args[0];
-            m = new BigNumber( args[0] );
-
-            for ( ; ++i < args.length; ) {
-                n = new BigNumber( args[i] );
-
-                // If any number is NaN, return NaN.
-                if ( !n.s ) {
-                    m = n;
-                    break;
-                } else if ( method.call( m, n ) ) {
-                    m = n;
-                }
-            }
-
-            return m;
-        }
-
-
-        /*
-         * Strip trailing zeros, calculate base 10 exponent and check against MIN_EXP and MAX_EXP.
-         * Called by minus, plus and times.
-         */
-        function normalise( n, c, e ) {
-            var i = 1,
-                j = c.length;
-
-             // Remove trailing zeros.
-            for ( ; !c[--j]; c.pop() );
-
-            // Calculate the base 10 exponent. First get the number of digits of c[0].
-            for ( j = c[0]; j >= 10; j /= 10, i++ );
-
-            // Overflow?
-            if ( ( e = i + e * LOG_BASE - 1 ) > MAX_EXP ) {
-
-                // Infinity.
-                n.c = n.e = null;
-
-            // Underflow?
-            } else if ( e < MIN_EXP ) {
-
-                // Zero.
-                n.c = [ n.e = 0 ];
-            } else {
-                n.e = e;
-                n.c = c;
-            }
-
-            return n;
-        }
-
-
-        // Handle values that fail the validity test in BigNumber.
-        parseNumeric = (function () {
-            var basePrefix = /^(-?)0([xbo])(?=\w[\w.]*$)/i,
-                dotAfter = /^([^.]+)\.$/,
-                dotBefore = /^\.([^.]+)$/,
-                isInfinityOrNaN = /^-?(Infinity|NaN)$/,
-                whitespaceOrPlus = /^\s*\+(?=[\w.])|^\s+|\s+$/g;
-
-            return function ( x, str, isNum, b ) {
-                var base,
-                    s = isNum ? str : str.replace( whitespaceOrPlus, '' );
-
-                // No exception on ±Infinity or NaN.
-                if ( isInfinityOrNaN.test(s) ) {
-                    x.s = isNaN(s) ? null : s < 0 ? -1 : 1;
-                    x.c = x.e = null;
-                } else {
-                    if ( !isNum ) {
-
-                        // basePrefix = /^(-?)0([xbo])(?=\w[\w.]*$)/i
-                        s = s.replace( basePrefix, function ( m, p1, p2 ) {
-                            base = ( p2 = p2.toLowerCase() ) == 'x' ? 16 : p2 == 'b' ? 2 : 8;
-                            return !b || b == base ? p1 : m;
-                        });
-
-                        if (b) {
-                            base = b;
-
-                            // E.g. '1.' to '1', '.1' to '0.1'
-                            s = s.replace( dotAfter, '$1' ).replace( dotBefore, '0.$1' );
-                        }
-
-                        if ( str != s ) return new BigNumber( s, base );
-                    }
-
-                    // '[BigNumber Error] Not a number: {n}'
-                    // '[BigNumber Error] Not a base {b} number: {n}'
-                    throw Error
-                      ( bignumberError + 'Not a' + ( b ? ' base ' + b : '' ) + ' number: ' + str );
-                }
-            }
-        })();
-
-
-        /*
-         * Round x to sd significant digits using rounding mode rm. Check for over/under-flow.
-         * If r is truthy, it is known that there are more digits after the rounding digit.
-         */
-        function round( x, sd, rm, r ) {
-            var d, i, j, k, n, ni, rd,
-                xc = x.c,
-                pows10 = POWS_TEN;
-
-            // if x is not Infinity or NaN...
-            if (xc) {
-
-                // rd is the rounding digit, i.e. the digit after the digit that may be rounded up.
-                // n is a base 1e14 number, the value of the element of array x.c containing rd.
-                // ni is the index of n within x.c.
-                // d is the number of digits of n.
-                // i is the index of rd within n including leading zeros.
-                // j is the actual index of rd within n (if < 0, rd is a leading zero).
-                out: {
-
-                    // Get the number of digits of the first element of xc.
-                    for ( d = 1, k = xc[0]; k >= 10; k /= 10, d++ );
-                    i = sd - d;
-
-                    // If the rounding digit is in the first element of xc...
-                    if ( i < 0 ) {
-                        i += LOG_BASE;
-                        j = sd;
-                        n = xc[ ni = 0 ];
-
-                        // Get the rounding digit at index j of n.
-                        rd = n / pows10[ d - j - 1 ] % 10 | 0;
-                    } else {
-                        ni = mathceil( ( i + 1 ) / LOG_BASE );
-
-                        if ( ni >= xc.length ) {
-
-                            if (r) {
-
-                                // Needed by sqrt.
-                                for ( ; xc.length <= ni; xc.push(0) );
-                                n = rd = 0;
-                                d = 1;
-                                i %= LOG_BASE;
-                                j = i - LOG_BASE + 1;
-                            } else {
-                                break out;
-                            }
-                        } else {
-                            n = k = xc[ni];
-
-                            // Get the number of digits of n.
-                            for ( d = 1; k >= 10; k /= 10, d++ );
-
-                            // Get the index of rd within n.
-                            i %= LOG_BASE;
-
-                            // Get the index of rd within n, adjusted for leading zeros.
-                            // The number of leading zeros of n is given by LOG_BASE - d.
-                            j = i - LOG_BASE + d;
-
-                            // Get the rounding digit at index j of n.
-                            rd = j < 0 ? 0 : n / pows10[ d - j - 1 ] % 10 | 0;
-                        }
-                    }
-
-                    r = r || sd < 0 ||
-
-                    // Are there any non-zero digits after the rounding digit?
-                    // The expression  n % pows10[ d - j - 1 ]  returns all digits of n to the right
-                    // of the digit at j, e.g. if n is 908714 and j is 2, the expression gives 714.
-                      xc[ni + 1] != null || ( j < 0 ? n : n % pows10[ d - j - 1 ] );
-
-                    r = rm < 4
-                      ? ( rd || r ) && ( rm == 0 || rm == ( x.s < 0 ? 3 : 2 ) )
-                      : rd > 5 || rd == 5 && ( rm == 4 || r || rm == 6 &&
-
-                        // Check whether the digit to the left of the rounding digit is odd.
-                        ( ( i > 0 ? j > 0 ? n / pows10[ d - j ] : 0 : xc[ni - 1] ) % 10 ) & 1 ||
-                          rm == ( x.s < 0 ? 8 : 7 ) );
-
-                    if ( sd < 1 || !xc[0] ) {
-                        xc.length = 0;
-
-                        if (r) {
-
-                            // Convert sd to decimal places.
-                            sd -= x.e + 1;
-
-                            // 1, 0.1, 0.01, 0.001, 0.0001 etc.
-                            xc[0] = pows10[ ( LOG_BASE - sd % LOG_BASE ) % LOG_BASE ];
-                            x.e = -sd || 0;
-                        } else {
-
-                            // Zero.
-                            xc[0] = x.e = 0;
-                        }
-
-                        return x;
-                    }
-
-                    // Remove excess digits.
-                    if ( i == 0 ) {
-                        xc.length = ni;
-                        k = 1;
-                        ni--;
-                    } else {
-                        xc.length = ni + 1;
-                        k = pows10[ LOG_BASE - i ];
-
-                        // E.g. 56700 becomes 56000 if 7 is the rounding digit.
-                        // j > 0 means i > number of leading zeros of n.
-                        xc[ni] = j > 0 ? mathfloor( n / pows10[ d - j ] % pows10[j] ) * k : 0;
-                    }
-
-                    // Round up?
-                    if (r) {
-
-                        for ( ; ; ) {
-
-                            // If the digit to be rounded up is in the first element of xc...
-                            if ( ni == 0 ) {
-
-                                // i will be the length of xc[0] before k is added.
-                                for ( i = 1, j = xc[0]; j >= 10; j /= 10, i++ );
-                                j = xc[0] += k;
-                                for ( k = 1; j >= 10; j /= 10, k++ );
-
-                                // if i != k the length has increased.
-                                if ( i != k ) {
-                                    x.e++;
-                                    if ( xc[0] == BASE ) xc[0] = 1;
-                                }
-
-                                break;
-                            } else {
-                                xc[ni] += k;
-                                if ( xc[ni] != BASE ) break;
-                                xc[ni--] = 0;
-                                k = 1;
-                            }
-                        }
-                    }
-
-                    // Remove trailing zeros.
-                    for ( i = xc.length; xc[--i] === 0; xc.pop() );
-                }
-
-                // Overflow? Infinity.
-                if ( x.e > MAX_EXP ) {
-                    x.c = x.e = null;
-
-                // Underflow? Zero.
-                } else if ( x.e < MIN_EXP ) {
-                    x.c = [ x.e = 0 ];
-                }
-            }
-
-            return x;
-        }
-
-
-        // PROTOTYPE/INSTANCE METHODS
-
-
-        /*
-         * Return a new BigNumber whose value is the absolute value of this BigNumber.
-         */
-        P.absoluteValue = P.abs = function () {
-            var x = new BigNumber(this);
-            if ( x.s < 0 ) x.s = 1;
-            return x;
-        };
-
-
-        /*
-         * Return
-         *   1 if the value of this BigNumber is greater than the value of BigNumber(y, b),
-         *   -1 if the value of this BigNumber is less than the value of BigNumber(y, b),
-         *   0 if they have the same value,
-         *   or null if the value of either is NaN.
-         */
-        P.comparedTo = function ( y, b ) {
-            return compare( this, new BigNumber( y, b ) );
-        };
-
-
-        /*
-         * If dp is undefined or null or true or false, return the number of decimal places of the
-         * value of this BigNumber, or null if the value of this BigNumber is ±Infinity or NaN.
-         *
-         * Otherwise, if dp is a number, return a new BigNumber whose value is the value of this
-         * BigNumber rounded to a maximum of dp decimal places using rounding mode rm, or
-         * ROUNDING_MODE if rm is omitted.
-         *
-         * [dp] {number} Decimal places: integer, 0 to MAX inclusive.
-         * [rm] {number} Rounding mode. Integer, 0 to 8 inclusive.
-         *
-         * '[BigNumber Error] Argument {not a primitive number|not an integer|out of range}: {dp|rm}'
-         */
-        P.decimalPlaces = P.dp = function ( dp, rm ) {
-            var c, n, v,
-                x = this;
-
-            if ( dp != null ) {
-                intCheck( dp, 0, MAX );
-                if ( rm == null ) rm = ROUNDING_MODE;
-                else intCheck( rm, 0, 8 );
-
-                return round( new BigNumber(x), dp + x.e + 1, rm );
-            }
-
-            if ( !( c = x.c ) ) return null;
-            n = ( ( v = c.length - 1 ) - bitFloor( this.e / LOG_BASE ) ) * LOG_BASE;
-
-            // Subtract the number of trailing zeros of the last number.
-            if ( v = c[v] ) for ( ; v % 10 == 0; v /= 10, n-- );
-            if ( n < 0 ) n = 0;
-
-            return n;
-        };
-
-
-        /*
-         *  n / 0 = I
-         *  n / N = N
-         *  n / I = 0
-         *  0 / n = 0
-         *  0 / 0 = N
-         *  0 / N = N
-         *  0 / I = 0
-         *  N / n = N
-         *  N / 0 = N
-         *  N / N = N
-         *  N / I = N
-         *  I / n = I
-         *  I / 0 = I
-         *  I / N = N
-         *  I / I = N
-         *
-         * Return a new BigNumber whose value is the value of this BigNumber divided by the value of
-         * BigNumber(y, b), rounded according to DECIMAL_PLACES and ROUNDING_MODE.
-         */
-        P.dividedBy = P.div = function ( y, b ) {
-            return div( this, new BigNumber( y, b ), DECIMAL_PLACES, ROUNDING_MODE );
-        };
-
-
-        /*
-         * Return a new BigNumber whose value is the integer part of dividing the value of this
-         * BigNumber by the value of BigNumber(y, b).
-         */
-        P.dividedToIntegerBy = P.idiv = function ( y, b ) {
-            return div( this, new BigNumber( y, b ), 0, 1 );
-        };
-
-
-        /*
-         * Return true if the value of this BigNumber is equal to the value of BigNumber(y, b),
-         * otherwise return false.
-         */
-        P.isEqualTo = P.eq = function ( y, b ) {
-            return compare( this, new BigNumber( y, b ) ) === 0;
-        };
-
-
-        /*
-         * Return a new BigNumber whose value is the value of this BigNumber rounded to an integer
-         * using rounding mode rm, or ROUNDING_MODE if rm is omitted.
-         *
-         * [rm] {number} Rounding mode. Integer, 0 to 8 inclusive.
-         *
-         * '[BigNumber Error] Argument {not a primitive number|not an integer|out of range}: {rm}'
-         */
-        P.integerValue = function (rm) {
-            var n = new BigNumber(this);
-            if ( rm == null ) rm = ROUNDING_MODE;
-            else intCheck( rm, 0, 8 );
-            return round( n, n.e + 1, rm );
-        };
-
-
-        /*
-         * Return true if the value of this BigNumber is greater than the value of BigNumber(y, b),
-         * otherwise return false.
-         */
-        P.isGreaterThan = P.gt = function ( y, b ) {
-            return compare( this, new BigNumber( y, b ) ) > 0;
-        };
-
-
-        /*
-         * Return true if the value of this BigNumber is greater than or equal to the value of
-         * BigNumber(y, b), otherwise return false.
-         */
-        P.isGreaterThanOrEqualTo = P.gte = function ( y, b ) {
-            return ( b = compare( this, new BigNumber( y, b ) ) ) === 1 || b === 0;
-
-        };
-
-
-        /*
-         * Return true if the value of this BigNumber is a finite number, otherwise return false.
-         */
-        P.isFinite = function () {
-            return !!this.c;
-        };
-
-
-        /*
-         * Return true if the value of this BigNumber is an integer, otherwise return false.
-         */
-        P.isInteger = function () {
-            return !!this.c && bitFloor( this.e / LOG_BASE ) > this.c.length - 2;
-        };
-
-
-        /*
-         * Return true if the value of this BigNumber is NaN, otherwise return false.
-         */
-        P.isNaN = function () {
-            return !this.s;
-        };
-
-
-        /*
-         * Return true if the value of this BigNumber is negative, otherwise return false.
-         */
-        P.isNegative = function () {
-            return this.s < 0;
-        };
-
-
-        /*
-         * Return true if the value of this BigNumber is positive, otherwise return false.
-         */
-        P.isPositive = function () {
-            return this.s > 0;
-        };
-
-
-        /*
-         * Return true if the value of this BigNumber is 0 or -0, otherwise return false.
-         */
-        P.isZero = function () {
-            return !!this.c && this.c[0] == 0;
-        };
-
-
-        /*
-         * Return true if the value of this BigNumber is less than the value of BigNumber(y, b),
-         * otherwise return false.
-         */
-        P.isLessThan = P.lt = function ( y, b ) {
-            return compare( this, new BigNumber( y, b ) ) < 0;
-        };
-
-
-        /*
-         * Return true if the value of this BigNumber is less than or equal to the value of
-         * BigNumber(y, b), otherwise return false.
-         */
-        P.isLessThanOrEqualTo = P.lte = function ( y, b ) {
-            return ( b = compare( this, new BigNumber( y, b ) ) ) === -1 || b === 0;
-        };
-
-
-        /*
-         *  n - 0 = n
-         *  n - N = N
-         *  n - I = -I
-         *  0 - n = -n
-         *  0 - 0 = 0
-         *  0 - N = N
-         *  0 - I = -I
-         *  N - n = N
-         *  N - 0 = N
-         *  N - N = N
-         *  N - I = N
-         *  I - n = I
-         *  I - 0 = I
-         *  I - N = N
-         *  I - I = N
-         *
-         * Return a new BigNumber whose value is the value of this BigNumber minus the value of
-         * BigNumber(y, b).
-         */
-        P.minus = function ( y, b ) {
-            var i, j, t, xLTy,
-                x = this,
-                a = x.s;
-
-            y = new BigNumber( y, b );
-            b = y.s;
-
-            // Either NaN?
-            if ( !a || !b ) return new BigNumber(NaN);
-
-            // Signs differ?
-            if ( a != b ) {
-                y.s = -b;
-                return x.plus(y);
-            }
-
-            var xe = x.e / LOG_BASE,
-                ye = y.e / LOG_BASE,
-                xc = x.c,
-                yc = y.c;
-
-            if ( !xe || !ye ) {
-
-                // Either Infinity?
-                if ( !xc || !yc ) return xc ? ( y.s = -b, y ) : new BigNumber( yc ? x : NaN );
-
-                // Either zero?
-                if ( !xc[0] || !yc[0] ) {
-
-                    // Return y if y is non-zero, x if x is non-zero, or zero if both are zero.
-                    return yc[0] ? ( y.s = -b, y ) : new BigNumber( xc[0] ? x :
-
-                      // IEEE 754 (2008) 6.3: n - n = -0 when rounding to -Infinity
-                      ROUNDING_MODE == 3 ? -0 : 0 );
-                }
-            }
-
-            xe = bitFloor(xe);
-            ye = bitFloor(ye);
-            xc = xc.slice();
-
-            // Determine which is the bigger number.
-            if ( a = xe - ye ) {
-
-                if ( xLTy = a < 0 ) {
-                    a = -a;
-                    t = xc;
-                } else {
-                    ye = xe;
-                    t = yc;
-                }
-
-                t.reverse();
-
-                // Prepend zeros to equalise exponents.
-                for ( b = a; b--; t.push(0) );
-                t.reverse();
-            } else {
-
-                // Exponents equal. Check digit by digit.
-                j = ( xLTy = ( a = xc.length ) < ( b = yc.length ) ) ? a : b;
-
-                for ( a = b = 0; b < j; b++ ) {
-
-                    if ( xc[b] != yc[b] ) {
-                        xLTy = xc[b] < yc[b];
-                        break;
-                    }
-                }
-            }
-
-            // x < y? Point xc to the array of the bigger number.
-            if (xLTy) t = xc, xc = yc, yc = t, y.s = -y.s;
-
-            b = ( j = yc.length ) - ( i = xc.length );
-
-            // Append zeros to xc if shorter.
-            // No need to add zeros to yc if shorter as subtract only needs to start at yc.length.
-            if ( b > 0 ) for ( ; b--; xc[i++] = 0 );
-            b = BASE - 1;
-
-            // Subtract yc from xc.
-            for ( ; j > a; ) {
-
-                if ( xc[--j] < yc[j] ) {
-                    for ( i = j; i && !xc[--i]; xc[i] = b );
-                    --xc[i];
-                    xc[j] += BASE;
-                }
-
-                xc[j] -= yc[j];
-            }
-
-            // Remove leading zeros and adjust exponent accordingly.
-            for ( ; xc[0] == 0; xc.splice(0, 1), --ye );
-
-            // Zero?
-            if ( !xc[0] ) {
-
-                // Following IEEE 754 (2008) 6.3,
-                // n - n = +0  but  n - n = -0  when rounding towards -Infinity.
-                y.s = ROUNDING_MODE == 3 ? -1 : 1;
-                y.c = [ y.e = 0 ];
-                return y;
-            }
-
-            // No need to check for Infinity as +x - +y != Infinity && -x - -y != Infinity
-            // for finite x and y.
-            return normalise( y, xc, ye );
-        };
-
-
-        /*
-         *   n % 0 =  N
-         *   n % N =  N
-         *   n % I =  n
-         *   0 % n =  0
-         *  -0 % n = -0
-         *   0 % 0 =  N
-         *   0 % N =  N
-         *   0 % I =  0
-         *   N % n =  N
-         *   N % 0 =  N
-         *   N % N =  N
-         *   N % I =  N
-         *   I % n =  N
-         *   I % 0 =  N
-         *   I % N =  N
-         *   I % I =  N
-         *
-         * Return a new BigNumber whose value is the value of this BigNumber modulo the value of
-         * BigNumber(y, b). The result depends on the value of MODULO_MODE.
-         */
-        P.modulo = P.mod = function ( y, b ) {
-            var q, s,
-                x = this;
-
-            y = new BigNumber( y, b );
-
-            // Return NaN if x is Infinity or NaN, or y is NaN or zero.
-            if ( !x.c || !y.s || y.c && !y.c[0] ) {
-                return new BigNumber(NaN);
-
-            // Return x if y is Infinity or x is zero.
-            } else if ( !y.c || x.c && !x.c[0] ) {
-                return new BigNumber(x);
-            }
-
-            if ( MODULO_MODE == 9 ) {
-
-                // Euclidian division: q = sign(y) * floor(x / abs(y))
-                // r = x - qy    where  0 <= r < abs(y)
-                s = y.s;
-                y.s = 1;
-                q = div( x, y, 0, 3 );
-                y.s = s;
-                q.s *= s;
-            } else {
-                q = div( x, y, 0, MODULO_MODE );
-            }
-
-            return x.minus( q.times(y) );
-        };
-
-
-        /*
-         *  n * 0 = 0
-         *  n * N = N
-         *  n * I = I
-         *  0 * n = 0
-         *  0 * 0 = 0
-         *  0 * N = N
-         *  0 * I = N
-         *  N * n = N
-         *  N * 0 = N
-         *  N * N = N
-         *  N * I = N
-         *  I * n = I
-         *  I * 0 = N
-         *  I * N = N
-         *  I * I = I
-         *
-         * Return a new BigNumber whose value is the value of this BigNumber multiplied by the value
-         * of BigNumber(y, b).
-         */
-        P.multipliedBy = P.times = function ( y, b ) {
-            var c, e, i, j, k, m, xcL, xlo, xhi, ycL, ylo, yhi, zc,
-                base, sqrtBase,
-                x = this,
-                xc = x.c,
-                yc = ( y = new BigNumber( y, b ) ).c;
-
-            // Either NaN, ±Infinity or ±0?
-            if ( !xc || !yc || !xc[0] || !yc[0] ) {
-
-                // Return NaN if either is NaN, or one is 0 and the other is Infinity.
-                if ( !x.s || !y.s || xc && !xc[0] && !yc || yc && !yc[0] && !xc ) {
-                    y.c = y.e = y.s = null;
-                } else {
-                    y.s *= x.s;
-
-                    // Return ±Infinity if either is ±Infinity.
-                    if ( !xc || !yc ) {
-                        y.c = y.e = null;
-
-                    // Return ±0 if either is ±0.
-                    } else {
-                        y.c = [0];
-                        y.e = 0;
-                    }
-                }
-
-                return y;
-            }
-
-            e = bitFloor( x.e / LOG_BASE ) + bitFloor( y.e / LOG_BASE );
-            y.s *= x.s;
-            xcL = xc.length;
-            ycL = yc.length;
-
-            // Ensure xc points to longer array and xcL to its length.
-            if ( xcL < ycL ) zc = xc, xc = yc, yc = zc, i = xcL, xcL = ycL, ycL = i;
-
-            // Initialise the result array with zeros.
-            for ( i = xcL + ycL, zc = []; i--; zc.push(0) );
-
-            base = BASE;
-            sqrtBase = SQRT_BASE;
-
-            for ( i = ycL; --i >= 0; ) {
-                c = 0;
-                ylo = yc[i] % sqrtBase;
-                yhi = yc[i] / sqrtBase | 0;
-
-                for ( k = xcL, j = i + k; j > i; ) {
-                    xlo = xc[--k] % sqrtBase;
-                    xhi = xc[k] / sqrtBase | 0;
-                    m = yhi * xlo + xhi * ylo;
-                    xlo = ylo * xlo + ( ( m % sqrtBase ) * sqrtBase ) + zc[j] + c;
-                    c = ( xlo / base | 0 ) + ( m / sqrtBase | 0 ) + yhi * xhi;
-                    zc[j--] = xlo % base;
-                }
-
-                zc[j] = c;
-            }
-
-            if (c) {
-                ++e;
-            } else {
-                zc.splice(0, 1);
-            }
-
-            return normalise( y, zc, e );
-        };
-
-
-        /*
-         * Return a new BigNumber whose value is the value of this BigNumber negated,
-         * i.e. multiplied by -1.
-         */
-        P.negated = function () {
-            var x = new BigNumber(this);
-            x.s = -x.s || null;
-            return x;
-        };
-
-
-        /*
-         *  n + 0 = n
-         *  n + N = N
-         *  n + I = I
-         *  0 + n = n
-         *  0 + 0 = 0
-         *  0 + N = N
-         *  0 + I = I
-         *  N + n = N
-         *  N + 0 = N
-         *  N + N = N
-         *  N + I = N
-         *  I + n = I
-         *  I + 0 = I
-         *  I + N = N
-         *  I + I = I
-         *
-         * Return a new BigNumber whose value is the value of this BigNumber plus the value of
-         * BigNumber(y, b).
-         */
-        P.plus = function ( y, b ) {
-            var t,
-                x = this,
-                a = x.s;
-
-            y = new BigNumber( y, b );
-            b = y.s;
-
-            // Either NaN?
-            if ( !a || !b ) return new BigNumber(NaN);
-
-            // Signs differ?
-             if ( a != b ) {
-                y.s = -b;
-                return x.minus(y);
-            }
-
-            var xe = x.e / LOG_BASE,
-                ye = y.e / LOG_BASE,
-                xc = x.c,
-                yc = y.c;
-
-            if ( !xe || !ye ) {
-
-                // Return ±Infinity if either ±Infinity.
-                if ( !xc || !yc ) return new BigNumber( a / 0 );
-
-                // Either zero?
-                // Return y if y is non-zero, x if x is non-zero, or zero if both are zero.
-                if ( !xc[0] || !yc[0] ) return yc[0] ? y : new BigNumber( xc[0] ? x : a * 0 );
-            }
-
-            xe = bitFloor(xe);
-            ye = bitFloor(ye);
-            xc = xc.slice();
-
-            // Prepend zeros to equalise exponents. Faster to use reverse then do unshifts.
-            if ( a = xe - ye ) {
-                if ( a > 0 ) {
-                    ye = xe;
-                    t = yc;
-                } else {
-                    a = -a;
-                    t = xc;
-                }
-
-                t.reverse();
-                for ( ; a--; t.push(0) );
-                t.reverse();
-            }
-
-            a = xc.length;
-            b = yc.length;
-
-            // Point xc to the longer array, and b to the shorter length.
-            if ( a - b < 0 ) t = yc, yc = xc, xc = t, b = a;
-
-            // Only start adding at yc.length - 1 as the further digits of xc can be ignored.
-            for ( a = 0; b; ) {
-                a = ( xc[--b] = xc[b] + yc[b] + a ) / BASE | 0;
-                xc[b] = BASE === xc[b] ? 0 : xc[b] % BASE;
-            }
-
-            if (a) {
-                xc = [a].concat(xc);
-                ++ye;
-            }
-
-            // No need to check for zero, as +x + +y != 0 && -x + -y != 0
-            // ye = MAX_EXP + 1 possible
-            return normalise( y, xc, ye );
-        };
-
-
-        /*
-         * If sd is undefined or null or true or false, return the number of significant digits of
-         * the value of this BigNumber, or null if the value of this BigNumber is ±Infinity or NaN.
-         * If sd is true include integer-part trailing zeros in the count.
-         *
-         * Otherwise, if sd is a number, return a new BigNumber whose value is the value of this
-         * BigNumber rounded to a maximum of sd significant digits using rounding mode rm, or
-         * ROUNDING_MODE if rm is omitted.
-         *
-         * sd {number|boolean} number: significant digits: integer, 1 to MAX inclusive.
-         *                     boolean: whether to count integer-part trailing zeros: true or false.
-         * [rm] {number} Rounding mode. Integer, 0 to 8 inclusive.
-         *
-         * '[BigNumber Error] Argument {not a primitive number|not an integer|out of range}: {sd|rm}'
-         */
-        P.precision = P.sd = function ( sd, rm ) {
-            var c, n, v,
-                x = this;
-
-            if ( sd != null && sd !== !!sd ) {
-                intCheck( sd, 1, MAX );
-                if ( rm == null ) rm = ROUNDING_MODE;
-                else intCheck( rm, 0, 8 );
-
-                return round( new BigNumber(x), sd, rm );
-            }
-
-            if ( !( c = x.c ) ) return null;
-            v = c.length - 1;
-            n = v * LOG_BASE + 1;
-
-            if ( v = c[v] ) {
-
-                // Subtract the number of trailing zeros of the last element.
-                for ( ; v % 10 == 0; v /= 10, n-- );
-
-                // Add the number of digits of the first element.
-                for ( v = c[0]; v >= 10; v /= 10, n++ );
-            }
-
-            if ( sd && x.e + 1 > n ) n = x.e + 1;
-
-            return n;
-        };
-
-
-        /*
-         * Return a new BigNumber whose value is the value of this BigNumber shifted by k places
-         * (powers of 10). Shift to the right if n > 0, and to the left if n < 0.
-         *
-         * k {number} Integer, -MAX_SAFE_INTEGER to MAX_SAFE_INTEGER inclusive.
-         *
-         * '[BigNumber Error] Argument {not a primitive number|not an integer|out of range}: {k}'
-         */
-        P.shiftedBy = function (k) {
-            intCheck( k, -MAX_SAFE_INTEGER, MAX_SAFE_INTEGER );
-            return this.times( '1e' + k );
-        };
-
-
-        /*
-         *  sqrt(-n) =  N
-         *  sqrt( N) =  N
-         *  sqrt(-I) =  N
-         *  sqrt( I) =  I
-         *  sqrt( 0) =  0
-         *  sqrt(-0) = -0
-         *
-         * Return a new BigNumber whose value is the square root of the value of this BigNumber,
-         * rounded according to DECIMAL_PLACES and ROUNDING_MODE.
-         */
-        P.squareRoot = P.sqrt = function () {
-            var m, n, r, rep, t,
-                x = this,
-                c = x.c,
-                s = x.s,
-                e = x.e,
-                dp = DECIMAL_PLACES + 4,
-                half = new BigNumber('0.5');
-
-            // Negative/NaN/Infinity/zero?
-            if ( s !== 1 || !c || !c[0] ) {
-                return new BigNumber( !s || s < 0 && ( !c || c[0] ) ? NaN : c ? x : 1 / 0 );
-            }
-
-            // Initial estimate.
-            s = Math.sqrt( +x );
-
-            // Math.sqrt underflow/overflow?
-            // Pass x to Math.sqrt as integer, then adjust the exponent of the result.
-            if ( s == 0 || s == 1 / 0 ) {
-                n = coeffToString(c);
-                if ( ( n.length + e ) % 2 == 0 ) n += '0';
-                s = Math.sqrt(n);
-                e = bitFloor( ( e + 1 ) / 2 ) - ( e < 0 || e % 2 );
-
-                if ( s == 1 / 0 ) {
-                    n = '1e' + e;
-                } else {
-                    n = s.toExponential();
-                    n = n.slice( 0, n.indexOf('e') + 1 ) + e;
-                }
-
-                r = new BigNumber(n);
-            } else {
-                r = new BigNumber( s + '' );
-            }
-
-            // Check for zero.
-            // r could be zero if MIN_EXP is changed after the this value was created.
-            // This would cause a division by zero (x/t) and hence Infinity below, which would cause
-            // coeffToString to throw.
-            if ( r.c[0] ) {
-                e = r.e;
-                s = e + dp;
-                if ( s < 3 ) s = 0;
-
-                // Newton-Raphson iteration.
-                for ( ; ; ) {
-                    t = r;
-                    r = half.times( t.plus( div( x, t, dp, 1 ) ) );
-
-                    if ( coeffToString( t.c   ).slice( 0, s ) === ( n =
-                         coeffToString( r.c ) ).slice( 0, s ) ) {
-
-                        // The exponent of r may here be one less than the final result exponent,
-                        // e.g 0.0009999 (e-4) --> 0.001 (e-3), so adjust s so the rounding digits
-                        // are indexed correctly.
-                        if ( r.e < e ) --s;
-                        n = n.slice( s - 3, s + 1 );
-
-                        // The 4th rounding digit may be in error by -1 so if the 4 rounding digits
-                        // are 9999 or 4999 (i.e. approaching a rounding boundary) continue the
-                        // iteration.
-                        if ( n == '9999' || !rep && n == '4999' ) {
-
-                            // On the first iteration only, check to see if rounding up gives the
-                            // exact result as the nines may infinitely repeat.
-                            if ( !rep ) {
-                                round( t, t.e + DECIMAL_PLACES + 2, 0 );
-
-                                if ( t.times(t).eq(x) ) {
-                                    r = t;
-                                    break;
-                                }
-                            }
-
-                            dp += 4;
-                            s += 4;
-                            rep = 1;
-                        } else {
-
-                            // If rounding digits are null, 0{0,4} or 50{0,3}, check for exact
-                            // result. If not, then there are further digits and m will be truthy.
-                            if ( !+n || !+n.slice(1) && n.charAt(0) == '5' ) {
-
-                                // Truncate to the first rounding digit.
-                                round( r, r.e + DECIMAL_PLACES + 2, 1 );
-                                m = !r.times(r).eq(x);
-                            }
-
-                            break;
-                        }
-                    }
-                }
-            }
-
-            return round( r, r.e + DECIMAL_PLACES + 1, ROUNDING_MODE, m );
-        };
-
-
-        /*
-         * Return a string representing the value of this BigNumber in exponential notation and
-         * rounded using ROUNDING_MODE to dp fixed decimal places.
-         *
-         * [dp] {number} Decimal places. Integer, 0 to MAX inclusive.
-         * [rm] {number} Rounding mode. Integer, 0 to 8 inclusive.
-         *
-         * '[BigNumber Error] Argument {not a primitive number|not an integer|out of range}: {dp|rm}'
-         */
-        P.toExponential = function ( dp, rm ) {
-            if ( dp != null ) {
-                intCheck( dp, 0, MAX );
-                dp++;
-            }
-            return format( this, dp, rm, 1 );
-        };
-
-
-        /*
-         * Return a string representing the value of this BigNumber in fixed-point notation rounding
-         * to dp fixed decimal places using rounding mode rm, or ROUNDING_MODE if rm is omitted.
-         *
-         * Note: as with JavaScript's number type, (-0).toFixed(0) is '0',
-         * but e.g. (-0.00001).toFixed(0) is '-0'.
-         *
-         * [dp] {number} Decimal places. Integer, 0 to MAX inclusive.
-         * [rm] {number} Rounding mode. Integer, 0 to 8 inclusive.
-         *
-         * '[BigNumber Error] Argument {not a primitive number|not an integer|out of range}: {dp|rm}'
-         */
-        P.toFixed = function ( dp, rm ) {
-            if ( dp != null ) {
-                intCheck( dp, 0, MAX );
-                dp = dp + this.e + 1;
-            }
-            return format( this, dp, rm );
-        };
-
-
-        /*
-         * Return a string representing the value of this BigNumber in fixed-point notation rounded
-         * using rm or ROUNDING_MODE to dp decimal places, and formatted according to the properties
-         * of the FORMAT object (see BigNumber.set).
-         *
-         * FORMAT = {
-         *      decimalSeparator : '.',
-         *      groupSeparator : ',',
-         *      groupSize : 3,
-         *      secondaryGroupSize : 0,
-         *      fractionGroupSeparator : '\xA0',    // non-breaking space
-         *      fractionGroupSize : 0
-         * };
-         *
-         * [dp] {number} Decimal places. Integer, 0 to MAX inclusive.
-         * [rm] {number} Rounding mode. Integer, 0 to 8 inclusive.
-         *
-         * '[BigNumber Error] Argument {not a primitive number|not an integer|out of range}: {dp|rm}'
-         */
-        P.toFormat = function ( dp, rm ) {
-            var str = this.toFixed( dp, rm );
-
-            if ( this.c ) {
-                var i,
-                    arr = str.split('.'),
-                    g1 = +FORMAT.groupSize,
-                    g2 = +FORMAT.secondaryGroupSize,
-                    groupSeparator = FORMAT.groupSeparator,
-                    intPart = arr[0],
-                    fractionPart = arr[1],
-                    isNeg = this.s < 0,
-                    intDigits = isNeg ? intPart.slice(1) : intPart,
-                    len = intDigits.length;
-
-                if (g2) i = g1, g1 = g2, g2 = i, len -= i;
-
-                if ( g1 > 0 && len > 0 ) {
-                    i = len % g1 || g1;
-                    intPart = intDigits.substr( 0, i );
-
-                    for ( ; i < len; i += g1 ) {
-                        intPart += groupSeparator + intDigits.substr( i, g1 );
-                    }
-
-                    if ( g2 > 0 ) intPart += groupSeparator + intDigits.slice(i);
-                    if (isNeg) intPart = '-' + intPart;
-                }
-
-                str = fractionPart
-                  ? intPart + FORMAT.decimalSeparator + ( ( g2 = +FORMAT.fractionGroupSize )
-                    ? fractionPart.replace( new RegExp( '\\d{' + g2 + '}\\B', 'g' ),
-                      '$&' + FORMAT.fractionGroupSeparator )
-                    : fractionPart )
-                  : intPart;
-            }
-
-            return str;
-        };
-
-
-        /*
-         * Return a string array representing the value of this BigNumber as a simple fraction with
-         * an integer numerator and an integer denominator. The denominator will be a positive
-         * non-zero value less than or equal to the specified maximum denominator. If a maximum
-         * denominator is not specified, the denominator will be the lowest value necessary to
-         * represent the number exactly.
-         *
-         * [md] {number|string|BigNumber} Integer >= 1 and < Infinity. The maximum denominator.
-         *
-         * '[BigNumber Error] Argument {not an integer|out of range} : {md}'
-         */
-        P.toFraction = function (md) {
-            var arr, d, d0, d1, d2, e, exp, n, n0, n1, q, s,
-                x = this,
-                xc = x.c;
-
-            if ( md != null ) {
-                n = new BigNumber(md);
-
-                if ( !n.isInteger() || n.lt(ONE) ) {
-                    throw Error
-                      ( bignumberError + 'Argument ' +
-                        ( n.isInteger() ? 'out of range: ' : 'not an integer: ' ) + md );
-                }
-            }
-
-            if ( !xc ) return x.toString();
-
-            d = new BigNumber(ONE);
-            n1 = d0 = new BigNumber(ONE);
-            d1 = n0 = new BigNumber(ONE);
-            s = coeffToString(xc);
-
-            // Determine initial denominator.
-            // d is a power of 10 and the minimum max denominator that specifies the value exactly.
-            e = d.e = s.length - x.e - 1;
-            d.c[0] = POWS_TEN[ ( exp = e % LOG_BASE ) < 0 ? LOG_BASE + exp : exp ];
-            md = !md || n.comparedTo(d) > 0 ? ( e > 0 ? d : n1 ) : n;
-
-            exp = MAX_EXP;
-            MAX_EXP = 1 / 0;
-            n = new BigNumber(s);
-
-            // n0 = d1 = 0
-            n0.c[0] = 0;
-
-            for ( ; ; )  {
-                q = div( n, d, 0, 1 );
-                d2 = d0.plus( q.times(d1) );
-                if ( d2.comparedTo(md) == 1 ) break;
-                d0 = d1;
-                d1 = d2;
-                n1 = n0.plus( q.times( d2 = n1 ) );
-                n0 = d2;
-                d = n.minus( q.times( d2 = d ) );
-                n = d2;
-            }
-
-            d2 = div( md.minus(d0), d1, 0, 1 );
-            n0 = n0.plus( d2.times(n1) );
-            d0 = d0.plus( d2.times(d1) );
-            n0.s = n1.s = x.s;
-            e *= 2;
-
-            // Determine which fraction is closer to x, n0/d0 or n1/d1
-            arr = div( n1, d1, e, ROUNDING_MODE ).minus(x).abs().comparedTo(
-                  div( n0, d0, e, ROUNDING_MODE ).minus(x).abs() ) < 1
-                    ? [ n1.toString(), d1.toString() ]
-                    : [ n0.toString(), d0.toString() ];
-
-            MAX_EXP = exp;
-            return arr;
-        };
-
-
-        /*
-         * Return the value of this BigNumber converted to a number primitive.
-         */
-        P.toNumber = function () {
-            return +this;
-        };
-
-
-        /*
-         * Return a BigNumber whose value is the value of this BigNumber exponentiated by n.
-         *
-         * If m is present, return the result modulo m.
-         * If n is negative round according to DECIMAL_PLACES and ROUNDING_MODE.
-         * If POW_PRECISION is non-zero and m is not present, round to POW_PRECISION using ROUNDING_MODE.
-         *
-         * The modular power operation works efficiently when x, n, and m are positive integers,
-         * otherwise it is equivalent to calculating x.exponentiatedBy(n).modulo(m) with a POW_PRECISION of 0.
-         *
-         * n {number} Integer, -MAX_SAFE_INTEGER to MAX_SAFE_INTEGER inclusive.
-         * [m] {number|string|BigNumber} The modulus.
-         *
-         * '[BigNumber Error] Argument {not a primitive number|not an integer|out of range}: {n}'
-         *
-         * Performs 54 loop iterations for n of 9007199254740991.
-         */
-        P.exponentiatedBy = P.pow = function ( n, m ) {
-            var i, k, y, z,
-                x = this;
-
-            intCheck( n, -MAX_SAFE_INTEGER, MAX_SAFE_INTEGER );
-            if ( m != null ) m = new BigNumber(m);
-
-            if (m) {
-                if ( n > 1 && x.gt(ONE) && x.isInteger() && m.gt(ONE) && m.isInteger() ) {
-                    x = x.mod(m);
-                } else {
-                    z = m;
-
-                    // Nullify m so only a single mod operation is performed at the end.
-                    m = null;
-                }
-            } else if (POW_PRECISION) {
-
-                // Truncating each coefficient array to a length of k after each multiplication
-                // equates to truncating significant digits to POW_PRECISION + [28, 41],
-                // i.e. there will be a minimum of 28 guard digits retained.
-                //k = mathceil( POW_PRECISION / LOG_BASE + 1.5 );   // gives [9, 21] guard digits.
-                k = mathceil( POW_PRECISION / LOG_BASE + 2 );
-            }
-
-            y = new BigNumber(ONE);
-
-            for ( i = mathfloor( n < 0 ? -n : n ); ; ) {
-                if ( i % 2 ) {
-                    y = y.times(x);
-                    if ( !y.c ) break;
-                    if (k) {
-                        if ( y.c.length > k ) y.c.length = k;
-                    } else if (m) {
-                        y = y.mod(m);
-                    }
-                }
-
-                i = mathfloor( i / 2 );
-                if ( !i ) break;
-                x = x.times(x);
-                if (k) {
-                    if ( x.c && x.c.length > k ) x.c.length = k;
-                } else if (m) {
-                    x = x.mod(m);
-                }
-            }
-
-            if (m) return y;
-            if ( n < 0 ) y = ONE.div(y);
-
-            return z ? y.mod(z) : k ? round( y, POW_PRECISION, ROUNDING_MODE ) : y;
-        };
-
-
-        /*
-         * Return a string representing the value of this BigNumber rounded to sd significant digits
-         * using rounding mode rm or ROUNDING_MODE. If sd is less than the number of digits
-         * necessary to represent the integer part of the value in fixed-point notation, then use
-         * exponential notation.
-         *
-         * [sd] {number} Significant digits. Integer, 1 to MAX inclusive.
-         * [rm] {number} Rounding mode. Integer, 0 to 8 inclusive.
-         *
-         * '[BigNumber Error] Argument {not a primitive number|not an integer|out of range}: {sd|rm}'
-         */
-        P.toPrecision = function ( sd, rm ) {
-            if ( sd != null ) intCheck( sd, 1, MAX );
-            return format( this, sd, rm, 2 );
-        };
-
-
-        /*
-         * Return a string representing the value of this BigNumber in base b, or base 10 if b is
-         * omitted. If a base is specified, including base 10, round according to DECIMAL_PLACES and
-         * ROUNDING_MODE. If a base is not specified, and this BigNumber has a positive exponent
-         * that is equal to or greater than TO_EXP_POS, or a negative exponent equal to or less than
-         * TO_EXP_NEG, return exponential notation.
-         *
-         * [b] {number} Integer, 2 to ALPHABET.length inclusive.
-         *
-         * '[BigNumber Error] Base {not a primitive number|not an integer|out of range}: {b}'
-         */
-        P.toString = function (b) {
-            var str,
-                n = this,
-                s = n.s,
-                e = n.e;
-
-            // Infinity or NaN?
-            if ( e === null ) {
-
-                if (s) {
-                    str = 'Infinity';
-                    if ( s < 0 ) str = '-' + str;
-                } else {
-                    str = 'NaN';
-                }
-            } else {
-                str = coeffToString( n.c );
-
-                if ( b == null ) {
-                    str = e <= TO_EXP_NEG || e >= TO_EXP_POS
-                      ? toExponential( str, e )
-                      : toFixedPoint( str, e, '0' );
-                } else {
-                    intCheck( b, 2, ALPHABET.length, 'Base' );
-                    str = convertBase( toFixedPoint( str, e, '0' ), 10, b, s, true );
-                }
-
-                if ( s < 0 && n.c[0] ) str = '-' + str;
-            }
-
-            return str;
-        };
-
-
-        /*
-         * Return as toString, but do not accept a base argument, and include the minus sign for
-         * negative zero.
-         */
-        P.valueOf = P.toJSON = function () {
-            var str,
-                n = this,
-                e = n.e;
-
-            if ( e === null ) return n.toString();
-
-            str = coeffToString( n.c );
-
-            str = e <= TO_EXP_NEG || e >= TO_EXP_POS
-                ? toExponential( str, e )
-                : toFixedPoint( str, e, '0' );
-
-            return n.s < 0 ? '-' + str : str;
-        };
-
-
-        P._isBigNumber = true;
-
-        if ( configObject != null ) BigNumber.set(configObject);
-
-        return BigNumber;
-    }
-
-
-    // PRIVATE HELPER FUNCTIONS
-
-
-    function bitFloor(n) {
-        var i = n | 0;
-        return n > 0 || n === i ? i : i - 1;
-    }
-
-
-    // Return a coefficient array as a string of base 10 digits.
-    function coeffToString(a) {
-        var s, z,
-            i = 1,
-            j = a.length,
-            r = a[0] + '';
-
-        for ( ; i < j; ) {
-            s = a[i++] + '';
-            z = LOG_BASE - s.length;
-            for ( ; z--; s = '0' + s );
-            r += s;
-        }
-
-        // Determine trailing zeros.
-        for ( j = r.length; r.charCodeAt(--j) === 48; );
-        return r.slice( 0, j + 1 || 1 );
-    }
-
-
-    // Compare the value of BigNumbers x and y.
-    function compare( x, y ) {
-        var a, b,
-            xc = x.c,
-            yc = y.c,
-            i = x.s,
-            j = y.s,
-            k = x.e,
-            l = y.e;
-
-        // Either NaN?
-        if ( !i || !j ) return null;
-
-        a = xc && !xc[0];
-        b = yc && !yc[0];
-
-        // Either zero?
-        if ( a || b ) return a ? b ? 0 : -j : i;
-
-        // Signs differ?
-        if ( i != j ) return i;
-
-        a = i < 0;
-        b = k == l;
-
-        // Either Infinity?
-        if ( !xc || !yc ) return b ? 0 : !xc ^ a ? 1 : -1;
-
-        // Compare exponents.
-        if ( !b ) return k > l ^ a ? 1 : -1;
-
-        j = ( k = xc.length ) < ( l = yc.length ) ? k : l;
-
-        // Compare digit by digit.
-        for ( i = 0; i < j; i++ ) if ( xc[i] != yc[i] ) return xc[i] > yc[i] ^ a ? 1 : -1;
-
-        // Compare lengths.
-        return k == l ? 0 : k > l ^ a ? 1 : -1;
-    }
-
-
-    /*
-     * Check that n is a primitive number, an integer, and in range, otherwise throw.
-     */
-    function intCheck( n, min, max, name ) {
-        if ( n < min || n > max || n !== ( n < 0 ? mathceil(n) : mathfloor(n) ) ) {
-            throw Error
-              ( bignumberError + ( name || 'Argument' ) + ( typeof n == 'number'
-                  ? n < min || n > max ? ' out of range: ' : ' not an integer: '
-                  : ' not a primitive number: ' ) + n );
-        }
-    }
-
-
-    function isArray(obj) {
-        return Object.prototype.toString.call(obj) == '[object Array]';
-    }
-
-
-    function toExponential( str, e ) {
-        return ( str.length > 1 ? str.charAt(0) + '.' + str.slice(1) : str ) +
-          ( e < 0 ? 'e' : 'e+' ) + e;
-    }
-
-
-    function toFixedPoint( str, e, z ) {
-        var len, zs;
-
-        // Negative exponent?
-        if ( e < 0 ) {
-
-            // Prepend zeros.
-            for ( zs = z + '.'; ++e; zs += z );
-            str = zs + str;
-
-        // Positive exponent
-        } else {
-            len = str.length;
-
-            // Append zeros.
-            if ( ++e > len ) {
-                for ( zs = z, e -= len; --e; zs += z );
-                str += zs;
-            } else if ( e < len ) {
-                str = str.slice( 0, e ) + '.' + str.slice(e);
-            }
-        }
-
-        return str;
-    }
-
-
-    // EXPORT
-
-
-    BigNumber = clone();
-    BigNumber['default'] = BigNumber.BigNumber = BigNumber;
-
-
-    // AMD.
-    if ( typeof define == 'function' && define.amd ) {
-        define( function () { return BigNumber; } );
-
-    // Node.js and other environments that support module.exports.
-    } else if ( typeof module != 'undefined' && module.exports ) {
-        module.exports = BigNumber;
-
-    // Browser.
-    } else {
-        if ( !globalObject ) {
-            globalObject = typeof self != 'undefined' ? self : Function('return this')();
-        }
-
-        globalObject.BigNumber = BigNumber;
-    }
-})(this);
-
-},{}],134:[function(require,module,exports){
+},{}],102:[function(require,module,exports){
 (function (module, exports) {
   'use strict';
 
@@ -11692,7 +6819,7 @@ function fromByteArray (uint8) {
   };
 })(typeof module === 'undefined' || module, this);
 
-},{"buffer":136}],135:[function(require,module,exports){
+},{"buffer":104}],103:[function(require,module,exports){
 var r;
 
 module.exports = function rand(len) {
@@ -11759,9 +6886,9 @@ if (typeof self === 'object') {
   }
 }
 
-},{"crypto":136}],136:[function(require,module,exports){
-arguments[4][122][0].apply(exports,arguments)
-},{"dup":122}],137:[function(require,module,exports){
+},{"crypto":104}],104:[function(require,module,exports){
+arguments[4][95][0].apply(exports,arguments)
+},{"dup":95}],105:[function(require,module,exports){
 // based on the aes implimentation in triple sec
 // https://github.com/keybase/triplesec
 // which is in turn based on the one from crypto-js
@@ -11991,7 +7118,7 @@ AES.prototype.scrub = function () {
 
 module.exports.AES = AES
 
-},{"safe-buffer":322}],138:[function(require,module,exports){
+},{"safe-buffer":288}],106:[function(require,module,exports){
 var aes = require('./aes')
 var Buffer = require('safe-buffer').Buffer
 var Transform = require('cipher-base')
@@ -12110,7 +7237,7 @@ StreamCipher.prototype.setAAD = function setAAD (buf) {
 
 module.exports = StreamCipher
 
-},{"./aes":137,"./ghash":142,"./incr32":143,"buffer-xor":164,"cipher-base":166,"inherits":269,"safe-buffer":322}],139:[function(require,module,exports){
+},{"./aes":105,"./ghash":110,"./incr32":111,"buffer-xor":132,"cipher-base":134,"inherits":237,"safe-buffer":288}],107:[function(require,module,exports){
 var ciphers = require('./encrypter')
 var deciphers = require('./decrypter')
 var modes = require('./modes/list.json')
@@ -12125,7 +7252,7 @@ exports.createDecipher = exports.Decipher = deciphers.createDecipher
 exports.createDecipheriv = exports.Decipheriv = deciphers.createDecipheriv
 exports.listCiphers = exports.getCiphers = getCiphers
 
-},{"./decrypter":140,"./encrypter":141,"./modes/list.json":151}],140:[function(require,module,exports){
+},{"./decrypter":108,"./encrypter":109,"./modes/list.json":119}],108:[function(require,module,exports){
 var AuthCipher = require('./authCipher')
 var Buffer = require('safe-buffer').Buffer
 var MODES = require('./modes')
@@ -12248,7 +7375,7 @@ function createDecipher (suite, password) {
 exports.createDecipher = createDecipher
 exports.createDecipheriv = createDecipheriv
 
-},{"./aes":137,"./authCipher":138,"./modes":150,"./streamCipher":153,"cipher-base":166,"evp_bytestokey":236,"inherits":269,"safe-buffer":322}],141:[function(require,module,exports){
+},{"./aes":105,"./authCipher":106,"./modes":118,"./streamCipher":121,"cipher-base":134,"evp_bytestokey":204,"inherits":237,"safe-buffer":288}],109:[function(require,module,exports){
 var MODES = require('./modes')
 var AuthCipher = require('./authCipher')
 var Buffer = require('safe-buffer').Buffer
@@ -12364,7 +7491,7 @@ function createCipher (suite, password) {
 exports.createCipheriv = createCipheriv
 exports.createCipher = createCipher
 
-},{"./aes":137,"./authCipher":138,"./modes":150,"./streamCipher":153,"cipher-base":166,"evp_bytestokey":236,"inherits":269,"safe-buffer":322}],142:[function(require,module,exports){
+},{"./aes":105,"./authCipher":106,"./modes":118,"./streamCipher":121,"cipher-base":134,"evp_bytestokey":204,"inherits":237,"safe-buffer":288}],110:[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 var ZEROES = Buffer.alloc(16, 0)
 
@@ -12455,7 +7582,7 @@ GHASH.prototype.final = function (abl, bl) {
 
 module.exports = GHASH
 
-},{"safe-buffer":322}],143:[function(require,module,exports){
+},{"safe-buffer":288}],111:[function(require,module,exports){
 function incr32 (iv) {
   var len = iv.length
   var item
@@ -12472,7 +7599,7 @@ function incr32 (iv) {
 }
 module.exports = incr32
 
-},{}],144:[function(require,module,exports){
+},{}],112:[function(require,module,exports){
 var xor = require('buffer-xor')
 
 exports.encrypt = function (self, block) {
@@ -12491,7 +7618,7 @@ exports.decrypt = function (self, block) {
   return xor(out, pad)
 }
 
-},{"buffer-xor":164}],145:[function(require,module,exports){
+},{"buffer-xor":132}],113:[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 var xor = require('buffer-xor')
 
@@ -12526,7 +7653,7 @@ exports.encrypt = function (self, data, decrypt) {
   return out
 }
 
-},{"buffer-xor":164,"safe-buffer":322}],146:[function(require,module,exports){
+},{"buffer-xor":132,"safe-buffer":288}],114:[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 
 function encryptByte (self, byteParam, decrypt) {
@@ -12570,7 +7697,7 @@ exports.encrypt = function (self, chunk, decrypt) {
   return out
 }
 
-},{"safe-buffer":322}],147:[function(require,module,exports){
+},{"safe-buffer":288}],115:[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 
 function encryptByte (self, byteParam, decrypt) {
@@ -12597,7 +7724,7 @@ exports.encrypt = function (self, chunk, decrypt) {
   return out
 }
 
-},{"safe-buffer":322}],148:[function(require,module,exports){
+},{"safe-buffer":288}],116:[function(require,module,exports){
 var xor = require('buffer-xor')
 var Buffer = require('safe-buffer').Buffer
 var incr32 = require('../incr32')
@@ -12629,7 +7756,7 @@ exports.encrypt = function (self, chunk) {
   return xor(chunk, pad)
 }
 
-},{"../incr32":143,"buffer-xor":164,"safe-buffer":322}],149:[function(require,module,exports){
+},{"../incr32":111,"buffer-xor":132,"safe-buffer":288}],117:[function(require,module,exports){
 exports.encrypt = function (self, block) {
   return self._cipher.encryptBlock(block)
 }
@@ -12638,7 +7765,7 @@ exports.decrypt = function (self, block) {
   return self._cipher.decryptBlock(block)
 }
 
-},{}],150:[function(require,module,exports){
+},{}],118:[function(require,module,exports){
 var modeModules = {
   ECB: require('./ecb'),
   CBC: require('./cbc'),
@@ -12658,7 +7785,7 @@ for (var key in modes) {
 
 module.exports = modes
 
-},{"./cbc":144,"./cfb":145,"./cfb1":146,"./cfb8":147,"./ctr":148,"./ecb":149,"./list.json":151,"./ofb":152}],151:[function(require,module,exports){
+},{"./cbc":112,"./cfb":113,"./cfb1":114,"./cfb8":115,"./ctr":116,"./ecb":117,"./list.json":119,"./ofb":120}],119:[function(require,module,exports){
 module.exports={
   "aes-128-ecb": {
     "cipher": "AES",
@@ -12851,7 +7978,7 @@ module.exports={
   }
 }
 
-},{}],152:[function(require,module,exports){
+},{}],120:[function(require,module,exports){
 (function (Buffer){
 var xor = require('buffer-xor')
 
@@ -12871,7 +7998,7 @@ exports.encrypt = function (self, chunk) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":165,"buffer-xor":164}],153:[function(require,module,exports){
+},{"buffer":133,"buffer-xor":132}],121:[function(require,module,exports){
 var aes = require('./aes')
 var Buffer = require('safe-buffer').Buffer
 var Transform = require('cipher-base')
@@ -12900,7 +8027,7 @@ StreamCipher.prototype._final = function () {
 
 module.exports = StreamCipher
 
-},{"./aes":137,"cipher-base":166,"inherits":269,"safe-buffer":322}],154:[function(require,module,exports){
+},{"./aes":105,"cipher-base":134,"inherits":237,"safe-buffer":288}],122:[function(require,module,exports){
 var ebtk = require('evp_bytestokey')
 var aes = require('browserify-aes/browser')
 var DES = require('browserify-des')
@@ -12975,7 +8102,7 @@ function getCiphers () {
 }
 exports.listCiphers = exports.getCiphers = getCiphers
 
-},{"browserify-aes/browser":139,"browserify-aes/modes":150,"browserify-des":155,"browserify-des/modes":156,"evp_bytestokey":236}],155:[function(require,module,exports){
+},{"browserify-aes/browser":107,"browserify-aes/modes":118,"browserify-des":123,"browserify-des/modes":124,"evp_bytestokey":204}],123:[function(require,module,exports){
 (function (Buffer){
 var CipherBase = require('cipher-base')
 var des = require('des.js')
@@ -13022,7 +8149,7 @@ DES.prototype._final = function () {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":165,"cipher-base":166,"des.js":209,"inherits":269}],156:[function(require,module,exports){
+},{"buffer":133,"cipher-base":134,"des.js":177,"inherits":237}],124:[function(require,module,exports){
 exports['des-ecb'] = {
   key: 8,
   iv: 0
@@ -13048,7 +8175,7 @@ exports['des-ede'] = {
   iv: 0
 }
 
-},{}],157:[function(require,module,exports){
+},{}],125:[function(require,module,exports){
 (function (Buffer){
 var bn = require('bn.js');
 var randomBytes = require('randombytes');
@@ -13092,10 +8219,10 @@ function getr(priv) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"bn.js":134,"buffer":165,"randombytes":298}],158:[function(require,module,exports){
+},{"bn.js":102,"buffer":133,"randombytes":266}],126:[function(require,module,exports){
 module.exports = require('./browser/algorithms.json')
 
-},{"./browser/algorithms.json":159}],159:[function(require,module,exports){
+},{"./browser/algorithms.json":127}],127:[function(require,module,exports){
 module.exports={
   "sha224WithRSAEncryption": {
     "sign": "rsa",
@@ -13249,7 +8376,7 @@ module.exports={
   }
 }
 
-},{}],160:[function(require,module,exports){
+},{}],128:[function(require,module,exports){
 module.exports={
   "1.3.132.0.10": "secp256k1",
   "1.3.132.0.33": "p224",
@@ -13259,7 +8386,7 @@ module.exports={
   "1.3.132.0.35": "p521"
 }
 
-},{}],161:[function(require,module,exports){
+},{}],129:[function(require,module,exports){
 (function (Buffer){
 var createHash = require('create-hash')
 var stream = require('stream')
@@ -13354,7 +8481,7 @@ module.exports = {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./algorithms.json":159,"./sign":162,"./verify":163,"buffer":165,"create-hash":169,"inherits":269,"stream":331}],162:[function(require,module,exports){
+},{"./algorithms.json":127,"./sign":130,"./verify":131,"buffer":133,"create-hash":137,"inherits":237,"stream":297}],130:[function(require,module,exports){
 (function (Buffer){
 // much of this based on https://github.com/indutny/self-signed/blob/gh-pages/lib/rsa.js
 var createHmac = require('create-hmac')
@@ -13503,7 +8630,7 @@ module.exports.getKey = getKey
 module.exports.makeKey = makeKey
 
 }).call(this,require("buffer").Buffer)
-},{"./curves.json":160,"bn.js":134,"browserify-rsa":157,"buffer":165,"create-hmac":172,"elliptic":219,"parse-asn1":282}],163:[function(require,module,exports){
+},{"./curves.json":128,"bn.js":102,"browserify-rsa":125,"buffer":133,"create-hmac":140,"elliptic":187,"parse-asn1":250}],131:[function(require,module,exports){
 (function (Buffer){
 // much of this based on https://github.com/indutny/self-signed/blob/gh-pages/lib/rsa.js
 var BN = require('bn.js')
@@ -13590,7 +8717,7 @@ function checkValue (b, q) {
 module.exports = verify
 
 }).call(this,require("buffer").Buffer)
-},{"./curves.json":160,"bn.js":134,"buffer":165,"elliptic":219,"parse-asn1":282}],164:[function(require,module,exports){
+},{"./curves.json":128,"bn.js":102,"buffer":133,"elliptic":187,"parse-asn1":250}],132:[function(require,module,exports){
 (function (Buffer){
 module.exports = function xor (a, b) {
   var length = Math.min(a.length, b.length)
@@ -13604,7 +8731,7 @@ module.exports = function xor (a, b) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":165}],165:[function(require,module,exports){
+},{"buffer":133}],133:[function(require,module,exports){
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -15342,7 +10469,7 @@ function numberIsNaN (obj) {
   return obj !== obj // eslint-disable-line no-self-compare
 }
 
-},{"base64-js":132,"ieee754":267}],166:[function(require,module,exports){
+},{"base64-js":101,"ieee754":235}],134:[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 var Transform = require('stream').Transform
 var StringDecoder = require('string_decoder').StringDecoder
@@ -15443,7 +10570,7 @@ CipherBase.prototype._toString = function (value, enc, fin) {
 
 module.exports = CipherBase
 
-},{"inherits":269,"safe-buffer":322,"stream":331,"string_decoder":332}],167:[function(require,module,exports){
+},{"inherits":237,"safe-buffer":288,"stream":297,"string_decoder":298}],135:[function(require,module,exports){
 (function (Buffer){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -15554,7 +10681,7 @@ function objectToString(o) {
 }
 
 }).call(this,{"isBuffer":require("../../is-buffer/index.js")})
-},{"../../is-buffer/index.js":270}],168:[function(require,module,exports){
+},{"../../is-buffer/index.js":238}],136:[function(require,module,exports){
 (function (Buffer){
 var elliptic = require('elliptic');
 var BN = require('bn.js');
@@ -15680,7 +10807,7 @@ function formatReturnValue(bn, enc, len) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"bn.js":134,"buffer":165,"elliptic":219}],169:[function(require,module,exports){
+},{"bn.js":102,"buffer":133,"elliptic":187}],137:[function(require,module,exports){
 (function (Buffer){
 'use strict'
 var inherits = require('inherits')
@@ -15736,7 +10863,7 @@ module.exports = function createHash (alg) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./md5":171,"buffer":165,"cipher-base":166,"inherits":269,"ripemd160":321,"sha.js":324}],170:[function(require,module,exports){
+},{"./md5":139,"buffer":133,"cipher-base":134,"inherits":237,"ripemd160":287,"sha.js":290}],138:[function(require,module,exports){
 (function (Buffer){
 'use strict'
 var intSize = 4
@@ -15770,7 +10897,7 @@ module.exports = function hash (buf, fn) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":165}],171:[function(require,module,exports){
+},{"buffer":133}],139:[function(require,module,exports){
 'use strict'
 /*
  * A JavaScript implementation of the RSA Data Security, Inc. MD5 Message
@@ -15923,7 +11050,7 @@ module.exports = function md5 (buf) {
   return makeHash(buf, core_md5)
 }
 
-},{"./make-hash":170}],172:[function(require,module,exports){
+},{"./make-hash":138}],140:[function(require,module,exports){
 'use strict'
 var inherits = require('inherits')
 var Legacy = require('./legacy')
@@ -15987,7 +11114,7 @@ module.exports = function createHmac (alg, key) {
   return new Hmac(alg, key)
 }
 
-},{"./legacy":173,"cipher-base":166,"create-hash/md5":171,"inherits":269,"ripemd160":321,"safe-buffer":322,"sha.js":324}],173:[function(require,module,exports){
+},{"./legacy":141,"cipher-base":134,"create-hash/md5":139,"inherits":237,"ripemd160":287,"safe-buffer":288,"sha.js":290}],141:[function(require,module,exports){
 'use strict'
 var inherits = require('inherits')
 var Buffer = require('safe-buffer').Buffer
@@ -16035,7 +11162,7 @@ Hmac.prototype._final = function () {
 }
 module.exports = Hmac
 
-},{"cipher-base":166,"inherits":269,"safe-buffer":322}],174:[function(require,module,exports){
+},{"cipher-base":134,"inherits":237,"safe-buffer":288}],142:[function(require,module,exports){
 'use strict'
 
 exports.randomBytes = exports.rng = exports.pseudoRandomBytes = exports.prng = require('randombytes')
@@ -16134,7 +11261,7 @@ exports.constants = {
   'POINT_CONVERSION_HYBRID': 6
 }
 
-},{"browserify-cipher":154,"browserify-sign":161,"browserify-sign/algos":158,"create-ecdh":168,"create-hash":169,"create-hmac":172,"diffie-hellman":215,"pbkdf2":283,"public-encrypt":292,"randombytes":298,"randomfill":299}],175:[function(require,module,exports){
+},{"browserify-cipher":122,"browserify-sign":129,"browserify-sign/algos":126,"create-ecdh":136,"create-hash":137,"create-hmac":140,"diffie-hellman":183,"pbkdf2":251,"public-encrypt":260,"randombytes":266,"randomfill":267}],143:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -16367,7 +11494,7 @@ exports.constants = {
 	return CryptoJS.AES;
 
 }));
-},{"./cipher-core":176,"./core":177,"./enc-base64":178,"./evpkdf":180,"./md5":185}],176:[function(require,module,exports){
+},{"./cipher-core":144,"./core":145,"./enc-base64":146,"./evpkdf":148,"./md5":153}],144:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -17243,7 +12370,7 @@ exports.constants = {
 
 
 }));
-},{"./core":177}],177:[function(require,module,exports){
+},{"./core":145}],145:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -18004,7 +13131,7 @@ exports.constants = {
 	return CryptoJS;
 
 }));
-},{}],178:[function(require,module,exports){
+},{}],146:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -18140,7 +13267,7 @@ exports.constants = {
 	return CryptoJS.enc.Base64;
 
 }));
-},{"./core":177}],179:[function(require,module,exports){
+},{"./core":145}],147:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -18290,7 +13417,7 @@ exports.constants = {
 	return CryptoJS.enc.Utf16;
 
 }));
-},{"./core":177}],180:[function(require,module,exports){
+},{"./core":145}],148:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -18423,7 +13550,7 @@ exports.constants = {
 	return CryptoJS.EvpKDF;
 
 }));
-},{"./core":177,"./hmac":182,"./sha1":201}],181:[function(require,module,exports){
+},{"./core":145,"./hmac":150,"./sha1":169}],149:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -18490,7 +13617,7 @@ exports.constants = {
 	return CryptoJS.format.Hex;
 
 }));
-},{"./cipher-core":176,"./core":177}],182:[function(require,module,exports){
+},{"./cipher-core":144,"./core":145}],150:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -18634,7 +13761,7 @@ exports.constants = {
 
 
 }));
-},{"./core":177}],183:[function(require,module,exports){
+},{"./core":145}],151:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -18653,7 +13780,7 @@ exports.constants = {
 	return CryptoJS;
 
 }));
-},{"./aes":175,"./cipher-core":176,"./core":177,"./enc-base64":178,"./enc-utf16":179,"./evpkdf":180,"./format-hex":181,"./hmac":182,"./lib-typedarrays":184,"./md5":185,"./mode-cfb":186,"./mode-ctr":188,"./mode-ctr-gladman":187,"./mode-ecb":189,"./mode-ofb":190,"./pad-ansix923":191,"./pad-iso10126":192,"./pad-iso97971":193,"./pad-nopadding":194,"./pad-zeropadding":195,"./pbkdf2":196,"./rabbit":198,"./rabbit-legacy":197,"./rc4":199,"./ripemd160":200,"./sha1":201,"./sha224":202,"./sha256":203,"./sha3":204,"./sha384":205,"./sha512":206,"./tripledes":207,"./x64-core":208}],184:[function(require,module,exports){
+},{"./aes":143,"./cipher-core":144,"./core":145,"./enc-base64":146,"./enc-utf16":147,"./evpkdf":148,"./format-hex":149,"./hmac":150,"./lib-typedarrays":152,"./md5":153,"./mode-cfb":154,"./mode-ctr":156,"./mode-ctr-gladman":155,"./mode-ecb":157,"./mode-ofb":158,"./pad-ansix923":159,"./pad-iso10126":160,"./pad-iso97971":161,"./pad-nopadding":162,"./pad-zeropadding":163,"./pbkdf2":164,"./rabbit":166,"./rabbit-legacy":165,"./rc4":167,"./ripemd160":168,"./sha1":169,"./sha224":170,"./sha256":171,"./sha3":172,"./sha384":173,"./sha512":174,"./tripledes":175,"./x64-core":176}],152:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -18730,7 +13857,7 @@ exports.constants = {
 	return CryptoJS.lib.WordArray;
 
 }));
-},{"./core":177}],185:[function(require,module,exports){
+},{"./core":145}],153:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -18999,7 +14126,7 @@ exports.constants = {
 	return CryptoJS.MD5;
 
 }));
-},{"./core":177}],186:[function(require,module,exports){
+},{"./core":145}],154:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -19078,7 +14205,7 @@ exports.constants = {
 	return CryptoJS.mode.CFB;
 
 }));
-},{"./cipher-core":176,"./core":177}],187:[function(require,module,exports){
+},{"./cipher-core":144,"./core":145}],155:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -19195,7 +14322,7 @@ exports.constants = {
 	return CryptoJS.mode.CTRGladman;
 
 }));
-},{"./cipher-core":176,"./core":177}],188:[function(require,module,exports){
+},{"./cipher-core":144,"./core":145}],156:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -19254,7 +14381,7 @@ exports.constants = {
 	return CryptoJS.mode.CTR;
 
 }));
-},{"./cipher-core":176,"./core":177}],189:[function(require,module,exports){
+},{"./cipher-core":144,"./core":145}],157:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -19295,7 +14422,7 @@ exports.constants = {
 	return CryptoJS.mode.ECB;
 
 }));
-},{"./cipher-core":176,"./core":177}],190:[function(require,module,exports){
+},{"./cipher-core":144,"./core":145}],158:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -19350,7 +14477,7 @@ exports.constants = {
 	return CryptoJS.mode.OFB;
 
 }));
-},{"./cipher-core":176,"./core":177}],191:[function(require,module,exports){
+},{"./cipher-core":144,"./core":145}],159:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -19400,7 +14527,7 @@ exports.constants = {
 	return CryptoJS.pad.Ansix923;
 
 }));
-},{"./cipher-core":176,"./core":177}],192:[function(require,module,exports){
+},{"./cipher-core":144,"./core":145}],160:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -19445,7 +14572,7 @@ exports.constants = {
 	return CryptoJS.pad.Iso10126;
 
 }));
-},{"./cipher-core":176,"./core":177}],193:[function(require,module,exports){
+},{"./cipher-core":144,"./core":145}],161:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -19486,7 +14613,7 @@ exports.constants = {
 	return CryptoJS.pad.Iso97971;
 
 }));
-},{"./cipher-core":176,"./core":177}],194:[function(require,module,exports){
+},{"./cipher-core":144,"./core":145}],162:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -19517,7 +14644,7 @@ exports.constants = {
 	return CryptoJS.pad.NoPadding;
 
 }));
-},{"./cipher-core":176,"./core":177}],195:[function(require,module,exports){
+},{"./cipher-core":144,"./core":145}],163:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -19563,7 +14690,7 @@ exports.constants = {
 	return CryptoJS.pad.ZeroPadding;
 
 }));
-},{"./cipher-core":176,"./core":177}],196:[function(require,module,exports){
+},{"./cipher-core":144,"./core":145}],164:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -19709,7 +14836,7 @@ exports.constants = {
 	return CryptoJS.PBKDF2;
 
 }));
-},{"./core":177,"./hmac":182,"./sha1":201}],197:[function(require,module,exports){
+},{"./core":145,"./hmac":150,"./sha1":169}],165:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -19900,7 +15027,7 @@ exports.constants = {
 	return CryptoJS.RabbitLegacy;
 
 }));
-},{"./cipher-core":176,"./core":177,"./enc-base64":178,"./evpkdf":180,"./md5":185}],198:[function(require,module,exports){
+},{"./cipher-core":144,"./core":145,"./enc-base64":146,"./evpkdf":148,"./md5":153}],166:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -20093,7 +15220,7 @@ exports.constants = {
 	return CryptoJS.Rabbit;
 
 }));
-},{"./cipher-core":176,"./core":177,"./enc-base64":178,"./evpkdf":180,"./md5":185}],199:[function(require,module,exports){
+},{"./cipher-core":144,"./core":145,"./enc-base64":146,"./evpkdf":148,"./md5":153}],167:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -20233,7 +15360,7 @@ exports.constants = {
 	return CryptoJS.RC4;
 
 }));
-},{"./cipher-core":176,"./core":177,"./enc-base64":178,"./evpkdf":180,"./md5":185}],200:[function(require,module,exports){
+},{"./cipher-core":144,"./core":145,"./enc-base64":146,"./evpkdf":148,"./md5":153}],168:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -20501,7 +15628,7 @@ exports.constants = {
 	return CryptoJS.RIPEMD160;
 
 }));
-},{"./core":177}],201:[function(require,module,exports){
+},{"./core":145}],169:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -20652,7 +15779,7 @@ exports.constants = {
 	return CryptoJS.SHA1;
 
 }));
-},{"./core":177}],202:[function(require,module,exports){
+},{"./core":145}],170:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -20733,7 +15860,7 @@ exports.constants = {
 	return CryptoJS.SHA224;
 
 }));
-},{"./core":177,"./sha256":203}],203:[function(require,module,exports){
+},{"./core":145,"./sha256":171}],171:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -20933,7 +16060,7 @@ exports.constants = {
 	return CryptoJS.SHA256;
 
 }));
-},{"./core":177}],204:[function(require,module,exports){
+},{"./core":145}],172:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -21257,7 +16384,7 @@ exports.constants = {
 	return CryptoJS.SHA3;
 
 }));
-},{"./core":177,"./x64-core":208}],205:[function(require,module,exports){
+},{"./core":145,"./x64-core":176}],173:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -21341,7 +16468,7 @@ exports.constants = {
 	return CryptoJS.SHA384;
 
 }));
-},{"./core":177,"./sha512":206,"./x64-core":208}],206:[function(require,module,exports){
+},{"./core":145,"./sha512":174,"./x64-core":176}],174:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -21665,7 +16792,7 @@ exports.constants = {
 	return CryptoJS.SHA512;
 
 }));
-},{"./core":177,"./x64-core":208}],207:[function(require,module,exports){
+},{"./core":145,"./x64-core":176}],175:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -22436,7 +17563,7 @@ exports.constants = {
 	return CryptoJS.TripleDES;
 
 }));
-},{"./cipher-core":176,"./core":177,"./enc-base64":178,"./evpkdf":180,"./md5":185}],208:[function(require,module,exports){
+},{"./cipher-core":144,"./core":145,"./enc-base64":146,"./evpkdf":148,"./md5":153}],176:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -22741,7 +17868,7 @@ exports.constants = {
 	return CryptoJS;
 
 }));
-},{"./core":177}],209:[function(require,module,exports){
+},{"./core":145}],177:[function(require,module,exports){
 'use strict';
 
 exports.utils = require('./des/utils');
@@ -22750,7 +17877,7 @@ exports.DES = require('./des/des');
 exports.CBC = require('./des/cbc');
 exports.EDE = require('./des/ede');
 
-},{"./des/cbc":210,"./des/cipher":211,"./des/des":212,"./des/ede":213,"./des/utils":214}],210:[function(require,module,exports){
+},{"./des/cbc":178,"./des/cipher":179,"./des/des":180,"./des/ede":181,"./des/utils":182}],178:[function(require,module,exports){
 'use strict';
 
 var assert = require('minimalistic-assert');
@@ -22817,7 +17944,7 @@ proto._update = function _update(inp, inOff, out, outOff) {
   }
 };
 
-},{"inherits":269,"minimalistic-assert":275}],211:[function(require,module,exports){
+},{"inherits":237,"minimalistic-assert":243}],179:[function(require,module,exports){
 'use strict';
 
 var assert = require('minimalistic-assert');
@@ -22960,7 +18087,7 @@ Cipher.prototype._finalDecrypt = function _finalDecrypt() {
   return this._unpad(out);
 };
 
-},{"minimalistic-assert":275}],212:[function(require,module,exports){
+},{"minimalistic-assert":243}],180:[function(require,module,exports){
 'use strict';
 
 var assert = require('minimalistic-assert');
@@ -23105,7 +18232,7 @@ DES.prototype._decrypt = function _decrypt(state, lStart, rStart, out, off) {
   utils.rip(l, r, out, off);
 };
 
-},{"../des":209,"inherits":269,"minimalistic-assert":275}],213:[function(require,module,exports){
+},{"../des":177,"inherits":237,"minimalistic-assert":243}],181:[function(require,module,exports){
 'use strict';
 
 var assert = require('minimalistic-assert');
@@ -23162,7 +18289,7 @@ EDE.prototype._update = function _update(inp, inOff, out, outOff) {
 EDE.prototype._pad = DES.prototype._pad;
 EDE.prototype._unpad = DES.prototype._unpad;
 
-},{"../des":209,"inherits":269,"minimalistic-assert":275}],214:[function(require,module,exports){
+},{"../des":177,"inherits":237,"minimalistic-assert":243}],182:[function(require,module,exports){
 'use strict';
 
 exports.readUInt32BE = function readUInt32BE(bytes, off) {
@@ -23420,7 +18547,7 @@ exports.padSplit = function padSplit(num, size, group) {
   return out.join(' ');
 };
 
-},{}],215:[function(require,module,exports){
+},{}],183:[function(require,module,exports){
 (function (Buffer){
 var generatePrime = require('./lib/generatePrime')
 var primes = require('./lib/primes.json')
@@ -23466,7 +18593,7 @@ exports.DiffieHellmanGroup = exports.createDiffieHellmanGroup = exports.getDiffi
 exports.createDiffieHellman = exports.DiffieHellman = createDiffieHellman
 
 }).call(this,require("buffer").Buffer)
-},{"./lib/dh":216,"./lib/generatePrime":217,"./lib/primes.json":218,"buffer":165}],216:[function(require,module,exports){
+},{"./lib/dh":184,"./lib/generatePrime":185,"./lib/primes.json":186,"buffer":133}],184:[function(require,module,exports){
 (function (Buffer){
 var BN = require('bn.js');
 var MillerRabin = require('miller-rabin');
@@ -23634,7 +18761,7 @@ function formatReturnValue(bn, enc) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./generatePrime":217,"bn.js":134,"buffer":165,"miller-rabin":274,"randombytes":298}],217:[function(require,module,exports){
+},{"./generatePrime":185,"bn.js":102,"buffer":133,"miller-rabin":242,"randombytes":266}],185:[function(require,module,exports){
 var randomBytes = require('randombytes');
 module.exports = findPrime;
 findPrime.simpleSieve = simpleSieve;
@@ -23741,7 +18868,7 @@ function findPrime(bits, gen) {
 
 }
 
-},{"bn.js":134,"miller-rabin":274,"randombytes":298}],218:[function(require,module,exports){
+},{"bn.js":102,"miller-rabin":242,"randombytes":266}],186:[function(require,module,exports){
 module.exports={
     "modp1": {
         "gen": "02",
@@ -23776,7 +18903,7 @@ module.exports={
         "prime": "ffffffffffffffffc90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b139b22514a08798e3404ddef9519b3cd3a431b302b0a6df25f14374fe1356d6d51c245e485b576625e7ec6f44c42e9a637ed6b0bff5cb6f406b7edee386bfb5a899fa5ae9f24117c4b1fe649286651ece45b3dc2007cb8a163bf0598da48361c55d39a69163fa8fd24cf5f83655d23dca3ad961c62f356208552bb9ed529077096966d670c354e4abc9804f1746c08ca18217c32905e462e36ce3be39e772c180e86039b2783a2ec07a28fb5c55df06f4c52c9de2bcbf6955817183995497cea956ae515d2261898fa051015728e5a8aaac42dad33170d04507a33a85521abdf1cba64ecfb850458dbef0a8aea71575d060c7db3970f85a6e1e4c7abf5ae8cdb0933d71e8c94e04a25619dcee3d2261ad2ee6bf12ffa06d98a0864d87602733ec86a64521f2b18177b200cbbe117577a615d6c770988c0bad946e208e24fa074e5ab3143db5bfce0fd108e4b82d120a92108011a723c12a787e6d788719a10bdba5b2699c327186af4e23c1a946834b6150bda2583e9ca2ad44ce8dbbbc2db04de8ef92e8efc141fbecaa6287c59474e6bc05d99b2964fa090c3a2233ba186515be7ed1f612970cee2d7afb81bdd762170481cd0069127d5b05aa993b4ea988d8fddc186ffb7dc90a6c08f4df435c93402849236c3fab4d27c7026c1d4dcb2602646dec9751e763dba37bdf8ff9406ad9e530ee5db382f413001aeb06a53ed9027d831179727b0865a8918da3edbebcf9b14ed44ce6cbaced4bb1bdb7f1447e6cc254b332051512bd7af426fb8f401378cd2bf5983ca01c64b92ecf032ea15d1721d03f482d7ce6e74fef6d55e702f46980c82b5a84031900b1c9e59e7c97fbec7e8f323a97a7e36cc88be0f1d45b7ff585ac54bd407b22b4154aacc8f6d7ebf48e1d814cc5ed20f8037e0a79715eef29be32806a1d58bb7c5da76f550aa3d8a1fbff0eb19ccb1a313d55cda56c9ec2ef29632387fe8d76e3c0468043e8f663f4860ee12bf2d5b0b7474d6e694f91e6dbe115974a3926f12fee5e438777cb6a932df8cd8bec4d073b931ba3bc832b68d9dd300741fa7bf8afc47ed2576f6936ba424663aab639c5ae4f5683423b4742bf1c978238f16cbe39d652de3fdb8befc848ad922222e04a4037c0713eb57a81a23f0c73473fc646cea306b4bcbc8862f8385ddfa9d4b7fa2c087e879683303ed5bdd3a062b3cf5b3a278a66d2a13f83f44f82ddf310ee074ab6a364597e899a0255dc164f31cc50846851df9ab48195ded7ea1b1d510bd7ee74d73faf36bc31ecfa268359046f4eb879f924009438b481c6cd7889a002ed5ee382bc9190da6fc026e479558e4475677e9aa9e3050e2765694dfc81f56e880b96e7160c980dd98edd3dfffffffffffffffff"
     }
 }
-},{}],219:[function(require,module,exports){
+},{}],187:[function(require,module,exports){
 'use strict';
 
 var elliptic = exports;
@@ -23791,7 +18918,7 @@ elliptic.curves = require('./elliptic/curves');
 elliptic.ec = require('./elliptic/ec');
 elliptic.eddsa = require('./elliptic/eddsa');
 
-},{"../package.json":234,"./elliptic/curve":222,"./elliptic/curves":225,"./elliptic/ec":226,"./elliptic/eddsa":229,"./elliptic/utils":233,"brorand":135}],220:[function(require,module,exports){
+},{"../package.json":202,"./elliptic/curve":190,"./elliptic/curves":193,"./elliptic/ec":194,"./elliptic/eddsa":197,"./elliptic/utils":201,"brorand":103}],188:[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -24168,7 +19295,7 @@ BasePoint.prototype.dblp = function dblp(k) {
   return r;
 };
 
-},{"../../elliptic":219,"bn.js":134}],221:[function(require,module,exports){
+},{"../../elliptic":187,"bn.js":102}],189:[function(require,module,exports){
 'use strict';
 
 var curve = require('../curve');
@@ -24603,7 +19730,7 @@ Point.prototype.eqXToP = function eqXToP(x) {
 Point.prototype.toP = Point.prototype.normalize;
 Point.prototype.mixedAdd = Point.prototype.add;
 
-},{"../../elliptic":219,"../curve":222,"bn.js":134,"inherits":269}],222:[function(require,module,exports){
+},{"../../elliptic":187,"../curve":190,"bn.js":102,"inherits":237}],190:[function(require,module,exports){
 'use strict';
 
 var curve = exports;
@@ -24613,7 +19740,7 @@ curve.short = require('./short');
 curve.mont = require('./mont');
 curve.edwards = require('./edwards');
 
-},{"./base":220,"./edwards":221,"./mont":223,"./short":224}],223:[function(require,module,exports){
+},{"./base":188,"./edwards":189,"./mont":191,"./short":192}],191:[function(require,module,exports){
 'use strict';
 
 var curve = require('../curve');
@@ -24795,7 +19922,7 @@ Point.prototype.getX = function getX() {
   return this.x.fromRed();
 };
 
-},{"../../elliptic":219,"../curve":222,"bn.js":134,"inherits":269}],224:[function(require,module,exports){
+},{"../../elliptic":187,"../curve":190,"bn.js":102,"inherits":237}],192:[function(require,module,exports){
 'use strict';
 
 var curve = require('../curve');
@@ -25735,7 +20862,7 @@ JPoint.prototype.isInfinity = function isInfinity() {
   return this.z.cmpn(0) === 0;
 };
 
-},{"../../elliptic":219,"../curve":222,"bn.js":134,"inherits":269}],225:[function(require,module,exports){
+},{"../../elliptic":187,"../curve":190,"bn.js":102,"inherits":237}],193:[function(require,module,exports){
 'use strict';
 
 var curves = exports;
@@ -25942,7 +21069,7 @@ defineCurve('secp256k1', {
   ]
 });
 
-},{"../elliptic":219,"./precomputed/secp256k1":232,"hash.js":254}],226:[function(require,module,exports){
+},{"../elliptic":187,"./precomputed/secp256k1":200,"hash.js":222}],194:[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -26184,7 +21311,7 @@ EC.prototype.getKeyRecoveryParam = function(e, signature, Q, enc) {
   throw new Error('Unable to find valid recovery factor');
 };
 
-},{"../../elliptic":219,"./key":227,"./signature":228,"bn.js":134,"hmac-drbg":266}],227:[function(require,module,exports){
+},{"../../elliptic":187,"./key":195,"./signature":196,"bn.js":102,"hmac-drbg":234}],195:[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -26305,7 +21432,7 @@ KeyPair.prototype.inspect = function inspect() {
          ' pub: ' + (this.pub && this.pub.inspect()) + ' >';
 };
 
-},{"../../elliptic":219,"bn.js":134}],228:[function(require,module,exports){
+},{"../../elliptic":187,"bn.js":102}],196:[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -26442,7 +21569,7 @@ Signature.prototype.toDER = function toDER(enc) {
   return utils.encode(res, enc);
 };
 
-},{"../../elliptic":219,"bn.js":134}],229:[function(require,module,exports){
+},{"../../elliptic":187,"bn.js":102}],197:[function(require,module,exports){
 'use strict';
 
 var hash = require('hash.js');
@@ -26562,7 +21689,7 @@ EDDSA.prototype.isPoint = function isPoint(val) {
   return val instanceof this.pointClass;
 };
 
-},{"../../elliptic":219,"./key":230,"./signature":231,"hash.js":254}],230:[function(require,module,exports){
+},{"../../elliptic":187,"./key":198,"./signature":199,"hash.js":222}],198:[function(require,module,exports){
 'use strict';
 
 var elliptic = require('../../elliptic');
@@ -26660,7 +21787,7 @@ KeyPair.prototype.getPublic = function getPublic(enc) {
 
 module.exports = KeyPair;
 
-},{"../../elliptic":219}],231:[function(require,module,exports){
+},{"../../elliptic":187}],199:[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -26728,7 +21855,7 @@ Signature.prototype.toHex = function toHex() {
 
 module.exports = Signature;
 
-},{"../../elliptic":219,"bn.js":134}],232:[function(require,module,exports){
+},{"../../elliptic":187,"bn.js":102}],200:[function(require,module,exports){
 module.exports = {
   doubles: {
     step: 4,
@@ -27510,7 +22637,7 @@ module.exports = {
   }
 };
 
-},{}],233:[function(require,module,exports){
+},{}],201:[function(require,module,exports){
 'use strict';
 
 var utils = exports;
@@ -27632,7 +22759,7 @@ function intFromLE(bytes) {
 utils.intFromLE = intFromLE;
 
 
-},{"bn.js":134,"minimalistic-assert":275,"minimalistic-crypto-utils":276}],234:[function(require,module,exports){
+},{"bn.js":102,"minimalistic-assert":243,"minimalistic-crypto-utils":244}],202:[function(require,module,exports){
 module.exports={
   "_args": [
     [
@@ -27725,7 +22852,7 @@ module.exports={
   "version": "6.4.0"
 }
 
-},{}],235:[function(require,module,exports){
+},{}],203:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -28246,7 +23373,7 @@ function functionBindPolyfill(context) {
   };
 }
 
-},{}],236:[function(require,module,exports){
+},{}],204:[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 var MD5 = require('md5.js')
 
@@ -28293,7 +23420,7 @@ function EVP_BytesToKey (password, salt, keyBits, ivLen) {
 
 module.exports = EVP_BytesToKey
 
-},{"md5.js":272,"safe-buffer":322}],237:[function(require,module,exports){
+},{"md5.js":240,"safe-buffer":288}],205:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -28370,7 +23497,7 @@ var EventListener = {
 
 module.exports = EventListener;
 }).call(this,require('_process'))
-},{"./emptyFunction":242,"_process":289}],238:[function(require,module,exports){
+},{"./emptyFunction":210,"_process":257}],206:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -28404,7 +23531,7 @@ var ExecutionEnvironment = {
 };
 
 module.exports = ExecutionEnvironment;
-},{}],239:[function(require,module,exports){
+},{}],207:[function(require,module,exports){
 "use strict";
 
 /**
@@ -28434,7 +23561,7 @@ function camelize(string) {
 }
 
 module.exports = camelize;
-},{}],240:[function(require,module,exports){
+},{}],208:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -28472,7 +23599,7 @@ function camelizeStyleName(string) {
 }
 
 module.exports = camelizeStyleName;
-},{"./camelize":239}],241:[function(require,module,exports){
+},{"./camelize":207}],209:[function(require,module,exports){
 'use strict';
 
 /**
@@ -28510,7 +23637,7 @@ function containsNode(outerNode, innerNode) {
 }
 
 module.exports = containsNode;
-},{"./isTextNode":250}],242:[function(require,module,exports){
+},{"./isTextNode":218}],210:[function(require,module,exports){
 "use strict";
 
 /**
@@ -28547,7 +23674,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-},{}],243:[function(require,module,exports){
+},{}],211:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -28567,7 +23694,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = emptyObject;
 }).call(this,require('_process'))
-},{"_process":289}],244:[function(require,module,exports){
+},{"_process":257}],212:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -28592,7 +23719,7 @@ function focusNode(node) {
 }
 
 module.exports = focusNode;
-},{}],245:[function(require,module,exports){
+},{}],213:[function(require,module,exports){
 'use strict';
 
 /**
@@ -28629,7 +23756,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 }
 
 module.exports = getActiveElement;
-},{}],246:[function(require,module,exports){
+},{}],214:[function(require,module,exports){
 'use strict';
 
 /**
@@ -28660,7 +23787,7 @@ function hyphenate(string) {
 }
 
 module.exports = hyphenate;
-},{}],247:[function(require,module,exports){
+},{}],215:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -28697,7 +23824,7 @@ function hyphenateStyleName(string) {
 }
 
 module.exports = hyphenateStyleName;
-},{"./hyphenate":246}],248:[function(require,module,exports){
+},{"./hyphenate":214}],216:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -28753,7 +23880,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 
 module.exports = invariant;
 }).call(this,require('_process'))
-},{"_process":289}],249:[function(require,module,exports){
+},{"_process":257}],217:[function(require,module,exports){
 'use strict';
 
 /**
@@ -28776,7 +23903,7 @@ function isNode(object) {
 }
 
 module.exports = isNode;
-},{}],250:[function(require,module,exports){
+},{}],218:[function(require,module,exports){
 'use strict';
 
 /**
@@ -28799,7 +23926,7 @@ function isTextNode(object) {
 }
 
 module.exports = isTextNode;
-},{"./isNode":249}],251:[function(require,module,exports){
+},{"./isNode":217}],219:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -28865,7 +23992,7 @@ function shallowEqual(objA, objB) {
 }
 
 module.exports = shallowEqual;
-},{}],252:[function(require,module,exports){
+},{}],220:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
@@ -28930,7 +24057,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = warning;
 }).call(this,require('_process'))
-},{"./emptyFunction":242,"_process":289}],253:[function(require,module,exports){
+},{"./emptyFunction":210,"_process":257}],221:[function(require,module,exports){
 (function (Buffer){
 'use strict'
 var Transform = require('stream').Transform
@@ -29017,7 +24144,7 @@ HashBase.prototype._digest = function () {
 module.exports = HashBase
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":165,"inherits":269,"stream":331}],254:[function(require,module,exports){
+},{"buffer":133,"inherits":237,"stream":297}],222:[function(require,module,exports){
 var hash = exports;
 
 hash.utils = require('./hash/utils');
@@ -29034,7 +24161,7 @@ hash.sha384 = hash.sha.sha384;
 hash.sha512 = hash.sha.sha512;
 hash.ripemd160 = hash.ripemd.ripemd160;
 
-},{"./hash/common":255,"./hash/hmac":256,"./hash/ripemd":257,"./hash/sha":258,"./hash/utils":265}],255:[function(require,module,exports){
+},{"./hash/common":223,"./hash/hmac":224,"./hash/ripemd":225,"./hash/sha":226,"./hash/utils":233}],223:[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -29128,7 +24255,7 @@ BlockHash.prototype._pad = function pad() {
   return res;
 };
 
-},{"./utils":265,"minimalistic-assert":275}],256:[function(require,module,exports){
+},{"./utils":233,"minimalistic-assert":243}],224:[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -29177,7 +24304,7 @@ Hmac.prototype.digest = function digest(enc) {
   return this.outer.digest(enc);
 };
 
-},{"./utils":265,"minimalistic-assert":275}],257:[function(require,module,exports){
+},{"./utils":233,"minimalistic-assert":243}],225:[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -29325,7 +24452,7 @@ var sh = [
   8, 5, 12, 9, 12, 5, 14, 6, 8, 13, 6, 5, 15, 13, 11, 11
 ];
 
-},{"./common":255,"./utils":265}],258:[function(require,module,exports){
+},{"./common":223,"./utils":233}],226:[function(require,module,exports){
 'use strict';
 
 exports.sha1 = require('./sha/1');
@@ -29334,7 +24461,7 @@ exports.sha256 = require('./sha/256');
 exports.sha384 = require('./sha/384');
 exports.sha512 = require('./sha/512');
 
-},{"./sha/1":259,"./sha/224":260,"./sha/256":261,"./sha/384":262,"./sha/512":263}],259:[function(require,module,exports){
+},{"./sha/1":227,"./sha/224":228,"./sha/256":229,"./sha/384":230,"./sha/512":231}],227:[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -29410,7 +24537,7 @@ SHA1.prototype._digest = function digest(enc) {
     return utils.split32(this.h, 'big');
 };
 
-},{"../common":255,"../utils":265,"./common":264}],260:[function(require,module,exports){
+},{"../common":223,"../utils":233,"./common":232}],228:[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -29442,7 +24569,7 @@ SHA224.prototype._digest = function digest(enc) {
 };
 
 
-},{"../utils":265,"./256":261}],261:[function(require,module,exports){
+},{"../utils":233,"./256":229}],229:[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -29549,7 +24676,7 @@ SHA256.prototype._digest = function digest(enc) {
     return utils.split32(this.h, 'big');
 };
 
-},{"../common":255,"../utils":265,"./common":264,"minimalistic-assert":275}],262:[function(require,module,exports){
+},{"../common":223,"../utils":233,"./common":232,"minimalistic-assert":243}],230:[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -29586,7 +24713,7 @@ SHA384.prototype._digest = function digest(enc) {
     return utils.split32(this.h.slice(0, 12), 'big');
 };
 
-},{"../utils":265,"./512":263}],263:[function(require,module,exports){
+},{"../utils":233,"./512":231}],231:[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -29918,7 +25045,7 @@ function g1_512_lo(xh, xl) {
   return r;
 }
 
-},{"../common":255,"../utils":265,"minimalistic-assert":275}],264:[function(require,module,exports){
+},{"../common":223,"../utils":233,"minimalistic-assert":243}],232:[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -29969,7 +25096,7 @@ function g1_256(x) {
 }
 exports.g1_256 = g1_256;
 
-},{"../utils":265}],265:[function(require,module,exports){
+},{"../utils":233}],233:[function(require,module,exports){
 'use strict';
 
 var assert = require('minimalistic-assert');
@@ -30224,7 +25351,7 @@ function shr64_lo(ah, al, num) {
 }
 exports.shr64_lo = shr64_lo;
 
-},{"inherits":269,"minimalistic-assert":275}],266:[function(require,module,exports){
+},{"inherits":237,"minimalistic-assert":243}],234:[function(require,module,exports){
 'use strict';
 
 var hash = require('hash.js');
@@ -30339,7 +25466,7 @@ HmacDRBG.prototype.generate = function generate(len, enc, add, addEnc) {
   return utils.encode(res, enc);
 };
 
-},{"hash.js":254,"minimalistic-assert":275,"minimalistic-crypto-utils":276}],267:[function(require,module,exports){
+},{"hash.js":222,"minimalistic-assert":243,"minimalistic-crypto-utils":244}],235:[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -30425,7 +25552,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],268:[function(require,module,exports){
+},{}],236:[function(require,module,exports){
 
 var indexOf = [].indexOf;
 
@@ -30436,7 +25563,7 @@ module.exports = function(arr, obj){
   }
   return -1;
 };
-},{}],269:[function(require,module,exports){
+},{}],237:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -30461,7 +25588,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],270:[function(require,module,exports){
+},{}],238:[function(require,module,exports){
 /*!
  * Determine if an object is a Buffer
  *
@@ -30484,14 +25611,14 @@ function isSlowBuffer (obj) {
   return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
 }
 
-},{}],271:[function(require,module,exports){
+},{}],239:[function(require,module,exports){
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-},{}],272:[function(require,module,exports){
+},{}],240:[function(require,module,exports){
 (function (Buffer){
 'use strict'
 var inherits = require('inherits')
@@ -30640,7 +25767,7 @@ function fnI (a, b, c, d, m, k, s) {
 module.exports = MD5
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":165,"hash-base":273,"inherits":269}],273:[function(require,module,exports){
+},{"buffer":133,"hash-base":241,"inherits":237}],241:[function(require,module,exports){
 'use strict'
 var Buffer = require('safe-buffer').Buffer
 var Transform = require('stream').Transform
@@ -30737,7 +25864,7 @@ HashBase.prototype._digest = function () {
 
 module.exports = HashBase
 
-},{"inherits":269,"safe-buffer":322,"stream":331}],274:[function(require,module,exports){
+},{"inherits":237,"safe-buffer":288,"stream":297}],242:[function(require,module,exports){
 var bn = require('bn.js');
 var brorand = require('brorand');
 
@@ -30854,7 +25981,7 @@ MillerRabin.prototype.getDivisor = function getDivisor(n, k) {
   return false;
 };
 
-},{"bn.js":134,"brorand":135}],275:[function(require,module,exports){
+},{"bn.js":102,"brorand":103}],243:[function(require,module,exports){
 module.exports = assert;
 
 function assert(val, msg) {
@@ -30867,7 +25994,7 @@ assert.equal = function assertEqual(l, r, msg) {
     throw new Error(msg || ('Assertion failed: ' + l + ' != ' + r));
 };
 
-},{}],276:[function(require,module,exports){
+},{}],244:[function(require,module,exports){
 'use strict';
 
 var utils = exports;
@@ -30927,7 +26054,7 @@ utils.encode = function encode(arr, enc) {
     return arr;
 };
 
-},{}],277:[function(require,module,exports){
+},{}],245:[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -31019,7 +26146,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
-},{}],278:[function(require,module,exports){
+},{}],246:[function(require,module,exports){
 module.exports={"2.16.840.1.101.3.4.1.1": "aes-128-ecb",
 "2.16.840.1.101.3.4.1.2": "aes-128-cbc",
 "2.16.840.1.101.3.4.1.3": "aes-128-ofb",
@@ -31033,7 +26160,7 @@ module.exports={"2.16.840.1.101.3.4.1.1": "aes-128-ecb",
 "2.16.840.1.101.3.4.1.43": "aes-256-ofb",
 "2.16.840.1.101.3.4.1.44": "aes-256-cfb"
 }
-},{}],279:[function(require,module,exports){
+},{}],247:[function(require,module,exports){
 // from https://github.com/indutny/self-signed/blob/gh-pages/lib/asn1.js
 // Fedor, you are amazing.
 'use strict'
@@ -31157,7 +26284,7 @@ exports.signature = asn1.define('signature', function () {
   )
 })
 
-},{"./certificate":280,"asn1.js":10}],280:[function(require,module,exports){
+},{"./certificate":248,"asn1.js":2}],248:[function(require,module,exports){
 // from https://github.com/Rantanen/node-dtls/blob/25a7dc861bda38cfeac93a723500eea4f0ac2e86/Certificate.js
 // thanks to @Rantanen
 
@@ -31247,7 +26374,7 @@ var X509Certificate = asn.define('X509Certificate', function () {
 
 module.exports = X509Certificate
 
-},{"asn1.js":10}],281:[function(require,module,exports){
+},{"asn1.js":2}],249:[function(require,module,exports){
 (function (Buffer){
 // adapted from https://github.com/apatil/pemstrip
 var findProc = /Proc-Type: 4,ENCRYPTED\n\r?DEK-Info: AES-((?:128)|(?:192)|(?:256))-CBC,([0-9A-H]+)\n\r?\n\r?([0-9A-z\n\r\+\/\=]+)\n\r?/m
@@ -31281,7 +26408,7 @@ module.exports = function (okey, password) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"browserify-aes":139,"buffer":165,"evp_bytestokey":236}],282:[function(require,module,exports){
+},{"browserify-aes":107,"buffer":133,"evp_bytestokey":204}],250:[function(require,module,exports){
 (function (Buffer){
 var asn1 = require('./asn1')
 var aesid = require('./aesid.json')
@@ -31391,13 +26518,13 @@ function decrypt (data, password) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./aesid.json":278,"./asn1":279,"./fixProc":281,"browserify-aes":139,"buffer":165,"pbkdf2":283}],283:[function(require,module,exports){
+},{"./aesid.json":246,"./asn1":247,"./fixProc":249,"browserify-aes":107,"buffer":133,"pbkdf2":251}],251:[function(require,module,exports){
 
 exports.pbkdf2 = require('./lib/async')
 
 exports.pbkdf2Sync = require('./lib/sync')
 
-},{"./lib/async":284,"./lib/sync":287}],284:[function(require,module,exports){
+},{"./lib/async":252,"./lib/sync":255}],252:[function(require,module,exports){
 (function (process,global){
 var checkParameters = require('./precondition')
 var defaultEncoding = require('./default-encoding')
@@ -31499,7 +26626,7 @@ module.exports = function (password, salt, iterations, keylen, digest, callback)
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./default-encoding":285,"./precondition":286,"./sync":287,"_process":289,"safe-buffer":322}],285:[function(require,module,exports){
+},{"./default-encoding":253,"./precondition":254,"./sync":255,"_process":257,"safe-buffer":288}],253:[function(require,module,exports){
 (function (process){
 var defaultEncoding
 /* istanbul ignore next */
@@ -31513,7 +26640,7 @@ if (process.browser) {
 module.exports = defaultEncoding
 
 }).call(this,require('_process'))
-},{"_process":289}],286:[function(require,module,exports){
+},{"_process":257}],254:[function(require,module,exports){
 var MAX_ALLOC = Math.pow(2, 30) - 1 // default in iojs
 module.exports = function (iterations, keylen) {
   if (typeof iterations !== 'number') {
@@ -31533,7 +26660,7 @@ module.exports = function (iterations, keylen) {
   }
 }
 
-},{}],287:[function(require,module,exports){
+},{}],255:[function(require,module,exports){
 var md5 = require('create-hash/md5')
 var rmd160 = require('ripemd160')
 var sha = require('sha.js')
@@ -31636,7 +26763,7 @@ function pbkdf2 (password, salt, iterations, keylen, digest) {
 
 module.exports = pbkdf2
 
-},{"./default-encoding":285,"./precondition":286,"create-hash/md5":171,"ripemd160":321,"safe-buffer":322,"sha.js":324}],288:[function(require,module,exports){
+},{"./default-encoding":253,"./precondition":254,"create-hash/md5":139,"ripemd160":287,"safe-buffer":288,"sha.js":290}],256:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -31684,7 +26811,7 @@ function nextTick(fn, arg1, arg2, arg3) {
 
 
 }).call(this,require('_process'))
-},{"_process":289}],289:[function(require,module,exports){
+},{"_process":257}],257:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -31870,7 +26997,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],290:[function(require,module,exports){
+},{}],258:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -31933,7 +27060,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 module.exports = checkPropTypes;
 
 }).call(this,require('_process'))
-},{"./lib/ReactPropTypesSecret":291,"_process":289,"fbjs/lib/invariant":248,"fbjs/lib/warning":252}],291:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":259,"_process":257,"fbjs/lib/invariant":216,"fbjs/lib/warning":220}],259:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -31947,7 +27074,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
-},{}],292:[function(require,module,exports){
+},{}],260:[function(require,module,exports){
 exports.publicEncrypt = require('./publicEncrypt');
 exports.privateDecrypt = require('./privateDecrypt');
 
@@ -31958,7 +27085,7 @@ exports.privateEncrypt = function privateEncrypt(key, buf) {
 exports.publicDecrypt = function publicDecrypt(key, buf) {
   return exports.privateDecrypt(key, buf, true);
 };
-},{"./privateDecrypt":294,"./publicEncrypt":295}],293:[function(require,module,exports){
+},{"./privateDecrypt":262,"./publicEncrypt":263}],261:[function(require,module,exports){
 (function (Buffer){
 var createHash = require('create-hash');
 module.exports = function (seed, len) {
@@ -31977,7 +27104,7 @@ function i2ops(c) {
   return out;
 }
 }).call(this,require("buffer").Buffer)
-},{"buffer":165,"create-hash":169}],294:[function(require,module,exports){
+},{"buffer":133,"create-hash":137}],262:[function(require,module,exports){
 (function (Buffer){
 var parseKeys = require('parse-asn1');
 var mgf = require('./mgf');
@@ -32088,7 +27215,7 @@ function compare(a, b){
   return dif;
 }
 }).call(this,require("buffer").Buffer)
-},{"./mgf":293,"./withPublic":296,"./xor":297,"bn.js":134,"browserify-rsa":157,"buffer":165,"create-hash":169,"parse-asn1":282}],295:[function(require,module,exports){
+},{"./mgf":261,"./withPublic":264,"./xor":265,"bn.js":102,"browserify-rsa":125,"buffer":133,"create-hash":137,"parse-asn1":250}],263:[function(require,module,exports){
 (function (Buffer){
 var parseKeys = require('parse-asn1');
 var randomBytes = require('randombytes');
@@ -32186,7 +27313,7 @@ function nonZero(len, crypto) {
   return out;
 }
 }).call(this,require("buffer").Buffer)
-},{"./mgf":293,"./withPublic":296,"./xor":297,"bn.js":134,"browserify-rsa":157,"buffer":165,"create-hash":169,"parse-asn1":282,"randombytes":298}],296:[function(require,module,exports){
+},{"./mgf":261,"./withPublic":264,"./xor":265,"bn.js":102,"browserify-rsa":125,"buffer":133,"create-hash":137,"parse-asn1":250,"randombytes":266}],264:[function(require,module,exports){
 (function (Buffer){
 var bn = require('bn.js');
 function withPublic(paddedMsg, key) {
@@ -32199,7 +27326,7 @@ function withPublic(paddedMsg, key) {
 
 module.exports = withPublic;
 }).call(this,require("buffer").Buffer)
-},{"bn.js":134,"buffer":165}],297:[function(require,module,exports){
+},{"bn.js":102,"buffer":133}],265:[function(require,module,exports){
 module.exports = function xor(a, b) {
   var len = a.length;
   var i = -1;
@@ -32208,7 +27335,7 @@ module.exports = function xor(a, b) {
   }
   return a
 };
-},{}],298:[function(require,module,exports){
+},{}],266:[function(require,module,exports){
 (function (process,global){
 'use strict'
 
@@ -32250,7 +27377,7 @@ function randomBytes (size, cb) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":289,"safe-buffer":322}],299:[function(require,module,exports){
+},{"_process":257,"safe-buffer":288}],267:[function(require,module,exports){
 (function (process,global){
 'use strict'
 
@@ -32362,7 +27489,7 @@ function randomFillSync (buf, offset, size) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":289,"randombytes":298,"safe-buffer":322}],300:[function(require,module,exports){
+},{"_process":257,"randombytes":266,"safe-buffer":288}],268:[function(require,module,exports){
 (function (process){
 /** @license React v16.2.0
  * react-dom.development.js
@@ -47760,7 +42887,7 @@ module.exports = reactDom;
 }
 
 }).call(this,require('_process'))
-},{"_process":289,"fbjs/lib/EventListener":237,"fbjs/lib/ExecutionEnvironment":238,"fbjs/lib/camelizeStyleName":240,"fbjs/lib/containsNode":241,"fbjs/lib/emptyFunction":242,"fbjs/lib/emptyObject":243,"fbjs/lib/focusNode":244,"fbjs/lib/getActiveElement":245,"fbjs/lib/hyphenateStyleName":247,"fbjs/lib/invariant":248,"fbjs/lib/shallowEqual":251,"fbjs/lib/warning":252,"object-assign":277,"prop-types/checkPropTypes":290,"react":305}],301:[function(require,module,exports){
+},{"_process":257,"fbjs/lib/EventListener":205,"fbjs/lib/ExecutionEnvironment":206,"fbjs/lib/camelizeStyleName":208,"fbjs/lib/containsNode":209,"fbjs/lib/emptyFunction":210,"fbjs/lib/emptyObject":211,"fbjs/lib/focusNode":212,"fbjs/lib/getActiveElement":213,"fbjs/lib/hyphenateStyleName":215,"fbjs/lib/invariant":216,"fbjs/lib/shallowEqual":219,"fbjs/lib/warning":220,"object-assign":245,"prop-types/checkPropTypes":258,"react":273}],269:[function(require,module,exports){
 /** @license React v16.2.0
  * react-dom.production.min.js
  *
@@ -47991,7 +43118,7 @@ var Sg={createPortal:Qg,findDOMNode:function(a){if(null==a)return null;if(1===a.
 E("40");return a._reactRootContainer?(Z.unbatchedUpdates(function(){Pg(null,null,a,!1,function(){a._reactRootContainer=null})}),!0):!1},unstable_createPortal:Qg,unstable_batchedUpdates:tc,unstable_deferredUpdates:Z.deferredUpdates,flushSync:Z.flushSync,__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{EventPluginHub:mb,EventPluginRegistry:Va,EventPropagators:Cb,ReactControlledComponent:qc,ReactDOMComponentTree:sb,ReactDOMEventListener:xd}};
 Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",rendererPackageName:"react-dom"});var Tg=Object.freeze({default:Sg}),Ug=Tg&&Sg||Tg;module.exports=Ug["default"]?Ug["default"]:Ug;
 
-},{"fbjs/lib/EventListener":237,"fbjs/lib/ExecutionEnvironment":238,"fbjs/lib/containsNode":241,"fbjs/lib/emptyFunction":242,"fbjs/lib/emptyObject":243,"fbjs/lib/focusNode":244,"fbjs/lib/getActiveElement":245,"fbjs/lib/shallowEqual":251,"object-assign":277,"react":305}],302:[function(require,module,exports){
+},{"fbjs/lib/EventListener":205,"fbjs/lib/ExecutionEnvironment":206,"fbjs/lib/containsNode":209,"fbjs/lib/emptyFunction":210,"fbjs/lib/emptyObject":211,"fbjs/lib/focusNode":212,"fbjs/lib/getActiveElement":213,"fbjs/lib/shallowEqual":219,"object-assign":245,"react":273}],270:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -48033,7 +43160,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./cjs/react-dom.development.js":300,"./cjs/react-dom.production.min.js":301,"_process":289}],303:[function(require,module,exports){
+},{"./cjs/react-dom.development.js":268,"./cjs/react-dom.production.min.js":269,"_process":257}],271:[function(require,module,exports){
 (function (process){
 /** @license React v16.2.0
  * react.development.js
@@ -49394,7 +44521,7 @@ module.exports = react;
 }
 
 }).call(this,require('_process'))
-},{"_process":289,"fbjs/lib/emptyFunction":242,"fbjs/lib/emptyObject":243,"fbjs/lib/invariant":248,"fbjs/lib/warning":252,"object-assign":277,"prop-types/checkPropTypes":290}],304:[function(require,module,exports){
+},{"_process":257,"fbjs/lib/emptyFunction":210,"fbjs/lib/emptyObject":211,"fbjs/lib/invariant":216,"fbjs/lib/warning":220,"object-assign":245,"prop-types/checkPropTypes":258}],272:[function(require,module,exports){
 /** @license React v16.2.0
  * react.production.min.js
  *
@@ -49417,7 +44544,7 @@ var U={Children:{map:function(a,b,e){if(null==a)return a;var c=[];T(a,c,null,b,e
 d=a.key,g=a.ref,k=a._owner;if(null!=b){void 0!==b.ref&&(g=b.ref,k=G.current);void 0!==b.key&&(d=""+b.key);if(a.type&&a.type.defaultProps)var f=a.type.defaultProps;for(h in b)H.call(b,h)&&!I.hasOwnProperty(h)&&(c[h]=void 0===b[h]&&void 0!==f?f[h]:b[h])}var h=arguments.length-2;if(1===h)c.children=e;else if(1<h){f=Array(h);for(var l=0;l<h;l++)f[l]=arguments[l+2];c.children=f}return{$$typeof:r,type:a.type,key:d,ref:g,props:c,_owner:k}},createFactory:function(a){var b=J.bind(null,a);b.type=a;return b},
 isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{ReactCurrentOwner:G,assign:m}},V=Object.freeze({default:U}),W=V&&U||V;module.exports=W["default"]?W["default"]:W;
 
-},{"fbjs/lib/emptyFunction":242,"fbjs/lib/emptyObject":243,"object-assign":277}],305:[function(require,module,exports){
+},{"fbjs/lib/emptyFunction":210,"fbjs/lib/emptyObject":211,"object-assign":245}],273:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -49428,10 +44555,10 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./cjs/react.development.js":303,"./cjs/react.production.min.js":304,"_process":289}],306:[function(require,module,exports){
+},{"./cjs/react.development.js":271,"./cjs/react.production.min.js":272,"_process":257}],274:[function(require,module,exports){
 module.exports = require('./lib/_stream_duplex.js');
 
-},{"./lib/_stream_duplex.js":307}],307:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":275}],275:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -49556,7 +44683,7 @@ function forEach(xs, f) {
     f(xs[i], i);
   }
 }
-},{"./_stream_readable":309,"./_stream_writable":311,"core-util-is":167,"inherits":269,"process-nextick-args":288}],308:[function(require,module,exports){
+},{"./_stream_readable":277,"./_stream_writable":279,"core-util-is":135,"inherits":237,"process-nextick-args":256}],276:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -49604,7 +44731,7 @@ function PassThrough(options) {
 PassThrough.prototype._transform = function (chunk, encoding, cb) {
   cb(null, chunk);
 };
-},{"./_stream_transform":310,"core-util-is":167,"inherits":269}],309:[function(require,module,exports){
+},{"./_stream_transform":278,"core-util-is":135,"inherits":237}],277:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -50622,7 +45749,7 @@ function indexOf(xs, x) {
   return -1;
 }
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./_stream_duplex":307,"./internal/streams/BufferList":312,"./internal/streams/destroy":313,"./internal/streams/stream":314,"_process":289,"core-util-is":167,"events":235,"inherits":269,"isarray":271,"process-nextick-args":288,"safe-buffer":322,"string_decoder/":332,"util":136}],310:[function(require,module,exports){
+},{"./_stream_duplex":275,"./internal/streams/BufferList":280,"./internal/streams/destroy":281,"./internal/streams/stream":282,"_process":257,"core-util-is":135,"events":203,"inherits":237,"isarray":239,"process-nextick-args":256,"safe-buffer":288,"string_decoder/":298,"util":104}],278:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -50837,7 +45964,7 @@ function done(stream, er, data) {
 
   return stream.push(null);
 }
-},{"./_stream_duplex":307,"core-util-is":167,"inherits":269}],311:[function(require,module,exports){
+},{"./_stream_duplex":275,"core-util-is":135,"inherits":237}],279:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -51517,7 +46644,7 @@ Writable.prototype._destroy = function (err, cb) {
   cb(err);
 };
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./_stream_duplex":307,"./internal/streams/destroy":313,"./internal/streams/stream":314,"_process":289,"core-util-is":167,"inherits":269,"process-nextick-args":288,"safe-buffer":322,"util-deprecate":334}],312:[function(require,module,exports){
+},{"./_stream_duplex":275,"./internal/streams/destroy":281,"./internal/streams/stream":282,"_process":257,"core-util-is":135,"inherits":237,"process-nextick-args":256,"safe-buffer":288,"util-deprecate":300}],280:[function(require,module,exports){
 'use strict';
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -51597,7 +46724,7 @@ if (util && util.inspect && util.inspect.custom) {
     return this.constructor.name + ' ' + obj;
   };
 }
-},{"safe-buffer":322,"util":136}],313:[function(require,module,exports){
+},{"safe-buffer":288,"util":104}],281:[function(require,module,exports){
 'use strict';
 
 /*<replacement>*/
@@ -51672,13 +46799,13 @@ module.exports = {
   destroy: destroy,
   undestroy: undestroy
 };
-},{"process-nextick-args":288}],314:[function(require,module,exports){
+},{"process-nextick-args":256}],282:[function(require,module,exports){
 module.exports = require('events').EventEmitter;
 
-},{"events":235}],315:[function(require,module,exports){
+},{"events":203}],283:[function(require,module,exports){
 module.exports = require('./readable').PassThrough
 
-},{"./readable":316}],316:[function(require,module,exports){
+},{"./readable":284}],284:[function(require,module,exports){
 exports = module.exports = require('./lib/_stream_readable.js');
 exports.Stream = exports;
 exports.Readable = exports;
@@ -51687,779 +46814,13 @@ exports.Duplex = require('./lib/_stream_duplex.js');
 exports.Transform = require('./lib/_stream_transform.js');
 exports.PassThrough = require('./lib/_stream_passthrough.js');
 
-},{"./lib/_stream_duplex.js":307,"./lib/_stream_passthrough.js":308,"./lib/_stream_readable.js":309,"./lib/_stream_transform.js":310,"./lib/_stream_writable.js":311}],317:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":275,"./lib/_stream_passthrough.js":276,"./lib/_stream_readable.js":277,"./lib/_stream_transform.js":278,"./lib/_stream_writable.js":279}],285:[function(require,module,exports){
 module.exports = require('./readable').Transform
 
-},{"./readable":316}],318:[function(require,module,exports){
+},{"./readable":284}],286:[function(require,module,exports){
 module.exports = require('./lib/_stream_writable.js');
 
-},{"./lib/_stream_writable.js":311}],319:[function(require,module,exports){
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-// This method of obtaining a reference to the global object needs to be
-// kept identical to the way it is obtained in runtime.js
-var g = (function() { return this })() || Function("return this")();
-
-// Use `getOwnPropertyNames` because not all browsers support calling
-// `hasOwnProperty` on the global `self` object in a worker. See #183.
-var hadRuntime = g.regeneratorRuntime &&
-  Object.getOwnPropertyNames(g).indexOf("regeneratorRuntime") >= 0;
-
-// Save the old regeneratorRuntime in case it needs to be restored later.
-var oldRuntime = hadRuntime && g.regeneratorRuntime;
-
-// Force reevalutation of runtime.js.
-g.regeneratorRuntime = undefined;
-
-module.exports = require("./runtime");
-
-if (hadRuntime) {
-  // Restore the original runtime.
-  g.regeneratorRuntime = oldRuntime;
-} else {
-  // Remove the global property added by runtime.js.
-  try {
-    delete g.regeneratorRuntime;
-  } catch(e) {
-    g.regeneratorRuntime = undefined;
-  }
-}
-
-},{"./runtime":320}],320:[function(require,module,exports){
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-!(function(global) {
-  "use strict";
-
-  var Op = Object.prototype;
-  var hasOwn = Op.hasOwnProperty;
-  var undefined; // More compressible than void 0.
-  var $Symbol = typeof Symbol === "function" ? Symbol : {};
-  var iteratorSymbol = $Symbol.iterator || "@@iterator";
-  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
-  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
-
-  var inModule = typeof module === "object";
-  var runtime = global.regeneratorRuntime;
-  if (runtime) {
-    if (inModule) {
-      // If regeneratorRuntime is defined globally and we're in a module,
-      // make the exports object identical to regeneratorRuntime.
-      module.exports = runtime;
-    }
-    // Don't bother evaluating the rest of this file if the runtime was
-    // already defined globally.
-    return;
-  }
-
-  // Define the runtime globally (as expected by generated code) as either
-  // module.exports (if we're in a module) or a new, empty object.
-  runtime = global.regeneratorRuntime = inModule ? module.exports : {};
-
-  function wrap(innerFn, outerFn, self, tryLocsList) {
-    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
-    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
-    var generator = Object.create(protoGenerator.prototype);
-    var context = new Context(tryLocsList || []);
-
-    // The ._invoke method unifies the implementations of the .next,
-    // .throw, and .return methods.
-    generator._invoke = makeInvokeMethod(innerFn, self, context);
-
-    return generator;
-  }
-  runtime.wrap = wrap;
-
-  // Try/catch helper to minimize deoptimizations. Returns a completion
-  // record like context.tryEntries[i].completion. This interface could
-  // have been (and was previously) designed to take a closure to be
-  // invoked without arguments, but in all the cases we care about we
-  // already have an existing method we want to call, so there's no need
-  // to create a new function object. We can even get away with assuming
-  // the method takes exactly one argument, since that happens to be true
-  // in every case, so we don't have to touch the arguments object. The
-  // only additional allocation required is the completion record, which
-  // has a stable shape and so hopefully should be cheap to allocate.
-  function tryCatch(fn, obj, arg) {
-    try {
-      return { type: "normal", arg: fn.call(obj, arg) };
-    } catch (err) {
-      return { type: "throw", arg: err };
-    }
-  }
-
-  var GenStateSuspendedStart = "suspendedStart";
-  var GenStateSuspendedYield = "suspendedYield";
-  var GenStateExecuting = "executing";
-  var GenStateCompleted = "completed";
-
-  // Returning this object from the innerFn has the same effect as
-  // breaking out of the dispatch switch statement.
-  var ContinueSentinel = {};
-
-  // Dummy constructor functions that we use as the .constructor and
-  // .constructor.prototype properties for functions that return Generator
-  // objects. For full spec compliance, you may wish to configure your
-  // minifier not to mangle the names of these two functions.
-  function Generator() {}
-  function GeneratorFunction() {}
-  function GeneratorFunctionPrototype() {}
-
-  // This is a polyfill for %IteratorPrototype% for environments that
-  // don't natively support it.
-  var IteratorPrototype = {};
-  IteratorPrototype[iteratorSymbol] = function () {
-    return this;
-  };
-
-  var getProto = Object.getPrototypeOf;
-  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
-  if (NativeIteratorPrototype &&
-      NativeIteratorPrototype !== Op &&
-      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
-    // This environment has a native %IteratorPrototype%; use it instead
-    // of the polyfill.
-    IteratorPrototype = NativeIteratorPrototype;
-  }
-
-  var Gp = GeneratorFunctionPrototype.prototype =
-    Generator.prototype = Object.create(IteratorPrototype);
-  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
-  GeneratorFunctionPrototype.constructor = GeneratorFunction;
-  GeneratorFunctionPrototype[toStringTagSymbol] =
-    GeneratorFunction.displayName = "GeneratorFunction";
-
-  // Helper for defining the .next, .throw, and .return methods of the
-  // Iterator interface in terms of a single ._invoke method.
-  function defineIteratorMethods(prototype) {
-    ["next", "throw", "return"].forEach(function(method) {
-      prototype[method] = function(arg) {
-        return this._invoke(method, arg);
-      };
-    });
-  }
-
-  runtime.isGeneratorFunction = function(genFun) {
-    var ctor = typeof genFun === "function" && genFun.constructor;
-    return ctor
-      ? ctor === GeneratorFunction ||
-        // For the native GeneratorFunction constructor, the best we can
-        // do is to check its .name property.
-        (ctor.displayName || ctor.name) === "GeneratorFunction"
-      : false;
-  };
-
-  runtime.mark = function(genFun) {
-    if (Object.setPrototypeOf) {
-      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
-    } else {
-      genFun.__proto__ = GeneratorFunctionPrototype;
-      if (!(toStringTagSymbol in genFun)) {
-        genFun[toStringTagSymbol] = "GeneratorFunction";
-      }
-    }
-    genFun.prototype = Object.create(Gp);
-    return genFun;
-  };
-
-  // Within the body of any async function, `await x` is transformed to
-  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
-  // `hasOwn.call(value, "__await")` to determine if the yielded value is
-  // meant to be awaited.
-  runtime.awrap = function(arg) {
-    return { __await: arg };
-  };
-
-  function AsyncIterator(generator) {
-    function invoke(method, arg, resolve, reject) {
-      var record = tryCatch(generator[method], generator, arg);
-      if (record.type === "throw") {
-        reject(record.arg);
-      } else {
-        var result = record.arg;
-        var value = result.value;
-        if (value &&
-            typeof value === "object" &&
-            hasOwn.call(value, "__await")) {
-          return Promise.resolve(value.__await).then(function(value) {
-            invoke("next", value, resolve, reject);
-          }, function(err) {
-            invoke("throw", err, resolve, reject);
-          });
-        }
-
-        return Promise.resolve(value).then(function(unwrapped) {
-          // When a yielded Promise is resolved, its final value becomes
-          // the .value of the Promise<{value,done}> result for the
-          // current iteration. If the Promise is rejected, however, the
-          // result for this iteration will be rejected with the same
-          // reason. Note that rejections of yielded Promises are not
-          // thrown back into the generator function, as is the case
-          // when an awaited Promise is rejected. This difference in
-          // behavior between yield and await is important, because it
-          // allows the consumer to decide what to do with the yielded
-          // rejection (swallow it and continue, manually .throw it back
-          // into the generator, abandon iteration, whatever). With
-          // await, by contrast, there is no opportunity to examine the
-          // rejection reason outside the generator function, so the
-          // only option is to throw it from the await expression, and
-          // let the generator function handle the exception.
-          result.value = unwrapped;
-          resolve(result);
-        }, reject);
-      }
-    }
-
-    var previousPromise;
-
-    function enqueue(method, arg) {
-      function callInvokeWithMethodAndArg() {
-        return new Promise(function(resolve, reject) {
-          invoke(method, arg, resolve, reject);
-        });
-      }
-
-      return previousPromise =
-        // If enqueue has been called before, then we want to wait until
-        // all previous Promises have been resolved before calling invoke,
-        // so that results are always delivered in the correct order. If
-        // enqueue has not been called before, then it is important to
-        // call invoke immediately, without waiting on a callback to fire,
-        // so that the async generator function has the opportunity to do
-        // any necessary setup in a predictable way. This predictability
-        // is why the Promise constructor synchronously invokes its
-        // executor callback, and why async functions synchronously
-        // execute code before the first await. Since we implement simple
-        // async functions in terms of async generators, it is especially
-        // important to get this right, even though it requires care.
-        previousPromise ? previousPromise.then(
-          callInvokeWithMethodAndArg,
-          // Avoid propagating failures to Promises returned by later
-          // invocations of the iterator.
-          callInvokeWithMethodAndArg
-        ) : callInvokeWithMethodAndArg();
-    }
-
-    // Define the unified helper method that is used to implement .next,
-    // .throw, and .return (see defineIteratorMethods).
-    this._invoke = enqueue;
-  }
-
-  defineIteratorMethods(AsyncIterator.prototype);
-  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
-    return this;
-  };
-  runtime.AsyncIterator = AsyncIterator;
-
-  // Note that simple async functions are implemented on top of
-  // AsyncIterator objects; they just return a Promise for the value of
-  // the final result produced by the iterator.
-  runtime.async = function(innerFn, outerFn, self, tryLocsList) {
-    var iter = new AsyncIterator(
-      wrap(innerFn, outerFn, self, tryLocsList)
-    );
-
-    return runtime.isGeneratorFunction(outerFn)
-      ? iter // If outerFn is a generator, return the full iterator.
-      : iter.next().then(function(result) {
-          return result.done ? result.value : iter.next();
-        });
-  };
-
-  function makeInvokeMethod(innerFn, self, context) {
-    var state = GenStateSuspendedStart;
-
-    return function invoke(method, arg) {
-      if (state === GenStateExecuting) {
-        throw new Error("Generator is already running");
-      }
-
-      if (state === GenStateCompleted) {
-        if (method === "throw") {
-          throw arg;
-        }
-
-        // Be forgiving, per 25.3.3.3.3 of the spec:
-        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
-        return doneResult();
-      }
-
-      context.method = method;
-      context.arg = arg;
-
-      while (true) {
-        var delegate = context.delegate;
-        if (delegate) {
-          var delegateResult = maybeInvokeDelegate(delegate, context);
-          if (delegateResult) {
-            if (delegateResult === ContinueSentinel) continue;
-            return delegateResult;
-          }
-        }
-
-        if (context.method === "next") {
-          // Setting context._sent for legacy support of Babel's
-          // function.sent implementation.
-          context.sent = context._sent = context.arg;
-
-        } else if (context.method === "throw") {
-          if (state === GenStateSuspendedStart) {
-            state = GenStateCompleted;
-            throw context.arg;
-          }
-
-          context.dispatchException(context.arg);
-
-        } else if (context.method === "return") {
-          context.abrupt("return", context.arg);
-        }
-
-        state = GenStateExecuting;
-
-        var record = tryCatch(innerFn, self, context);
-        if (record.type === "normal") {
-          // If an exception is thrown from innerFn, we leave state ===
-          // GenStateExecuting and loop back for another invocation.
-          state = context.done
-            ? GenStateCompleted
-            : GenStateSuspendedYield;
-
-          if (record.arg === ContinueSentinel) {
-            continue;
-          }
-
-          return {
-            value: record.arg,
-            done: context.done
-          };
-
-        } else if (record.type === "throw") {
-          state = GenStateCompleted;
-          // Dispatch the exception by looping back around to the
-          // context.dispatchException(context.arg) call above.
-          context.method = "throw";
-          context.arg = record.arg;
-        }
-      }
-    };
-  }
-
-  // Call delegate.iterator[context.method](context.arg) and handle the
-  // result, either by returning a { value, done } result from the
-  // delegate iterator, or by modifying context.method and context.arg,
-  // setting context.delegate to null, and returning the ContinueSentinel.
-  function maybeInvokeDelegate(delegate, context) {
-    var method = delegate.iterator[context.method];
-    if (method === undefined) {
-      // A .throw or .return when the delegate iterator has no .throw
-      // method always terminates the yield* loop.
-      context.delegate = null;
-
-      if (context.method === "throw") {
-        if (delegate.iterator.return) {
-          // If the delegate iterator has a return method, give it a
-          // chance to clean up.
-          context.method = "return";
-          context.arg = undefined;
-          maybeInvokeDelegate(delegate, context);
-
-          if (context.method === "throw") {
-            // If maybeInvokeDelegate(context) changed context.method from
-            // "return" to "throw", let that override the TypeError below.
-            return ContinueSentinel;
-          }
-        }
-
-        context.method = "throw";
-        context.arg = new TypeError(
-          "The iterator does not provide a 'throw' method");
-      }
-
-      return ContinueSentinel;
-    }
-
-    var record = tryCatch(method, delegate.iterator, context.arg);
-
-    if (record.type === "throw") {
-      context.method = "throw";
-      context.arg = record.arg;
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    var info = record.arg;
-
-    if (! info) {
-      context.method = "throw";
-      context.arg = new TypeError("iterator result is not an object");
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    if (info.done) {
-      // Assign the result of the finished delegate to the temporary
-      // variable specified by delegate.resultName (see delegateYield).
-      context[delegate.resultName] = info.value;
-
-      // Resume execution at the desired location (see delegateYield).
-      context.next = delegate.nextLoc;
-
-      // If context.method was "throw" but the delegate handled the
-      // exception, let the outer generator proceed normally. If
-      // context.method was "next", forget context.arg since it has been
-      // "consumed" by the delegate iterator. If context.method was
-      // "return", allow the original .return call to continue in the
-      // outer generator.
-      if (context.method !== "return") {
-        context.method = "next";
-        context.arg = undefined;
-      }
-
-    } else {
-      // Re-yield the result returned by the delegate method.
-      return info;
-    }
-
-    // The delegate iterator is finished, so forget it and continue with
-    // the outer generator.
-    context.delegate = null;
-    return ContinueSentinel;
-  }
-
-  // Define Generator.prototype.{next,throw,return} in terms of the
-  // unified ._invoke helper method.
-  defineIteratorMethods(Gp);
-
-  Gp[toStringTagSymbol] = "Generator";
-
-  // A Generator should always return itself as the iterator object when the
-  // @@iterator function is called on it. Some browsers' implementations of the
-  // iterator prototype chain incorrectly implement this, causing the Generator
-  // object to not be returned from this call. This ensures that doesn't happen.
-  // See https://github.com/facebook/regenerator/issues/274 for more details.
-  Gp[iteratorSymbol] = function() {
-    return this;
-  };
-
-  Gp.toString = function() {
-    return "[object Generator]";
-  };
-
-  function pushTryEntry(locs) {
-    var entry = { tryLoc: locs[0] };
-
-    if (1 in locs) {
-      entry.catchLoc = locs[1];
-    }
-
-    if (2 in locs) {
-      entry.finallyLoc = locs[2];
-      entry.afterLoc = locs[3];
-    }
-
-    this.tryEntries.push(entry);
-  }
-
-  function resetTryEntry(entry) {
-    var record = entry.completion || {};
-    record.type = "normal";
-    delete record.arg;
-    entry.completion = record;
-  }
-
-  function Context(tryLocsList) {
-    // The root entry object (effectively a try statement without a catch
-    // or a finally block) gives us a place to store values thrown from
-    // locations where there is no enclosing try statement.
-    this.tryEntries = [{ tryLoc: "root" }];
-    tryLocsList.forEach(pushTryEntry, this);
-    this.reset(true);
-  }
-
-  runtime.keys = function(object) {
-    var keys = [];
-    for (var key in object) {
-      keys.push(key);
-    }
-    keys.reverse();
-
-    // Rather than returning an object with a next method, we keep
-    // things simple and return the next function itself.
-    return function next() {
-      while (keys.length) {
-        var key = keys.pop();
-        if (key in object) {
-          next.value = key;
-          next.done = false;
-          return next;
-        }
-      }
-
-      // To avoid creating an additional object, we just hang the .value
-      // and .done properties off the next function object itself. This
-      // also ensures that the minifier will not anonymize the function.
-      next.done = true;
-      return next;
-    };
-  };
-
-  function values(iterable) {
-    if (iterable) {
-      var iteratorMethod = iterable[iteratorSymbol];
-      if (iteratorMethod) {
-        return iteratorMethod.call(iterable);
-      }
-
-      if (typeof iterable.next === "function") {
-        return iterable;
-      }
-
-      if (!isNaN(iterable.length)) {
-        var i = -1, next = function next() {
-          while (++i < iterable.length) {
-            if (hasOwn.call(iterable, i)) {
-              next.value = iterable[i];
-              next.done = false;
-              return next;
-            }
-          }
-
-          next.value = undefined;
-          next.done = true;
-
-          return next;
-        };
-
-        return next.next = next;
-      }
-    }
-
-    // Return an iterator with no values.
-    return { next: doneResult };
-  }
-  runtime.values = values;
-
-  function doneResult() {
-    return { value: undefined, done: true };
-  }
-
-  Context.prototype = {
-    constructor: Context,
-
-    reset: function(skipTempReset) {
-      this.prev = 0;
-      this.next = 0;
-      // Resetting context._sent for legacy support of Babel's
-      // function.sent implementation.
-      this.sent = this._sent = undefined;
-      this.done = false;
-      this.delegate = null;
-
-      this.method = "next";
-      this.arg = undefined;
-
-      this.tryEntries.forEach(resetTryEntry);
-
-      if (!skipTempReset) {
-        for (var name in this) {
-          // Not sure about the optimal order of these conditions:
-          if (name.charAt(0) === "t" &&
-              hasOwn.call(this, name) &&
-              !isNaN(+name.slice(1))) {
-            this[name] = undefined;
-          }
-        }
-      }
-    },
-
-    stop: function() {
-      this.done = true;
-
-      var rootEntry = this.tryEntries[0];
-      var rootRecord = rootEntry.completion;
-      if (rootRecord.type === "throw") {
-        throw rootRecord.arg;
-      }
-
-      return this.rval;
-    },
-
-    dispatchException: function(exception) {
-      if (this.done) {
-        throw exception;
-      }
-
-      var context = this;
-      function handle(loc, caught) {
-        record.type = "throw";
-        record.arg = exception;
-        context.next = loc;
-
-        if (caught) {
-          // If the dispatched exception was caught by a catch block,
-          // then let that catch block handle the exception normally.
-          context.method = "next";
-          context.arg = undefined;
-        }
-
-        return !! caught;
-      }
-
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        var record = entry.completion;
-
-        if (entry.tryLoc === "root") {
-          // Exception thrown outside of any try block that could handle
-          // it, so set the completion value of the entire function to
-          // throw the exception.
-          return handle("end");
-        }
-
-        if (entry.tryLoc <= this.prev) {
-          var hasCatch = hasOwn.call(entry, "catchLoc");
-          var hasFinally = hasOwn.call(entry, "finallyLoc");
-
-          if (hasCatch && hasFinally) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            } else if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else if (hasCatch) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            }
-
-          } else if (hasFinally) {
-            if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else {
-            throw new Error("try statement without catch or finally");
-          }
-        }
-      }
-    },
-
-    abrupt: function(type, arg) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc <= this.prev &&
-            hasOwn.call(entry, "finallyLoc") &&
-            this.prev < entry.finallyLoc) {
-          var finallyEntry = entry;
-          break;
-        }
-      }
-
-      if (finallyEntry &&
-          (type === "break" ||
-           type === "continue") &&
-          finallyEntry.tryLoc <= arg &&
-          arg <= finallyEntry.finallyLoc) {
-        // Ignore the finally entry if control is not jumping to a
-        // location outside the try/catch block.
-        finallyEntry = null;
-      }
-
-      var record = finallyEntry ? finallyEntry.completion : {};
-      record.type = type;
-      record.arg = arg;
-
-      if (finallyEntry) {
-        this.method = "next";
-        this.next = finallyEntry.finallyLoc;
-        return ContinueSentinel;
-      }
-
-      return this.complete(record);
-    },
-
-    complete: function(record, afterLoc) {
-      if (record.type === "throw") {
-        throw record.arg;
-      }
-
-      if (record.type === "break" ||
-          record.type === "continue") {
-        this.next = record.arg;
-      } else if (record.type === "return") {
-        this.rval = this.arg = record.arg;
-        this.method = "return";
-        this.next = "end";
-      } else if (record.type === "normal" && afterLoc) {
-        this.next = afterLoc;
-      }
-
-      return ContinueSentinel;
-    },
-
-    finish: function(finallyLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.finallyLoc === finallyLoc) {
-          this.complete(entry.completion, entry.afterLoc);
-          resetTryEntry(entry);
-          return ContinueSentinel;
-        }
-      }
-    },
-
-    "catch": function(tryLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc === tryLoc) {
-          var record = entry.completion;
-          if (record.type === "throw") {
-            var thrown = record.arg;
-            resetTryEntry(entry);
-          }
-          return thrown;
-        }
-      }
-
-      // The context.catch method must only be called with a location
-      // argument that corresponds to a known catch block.
-      throw new Error("illegal catch attempt");
-    },
-
-    delegateYield: function(iterable, resultName, nextLoc) {
-      this.delegate = {
-        iterator: values(iterable),
-        resultName: resultName,
-        nextLoc: nextLoc
-      };
-
-      if (this.method === "next") {
-        // Deliberately forget the last sent value so that we don't
-        // accidentally pass it on to the delegate.
-        this.arg = undefined;
-      }
-
-      return ContinueSentinel;
-    }
-  };
-})(
-  // In sloppy mode, unbound `this` refers to the global object, fallback to
-  // Function constructor if we're in global strict mode. That is sadly a form
-  // of indirect eval which violates Content Security Policy.
-  (function() { return this })() || Function("return this")()
-);
-
-},{}],321:[function(require,module,exports){
+},{"./lib/_stream_writable.js":279}],287:[function(require,module,exports){
 (function (Buffer){
 'use strict'
 var inherits = require('inherits')
@@ -52754,7 +47115,7 @@ function fn5 (a, b, c, d, e, m, k, s) {
 module.exports = RIPEMD160
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":165,"hash-base":253,"inherits":269}],322:[function(require,module,exports){
+},{"buffer":133,"hash-base":221,"inherits":237}],288:[function(require,module,exports){
 /* eslint-disable node/no-deprecated-api */
 var buffer = require('buffer')
 var Buffer = buffer.Buffer
@@ -52818,7 +47179,7 @@ SafeBuffer.allocUnsafeSlow = function (size) {
   return buffer.SlowBuffer(size)
 }
 
-},{"buffer":165}],323:[function(require,module,exports){
+},{"buffer":133}],289:[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 
 // prototype class for hash functions
@@ -52901,7 +47262,7 @@ Hash.prototype._update = function () {
 
 module.exports = Hash
 
-},{"safe-buffer":322}],324:[function(require,module,exports){
+},{"safe-buffer":288}],290:[function(require,module,exports){
 var exports = module.exports = function SHA (algorithm) {
   algorithm = algorithm.toLowerCase()
 
@@ -52918,7 +47279,7 @@ exports.sha256 = require('./sha256')
 exports.sha384 = require('./sha384')
 exports.sha512 = require('./sha512')
 
-},{"./sha":325,"./sha1":326,"./sha224":327,"./sha256":328,"./sha384":329,"./sha512":330}],325:[function(require,module,exports){
+},{"./sha":291,"./sha1":292,"./sha224":293,"./sha256":294,"./sha384":295,"./sha512":296}],291:[function(require,module,exports){
 /*
  * A JavaScript implementation of the Secure Hash Algorithm, SHA-0, as defined
  * in FIPS PUB 180-1
@@ -53014,7 +47375,7 @@ Sha.prototype._hash = function () {
 
 module.exports = Sha
 
-},{"./hash":323,"inherits":269,"safe-buffer":322}],326:[function(require,module,exports){
+},{"./hash":289,"inherits":237,"safe-buffer":288}],292:[function(require,module,exports){
 /*
  * A JavaScript implementation of the Secure Hash Algorithm, SHA-1, as defined
  * in FIPS PUB 180-1
@@ -53115,7 +47476,7 @@ Sha1.prototype._hash = function () {
 
 module.exports = Sha1
 
-},{"./hash":323,"inherits":269,"safe-buffer":322}],327:[function(require,module,exports){
+},{"./hash":289,"inherits":237,"safe-buffer":288}],293:[function(require,module,exports){
 /**
  * A JavaScript implementation of the Secure Hash Algorithm, SHA-256, as defined
  * in FIPS 180-2
@@ -53170,7 +47531,7 @@ Sha224.prototype._hash = function () {
 
 module.exports = Sha224
 
-},{"./hash":323,"./sha256":328,"inherits":269,"safe-buffer":322}],328:[function(require,module,exports){
+},{"./hash":289,"./sha256":294,"inherits":237,"safe-buffer":288}],294:[function(require,module,exports){
 /**
  * A JavaScript implementation of the Secure Hash Algorithm, SHA-256, as defined
  * in FIPS 180-2
@@ -53307,7 +47668,7 @@ Sha256.prototype._hash = function () {
 
 module.exports = Sha256
 
-},{"./hash":323,"inherits":269,"safe-buffer":322}],329:[function(require,module,exports){
+},{"./hash":289,"inherits":237,"safe-buffer":288}],295:[function(require,module,exports){
 var inherits = require('inherits')
 var SHA512 = require('./sha512')
 var Hash = require('./hash')
@@ -53366,7 +47727,7 @@ Sha384.prototype._hash = function () {
 
 module.exports = Sha384
 
-},{"./hash":323,"./sha512":330,"inherits":269,"safe-buffer":322}],330:[function(require,module,exports){
+},{"./hash":289,"./sha512":296,"inherits":237,"safe-buffer":288}],296:[function(require,module,exports){
 var inherits = require('inherits')
 var Hash = require('./hash')
 var Buffer = require('safe-buffer').Buffer
@@ -53628,7 +47989,7 @@ Sha512.prototype._hash = function () {
 
 module.exports = Sha512
 
-},{"./hash":323,"inherits":269,"safe-buffer":322}],331:[function(require,module,exports){
+},{"./hash":289,"inherits":237,"safe-buffer":288}],297:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -53757,7 +48118,7 @@ Stream.prototype.pipe = function(dest, options) {
   return dest;
 };
 
-},{"events":235,"inherits":269,"readable-stream/duplex.js":306,"readable-stream/passthrough.js":315,"readable-stream/readable.js":316,"readable-stream/transform.js":317,"readable-stream/writable.js":318}],332:[function(require,module,exports){
+},{"events":203,"inherits":237,"readable-stream/duplex.js":274,"readable-stream/passthrough.js":283,"readable-stream/readable.js":284,"readable-stream/transform.js":285,"readable-stream/writable.js":286}],298:[function(require,module,exports){
 'use strict';
 
 var Buffer = require('safe-buffer').Buffer;
@@ -54030,7 +48391,7 @@ function simpleWrite(buf) {
 function simpleEnd(buf) {
   return buf && buf.length ? this.write(buf) : '';
 }
-},{"safe-buffer":322}],333:[function(require,module,exports){
+},{"safe-buffer":288}],299:[function(require,module,exports){
 (function (global){
 /*! https://mths.be/utf8js v2.1.2 by @mathias */
 ;(function(root) {
@@ -54278,7 +48639,7 @@ function simpleEnd(buf) {
 }(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],334:[function(require,module,exports){
+},{}],300:[function(require,module,exports){
 (function (global){
 
 /**
@@ -54349,7 +48710,7 @@ function config (name) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],335:[function(require,module,exports){
+},{}],301:[function(require,module,exports){
 var indexOf = require('indexof');
 
 var Object_keys = function (obj) {
@@ -54489,7 +48850,7 @@ exports.createContext = Script.createContext = function (context) {
     return copy;
 };
 
-},{"indexof":268}],336:[function(require,module,exports){
+},{"indexof":236}],302:[function(require,module,exports){
 var Web3 = require('./lib/web3');
 
 // dont override global variable
@@ -54499,7 +48860,7 @@ if (typeof window !== 'undefined' && typeof window.Web3 === 'undefined') {
 
 module.exports = Web3;
 
-},{"./lib/web3":358}],337:[function(require,module,exports){
+},{"./lib/web3":324}],303:[function(require,module,exports){
 module.exports=[
   {
     "constant": true,
@@ -54755,7 +49116,7 @@ module.exports=[
   }
 ]
 
-},{}],338:[function(require,module,exports){
+},{}],304:[function(require,module,exports){
 module.exports=[
   {
     "constant": true,
@@ -54865,7 +49226,7 @@ module.exports=[
   }
 ]
 
-},{}],339:[function(require,module,exports){
+},{}],305:[function(require,module,exports){
 module.exports=[
   {
     "constant": false,
@@ -55014,7 +49375,7 @@ module.exports=[
   }
 ]
 
-},{}],340:[function(require,module,exports){
+},{}],306:[function(require,module,exports){
 var f = require('./formatters');
 var SolidityType = require('./type');
 
@@ -55042,7 +49403,7 @@ SolidityTypeAddress.prototype.isType = function (name) {
 
 module.exports = SolidityTypeAddress;
 
-},{"./formatters":345,"./type":350}],341:[function(require,module,exports){
+},{"./formatters":311,"./type":316}],307:[function(require,module,exports){
 var f = require('./formatters');
 var SolidityType = require('./type');
 
@@ -55070,7 +49431,7 @@ SolidityTypeBool.prototype.isType = function (name) {
 
 module.exports = SolidityTypeBool;
 
-},{"./formatters":345,"./type":350}],342:[function(require,module,exports){
+},{"./formatters":311,"./type":316}],308:[function(require,module,exports){
 var f = require('./formatters');
 var SolidityType = require('./type');
 
@@ -55101,7 +49462,7 @@ SolidityTypeBytes.prototype.isType = function (name) {
 
 module.exports = SolidityTypeBytes;
 
-},{"./formatters":345,"./type":350}],343:[function(require,module,exports){
+},{"./formatters":311,"./type":316}],309:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -55350,7 +49711,7 @@ var coder = new SolidityCoder([
 
 module.exports = coder;
 
-},{"./address":340,"./bool":341,"./bytes":342,"./dynamicbytes":344,"./formatters":345,"./int":346,"./real":348,"./string":349,"./uint":351,"./ureal":352}],344:[function(require,module,exports){
+},{"./address":306,"./bool":307,"./bytes":308,"./dynamicbytes":310,"./formatters":311,"./int":312,"./real":314,"./string":315,"./uint":317,"./ureal":318}],310:[function(require,module,exports){
 var f = require('./formatters');
 var SolidityType = require('./type');
 
@@ -55372,7 +49733,7 @@ SolidityTypeDynamicBytes.prototype.isDynamicType = function () {
 
 module.exports = SolidityTypeDynamicBytes;
 
-},{"./formatters":345,"./type":350}],345:[function(require,module,exports){
+},{"./formatters":311,"./type":316}],311:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -55626,7 +49987,7 @@ module.exports = {
     formatOutputAddress: formatOutputAddress
 };
 
-},{"../utils/config":354,"../utils/utils":356,"./param":347,"bignumber.js":386}],346:[function(require,module,exports){
+},{"../utils/config":320,"../utils/utils":322,"./param":313,"bignumber.js":352}],312:[function(require,module,exports){
 var f = require('./formatters');
 var SolidityType = require('./type');
 
@@ -55660,7 +50021,7 @@ SolidityTypeInt.prototype.isType = function (name) {
 
 module.exports = SolidityTypeInt;
 
-},{"./formatters":345,"./type":350}],347:[function(require,module,exports){
+},{"./formatters":311,"./type":316}],313:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -55814,7 +50175,7 @@ SolidityParam.encodeList = function (params) {
 module.exports = SolidityParam;
 
 
-},{"../utils/utils":356}],348:[function(require,module,exports){
+},{"../utils/utils":322}],314:[function(require,module,exports){
 var f = require('./formatters');
 var SolidityType = require('./type');
 
@@ -55848,7 +50209,7 @@ SolidityTypeReal.prototype.isType = function (name) {
 
 module.exports = SolidityTypeReal;
 
-},{"./formatters":345,"./type":350}],349:[function(require,module,exports){
+},{"./formatters":311,"./type":316}],315:[function(require,module,exports){
 var f = require('./formatters');
 var SolidityType = require('./type');
 
@@ -55870,7 +50231,7 @@ SolidityTypeString.prototype.isDynamicType = function () {
 
 module.exports = SolidityTypeString;
 
-},{"./formatters":345,"./type":350}],350:[function(require,module,exports){
+},{"./formatters":311,"./type":316}],316:[function(require,module,exports){
 var f = require('./formatters');
 var SolidityParam = require('./param');
 
@@ -56127,7 +50488,7 @@ SolidityType.prototype.decode = function (bytes, offset, name) {
 
 module.exports = SolidityType;
 
-},{"./formatters":345,"./param":347}],351:[function(require,module,exports){
+},{"./formatters":311,"./param":313}],317:[function(require,module,exports){
 var f = require('./formatters');
 var SolidityType = require('./type');
 
@@ -56161,7 +50522,7 @@ SolidityTypeUInt.prototype.isType = function (name) {
 
 module.exports = SolidityTypeUInt;
 
-},{"./formatters":345,"./type":350}],352:[function(require,module,exports){
+},{"./formatters":311,"./type":316}],318:[function(require,module,exports){
 var f = require('./formatters');
 var SolidityType = require('./type');
 
@@ -56195,7 +50556,7 @@ SolidityTypeUReal.prototype.isType = function (name) {
 
 module.exports = SolidityTypeUReal;
 
-},{"./formatters":345,"./type":350}],353:[function(require,module,exports){
+},{"./formatters":311,"./type":316}],319:[function(require,module,exports){
 'use strict';
 
 // go env doesn't have and need XMLHttpRequest
@@ -56206,7 +50567,7 @@ if (typeof XMLHttpRequest === 'undefined') {
 }
 
 
-},{}],354:[function(require,module,exports){
+},{}],320:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -56287,7 +50648,7 @@ module.exports = {
 };
 
 
-},{"bignumber.js":386}],355:[function(require,module,exports){
+},{"bignumber.js":352}],321:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -56327,7 +50688,7 @@ module.exports = function (value, options) {
 };
 
 
-},{"crypto-js":183,"crypto-js/sha3":204}],356:[function(require,module,exports){
+},{"crypto-js":151,"crypto-js/sha3":172}],322:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -56970,12 +51331,12 @@ module.exports = {
     isTopic: isTopic,
 };
 
-},{"./sha3.js":355,"bignumber.js":386,"utf8":333}],357:[function(require,module,exports){
+},{"./sha3.js":321,"bignumber.js":352,"utf8":299}],323:[function(require,module,exports){
 module.exports={
     "version": "0.20.6"
 }
 
-},{}],358:[function(require,module,exports){
+},{}],324:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -57129,7 +51490,7 @@ Web3.prototype.createBatch = function () {
 module.exports = Web3;
 
 
-},{"./utils/sha3":355,"./utils/utils":356,"./version.json":357,"./web3/batch":360,"./web3/extend":364,"./web3/httpprovider":368,"./web3/iban":369,"./web3/ipcprovider":370,"./web3/methods/db":373,"./web3/methods/eth":374,"./web3/methods/net":375,"./web3/methods/personal":376,"./web3/methods/shh":377,"./web3/methods/swarm":378,"./web3/property":381,"./web3/requestmanager":382,"./web3/settings":383,"bignumber.js":386}],359:[function(require,module,exports){
+},{"./utils/sha3":321,"./utils/utils":322,"./version.json":323,"./web3/batch":326,"./web3/extend":330,"./web3/httpprovider":334,"./web3/iban":335,"./web3/ipcprovider":336,"./web3/methods/db":339,"./web3/methods/eth":340,"./web3/methods/net":341,"./web3/methods/personal":342,"./web3/methods/shh":343,"./web3/methods/swarm":344,"./web3/property":347,"./web3/requestmanager":348,"./web3/settings":349,"bignumber.js":352}],325:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -57218,7 +51579,7 @@ AllSolidityEvents.prototype.attachToContract = function (contract) {
 module.exports = AllSolidityEvents;
 
 
-},{"../utils/sha3":355,"../utils/utils":356,"./event":363,"./filter":365,"./formatters":366,"./methods/watches":379}],360:[function(require,module,exports){
+},{"../utils/sha3":321,"../utils/utils":322,"./event":329,"./filter":331,"./formatters":332,"./methods/watches":345}],326:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -57286,7 +51647,7 @@ Batch.prototype.execute = function () {
 module.exports = Batch;
 
 
-},{"./errors":362,"./jsonrpc":371}],361:[function(require,module,exports){
+},{"./errors":328,"./jsonrpc":337}],327:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -57598,7 +51959,7 @@ var Contract = function (eth, abi, address) {
 
 module.exports = ContractFactory;
 
-},{"../solidity/coder":343,"../utils/utils":356,"./allevents":359,"./event":363,"./function":367}],362:[function(require,module,exports){
+},{"../solidity/coder":309,"../utils/utils":322,"./allevents":325,"./event":329,"./function":333}],328:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -57643,7 +52004,7 @@ module.exports = {
     }
 };
 
-},{}],363:[function(require,module,exports){
+},{}],329:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -57854,7 +52215,7 @@ SolidityEvent.prototype.attachToContract = function (contract) {
 module.exports = SolidityEvent;
 
 
-},{"../solidity/coder":343,"../utils/sha3":355,"../utils/utils":356,"./filter":365,"./formatters":366,"./methods/watches":379}],364:[function(require,module,exports){
+},{"../solidity/coder":309,"../utils/sha3":321,"../utils/utils":322,"./filter":331,"./formatters":332,"./methods/watches":345}],330:[function(require,module,exports){
 var formatters = require('./formatters');
 var utils = require('./../utils/utils');
 var Method = require('./method');
@@ -57904,7 +52265,7 @@ var extend = function (web3) {
 module.exports = extend;
 
 
-},{"./../utils/utils":356,"./formatters":366,"./method":372,"./property":381}],365:[function(require,module,exports){
+},{"./../utils/utils":322,"./formatters":332,"./method":338,"./property":347}],331:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -58151,7 +52512,7 @@ Filter.prototype.get = function (callback) {
 module.exports = Filter;
 
 
-},{"../utils/utils":356,"./formatters":366}],366:[function(require,module,exports){
+},{"../utils/utils":322,"./formatters":332}],332:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -58462,7 +52823,7 @@ module.exports = {
 };
 
 
-},{"../utils/config":354,"../utils/utils":356,"./iban":369}],367:[function(require,module,exports){
+},{"../utils/config":320,"../utils/utils":322,"./iban":335}],333:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -58747,7 +53108,7 @@ SolidityFunction.prototype.attachToContract = function (contract) {
 
 module.exports = SolidityFunction;
 
-},{"../solidity/coder":343,"../utils/sha3":355,"../utils/utils":356,"./errors":362,"./formatters":366}],368:[function(require,module,exports){
+},{"../solidity/coder":309,"../utils/sha3":321,"../utils/utils":322,"./errors":328,"./formatters":332}],334:[function(require,module,exports){
 (function (Buffer){
 /*
     This file is part of web3.js.
@@ -58914,7 +53275,7 @@ HttpProvider.prototype.isConnected = function () {
 module.exports = HttpProvider;
 
 }).call(this,require("buffer").Buffer)
-},{"./errors":362,"buffer":165,"xhr2":387,"xmlhttprequest":353}],369:[function(require,module,exports){
+},{"./errors":328,"buffer":133,"xhr2":353,"xmlhttprequest":319}],335:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -59143,7 +53504,7 @@ Iban.prototype.toString = function () {
 module.exports = Iban;
 
 
-},{"bignumber.js":386}],370:[function(require,module,exports){
+},{"bignumber.js":352}],336:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -59352,7 +53713,7 @@ IpcProvider.prototype.sendAsync = function (payload, callback) {
 module.exports = IpcProvider;
 
 
-},{"../utils/utils":356,"./errors":362}],371:[function(require,module,exports){
+},{"../utils/utils":322,"./errors":328}],337:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -59439,7 +53800,7 @@ Jsonrpc.toBatchPayload = function (messages) {
 module.exports = Jsonrpc;
 
 
-},{}],372:[function(require,module,exports){
+},{}],338:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -59605,7 +53966,7 @@ Method.prototype.request = function () {
 
 module.exports = Method;
 
-},{"../utils/utils":356,"./errors":362}],373:[function(require,module,exports){
+},{"../utils/utils":322,"./errors":328}],339:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -59673,7 +54034,7 @@ var methods = function () {
 
 module.exports = DB;
 
-},{"../method":372}],374:[function(require,module,exports){
+},{"../method":338}],340:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -60029,7 +54390,7 @@ Eth.prototype.isSyncing = function (callback) {
 
 module.exports = Eth;
 
-},{"../../utils/config":354,"../../utils/utils":356,"../contract":361,"../filter":365,"../formatters":366,"../iban":369,"../method":372,"../namereg":380,"../property":381,"../syncing":384,"../transfer":385,"./watches":379}],375:[function(require,module,exports){
+},{"../../utils/config":320,"../../utils/utils":322,"../contract":327,"../filter":331,"../formatters":332,"../iban":335,"../method":338,"../namereg":346,"../property":347,"../syncing":350,"../transfer":351,"./watches":345}],341:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -60083,7 +54444,7 @@ var properties = function () {
 
 module.exports = Net;
 
-},{"../../utils/utils":356,"../property":381}],376:[function(require,module,exports){
+},{"../../utils/utils":322,"../property":347}],342:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -60200,7 +54561,7 @@ var properties = function () {
 
 module.exports = Personal;
 
-},{"../formatters":366,"../method":372,"../property":381}],377:[function(require,module,exports){
+},{"../formatters":332,"../method":338,"../property":347}],343:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -60346,7 +54707,7 @@ var methods = function () {
 module.exports = Shh;
 
 
-},{"../filter":365,"../method":372,"./watches":379}],378:[function(require,module,exports){
+},{"../filter":331,"../method":338,"./watches":345}],344:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -60493,7 +54854,7 @@ var properties = function () {
 
 module.exports = Swarm;
 
-},{"../method":372,"../property":381}],379:[function(require,module,exports){
+},{"../method":338,"../property":347}],345:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -60602,7 +54963,7 @@ module.exports = {
 };
 
 
-},{"../method":372}],380:[function(require,module,exports){
+},{"../method":338}],346:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -60643,7 +55004,7 @@ module.exports = {
 };
 
 
-},{"../contracts/GlobalRegistrar.json":337,"../contracts/ICAPRegistrar.json":338}],381:[function(require,module,exports){
+},{"../contracts/GlobalRegistrar.json":303,"../contracts/ICAPRegistrar.json":304}],347:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -60789,7 +55150,7 @@ Property.prototype.request = function () {
 module.exports = Property;
 
 
-},{"../utils/utils":356}],382:[function(require,module,exports){
+},{"../utils/utils":322}],348:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -61056,7 +55417,7 @@ RequestManager.prototype.poll = function () {
 module.exports = RequestManager;
 
 
-},{"../utils/config":354,"../utils/utils":356,"./errors":362,"./jsonrpc":371}],383:[function(require,module,exports){
+},{"../utils/config":320,"../utils/utils":322,"./errors":328,"./jsonrpc":337}],349:[function(require,module,exports){
 
 
 var Settings = function () {
@@ -61067,7 +55428,7 @@ var Settings = function () {
 module.exports = Settings;
 
 
-},{}],384:[function(require,module,exports){
+},{}],350:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -61162,7 +55523,7 @@ IsSyncing.prototype.stopWatching = function () {
 module.exports = IsSyncing;
 
 
-},{"../utils/utils":356,"./formatters":366}],385:[function(require,module,exports){
+},{"../utils/utils":322,"./formatters":332}],351:[function(require,module,exports){
 /*
     This file is part of web3.js.
 
@@ -61256,7 +55617,7 @@ var deposit = function (eth, from, to, value, client, callback) {
 module.exports = transfer;
 
 
-},{"../contracts/SmartExchange.json":339,"./iban":369}],386:[function(require,module,exports){
+},{"../contracts/SmartExchange.json":305,"./iban":335}],352:[function(require,module,exports){
 /*! bignumber.js v2.0.7 https://github.com/MikeMcl/bignumber.js/LICENCE */
 
 ;(function (global) {
@@ -63941,7 +58302,7 @@ module.exports = transfer;
     }
 })(this);
 
-},{"crypto":174}],387:[function(require,module,exports){
+},{"crypto":142}],353:[function(require,module,exports){
 module.exports = XMLHttpRequest;
 
-},{}]},{},[9]);
+},{}]},{},[1]);

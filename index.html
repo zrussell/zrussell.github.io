@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="/images/favicon.png" rel="icon" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/css/migrate.css" rel="stylesheet" />
 
@@ -18,10 +19,40 @@
 
 </head>
 <body>
-<a id="migrateTool">Open</a>
+<div id="balances" class="container" style="margin-top: 1%; margin-bottom: 3%;"></div>
+
+<hr />
+
+<div class="container text-center" style="margin-top: 3%; margin-bottom: 3%;">
+    <div class="row">
+        <div class="col-sm-4"><a class="btn btn-default" id="migrateTool">Open Migration Utility <br /><br /> <span class="fas fa-dove fa-lg" aria-hidden="true"></span></a></div>
+        <div class="col-sm-4"><a class="btn btn-default"id="populateTool">Open Population Utility <br /><br /> <span class="fas fa-box-open fa-lg" aria-hidden="true"></span></a></div>
+        <div class="col-sm-4"><a class="btn btn-default"id="giveTokens">Request Tokens Utility<br /><br /> <span class="fab fa-ethereum fa-lg" aria-hidden="true"></span></a></div>
+    </div>
+</div>
+
 <div id="migrationTool"></div>
+<div id="populationTool"></div>
+<div id="giveTokensTool"></div>
+
+<hr />
+
+<pre class="text-center" style="margin-top: 1%;">
+    <strong>Title : </strong> DEX Migration Utility
+    <strong>Author :</strong> Evan Bonsignori
+    <strong>Date :</strong> April 6, 2018
+    <strong>For:</strong> Armstrong TechFest
+     <strong>Description : </strong>
+    A tool for moving balances between decentralized exchanges.
+    A population utility is included for demonstration purposes, and
+    populates balances in a decentralized exchange smart contract
+    that is hosted on the Rinkeby Etherium testnet.
+</pre>
 
 <script src="/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="/js/populate_bundle.js" type="text/javascript"></script>
 <script src="/js/migrate_bundle.js" type="text/javascript"></script>
+<script src="/js/give_tokens_bundle.js" type="text/javascript"></script>
+
 </body>
 </html>

@@ -11,14 +11,15 @@ class IntroductionWindow extends React.Component {
             <div className="modal-content">
                 <div className="modal-header text-center">
                     <h2>Migration Tool</h2>
-                    <p>From The EtherDelta's Smart Contract to the Improved ForkDelta Smart Contract </p>
+                    <p>Migrating balances from contractFrom to contractTo</p>
                 </div>
                 <div className="modal-body text-center">
-                    <p>This tool is currently checking the following account address: {user_addr}</p>
-                    <p><strong> * Describe the tool and why the transfer is needed here * </strong></p>
-                    <br />
-                    <button className="btn btn-default" onClick={this.props.nextWindow}>Proceed</button>
+                    <p>This tool is currently checking balances on the following account address</p>
+                    <p><strong>{user_addr}</strong></p>
+
                 </div>
+                <button className="btn btn-default btn-close" onClick={this.props.closeWindow}>Close</button>
+                <button className="btn btn-default btn-next" onClick={this.props.nextWindow}>Proceed</button>
             </div>
         )
     }
