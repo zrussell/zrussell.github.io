@@ -63270,7 +63270,7 @@ var Balances = function (_React$Component2) {
                             null,
                             _react2.default.createElement(
                                 'a',
-                                { href: 'https://ebonsignori.github.io/' },
+                                { href: 'https://github.com/Ebonsignori/Ebonsignori.github.io/blob/master/README.md' },
                                 'Tutorial'
                             )
                         )

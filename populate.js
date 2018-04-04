@@ -384,7 +384,7 @@ class Balances extends React.Component {
             <div className="row">
                 <span className="text-center">
                     <h1 >Balances</h1>
-                    <p><em><a href="https://ebonsignori.github.io/">Tutorial</a></em></p>
+                    <p><em><a href="https://github.com/Ebonsignori/Ebonsignori.github.io/blob/master/README.md">Tutorial</a></em></p>
                 </span>
 
                 <div id="walletBalances" className="col-sm-11 col-md-4">
