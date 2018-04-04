@@ -62955,7 +62955,8 @@ var PopulationTool = function (_React$Component) {
 var react_component = _reactDom2.default.render(_react2.default.createElement(PopulationTool, null), document.getElementById('populationTool'));
 
 // Fetch application config from config.json
-var main_config = JSON.parse(get_JSON("http://127.0.0.1:8080/config.json"));
+var this_url = window.location.href;
+var main_config = JSON.parse(get_JSON(this_url + "/config.json"));
 
 var tokens_config = main_config.tokens;
 var addresses = [];
@@ -63003,6 +63004,7 @@ var millisecondsToWait = 500;
 function wait() {
     if (typeof window.web3.eth.defaultAccount !== "undefined") {
         console.log("Done waiting on MetaMask.");
+        web3 = new Web3(window.web3.currentProvider);
         web3.eth.defaultAccount = window.web3.eth.defaultAccount;
         user_addr = web3.eth.defaultAccount;
         console.log("User Address: " + user_addr);
@@ -63298,10 +63300,10 @@ var Balances = function (_React$Component2) {
                         { className: 'text-center' },
                         _react2.default.createElement(
                             'button',
-                            { className: 'btn btn-warning', onClick: function onClick() {
+                            { className: 'btn btn-default', onClick: function onClick() {
                                     return _this5.refresh_balances();
                                 } },
-                            'Refresh All'
+                            'Refresh Balances'
                         )
                     )
                 ),

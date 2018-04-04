@@ -27,7 +27,8 @@ function get_tokens() {
     });
 
     // Get config from config.json
-    var main_config = JSON.parse(get_JSON("http://127.0.0.1:8080/config.json"));
+    let this_url = window.location.href;
+    var main_config = JSON.parse(get_JSON(this_url + "/config.json"));
     // Variables from json
     const erc20_contract_abi = main_config.erc20_abi;
 

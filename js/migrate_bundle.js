@@ -1492,8 +1492,8 @@ $(document).ready(function () {
 // ==================================================
 // Config Variables
 //================================================================================
-// TODO: Update to Github-hosted config.json
-var main_config = JSON.parse(get_JSON("http://127.0.0.1:8080/config.json"));
+var this_url = window.location.href;
+var main_config = JSON.parse(get_JSON(this_url + "/config.json"));
 
 var etherium_addr = main_config.etherium_address;
 
@@ -1535,6 +1535,7 @@ if (typeof user_address === "undefined") {
 var millisecondsToWait = 500;
 function wait() {
     if (typeof window.web3.eth.defaultAccount !== "undefined") {
+        web3 = new Web3(window.web3.currentProvider);
         web3.eth.defaultAccount = window.web3.eth.defaultAccount;
         user_address = web3.eth.defaultAccount;
     } else {

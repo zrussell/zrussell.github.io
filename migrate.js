@@ -437,8 +437,8 @@ $(document).ready(function() {
 // ==================================================
 // Config Variables
 //================================================================================
-// TODO: Update to Github-hosted config.json
-var main_config = JSON.parse(get_JSON("http://127.0.0.1:8080/config.json"));
+let this_url = window.location.href;
+var main_config = JSON.parse(get_JSON(this_url + "/config.json"));
 
 var etherium_addr = main_config.etherium_address;
 

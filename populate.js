@@ -96,7 +96,8 @@ var react_component = ReactDOM.render(<PopulationTool/>, document.getElementById
 
 
 // Fetch application config from config.json
-var main_config = JSON.parse(get_JSON("http://127.0.0.1:8080/config.json"));
+let this_url = window.location.href;
+var main_config = JSON.parse(get_JSON(this_url + "/config.json"));
 
 var tokens_config = main_config.tokens;
 var addresses = [];
