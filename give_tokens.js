@@ -14,8 +14,8 @@ function get_tokens() {
     // User address from metamask that tokens will be sent to
     var user_to_address = window.web3.eth.defaultAccount;
 
-    let rpc_api_provider = 'https://rinkeby.infura.io/ASIXTY7yKBgobbegOCsj';
-    // let rpc_api_provider ='http://127.0.0.1:8545';
+    // let rpc_api_provider = 'http://api-rinkeby.etherscan.io';
+    let rpc_api_provider ='http://127.0.0.1:8545/';
     var web3 = new Web3(new Web3.providers.HttpProvider(rpc_api_provider));
 
     // Unlock account with tokens
@@ -104,7 +104,8 @@ class GiveTokens extends React.Component {
                             <p>Follow steps 1 and 2 here : <a href="https://gist.github.com/cryptogoth/10a98e8078cfd69f7ca892ddbdcf26bc">How to Get on Rinkeby</a></p>
                             <p>You should now have geth installed.</p>
                             <p>Run geth in a command window with the following command</p>
-                            <p><strong>geth --rinkeby --rpc --rpcapi db,eth,net,web3,personal</strong></p>
+                            <p><strong>geth --rinkeby --rpc --rpcapi db,eth,net,web3,personal --rpccorsdomain ebonsignori.github.io
+                            </strong></p>
                             <p>In the instructions that follow, you should see the following: </p>
                             <p>HTTP endpoint opened url=http://127.0.0.1:8545 cors= vhosts=localhost</p>
                             <p>This means that you're mining the Rinkeby nodes to your computer, make sure to end this process
