@@ -12,6 +12,21 @@ body, html {
     overflow-y: hidden;
 }
 
+/* link properties */
+lnk {
+    color: white;
+}
+
+/* unvisited link */
+lnk:link {
+    color: white;
+}
+
+/* visited link */
+lnk:visited {
+    color: lightgray;
+}
+
 .bgimg {
 
     /* Full-screen */
